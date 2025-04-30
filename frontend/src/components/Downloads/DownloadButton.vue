@@ -126,7 +126,7 @@ async function getVersions() {
           case ".dmg":
             downloadUrls.value.Mac.push({
               ext: item.filetype.replace(".", ""),
-              url: `https://updates.flowinity.com/download/flavor/default/${version.value}/mac/${item.name}`
+              url: `https://updates.flowinity.com/download/flavor/default/${version.value}/osx_arm64/${item.name}`
             });
             break;
           default:
