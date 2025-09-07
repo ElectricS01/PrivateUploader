@@ -26,7 +26,7 @@ import sanitizeHtml from "sanitize-html"
 import { BanReason } from "@app/classes/graphql/user/ban"
 import { Invite } from "@app/models/invite.model"
 import { CoreService } from "@app/services/core.service"
-import { OfficialInstJolt707 } from "@app/services/officialInst.jolt707"
+import { OfficialInstJolt707 } from "@app/services/billing.service"
 import { Experiments } from "@app/lib/experiments"
 
 @Service()

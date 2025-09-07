@@ -287,8 +287,8 @@ export default {
       app.platform === Platform.LINUX || platform === "Linux"
         ? "linux"
         : app.platform === Platform.MAC || platform === "Mac"
-          ? "apple"
-          : "microsoft"
+        ? "apple"
+        : "microsoft"
     }
     `;
   },
@@ -314,5 +314,14 @@ export default {
     ];
     const randomColor = colors[approvedColors[index % approvedColors.length]];
     return randomColor.base;
+  },
+  calculateColorQuota(quota: number) {
+    if (quota >= 80 && quota < 95) {
+      return "warning";
+    } else if (quota >= 95) {
+      return "error";
+    } else {
+      return "#256928";
+    }
   }
 };

@@ -36,7 +36,7 @@ import redisClient from "@app/redis"
 import { DeletionService } from "@app/services/deletion.service"
 import { Plan } from "@app/models/plan.model"
 import { Subscription } from "@app/models/subscription.model"
-import { OfficialInstJolt707 } from "@app/services/officialInst.jolt707"
+import { OfficialInstJolt707 } from "@app/services/billing.service"
 import { EmailNotificationService } from "@app/services/emailNotification.service"
 
 const inviteParams = {

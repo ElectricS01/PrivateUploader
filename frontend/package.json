@@ -50,6 +50,7 @@
     "@mdi/font": "7.1.96",
     "@remixicon/vue": "^4.2.0",
     "@rollup/plugin-graphql": "^2.0.4",
+    "@stripe/stripe-js": "7.3.0",
     "@svgmoji/noto": "^3.2.0",
     "@tiptap/extension-blockquote": "^2.4.0",
     "@tiptap/extension-bold": "^2.4.0",
@@ -161,7 +162,7 @@
     "vue-virtual-scroll-grid": "^1.10.2",
     "vue-virtual-scroller": "^2.0.0-beta.8",
     "vue3-apexcharts": "^1.4.1",
-    "vuetify": "^3.4.11",
+    "vuetify": "^3.8.4",
     "webfontloader": "^1.0.0"
   },
   "devDependencies": {

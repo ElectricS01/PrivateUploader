@@ -20,7 +20,7 @@ import { DefaultTpuConfig } from "@app/classes/DefaultTpuConfig"
 
 // Import Services
 import { CacheService } from "@app/services/cache.service"
-import { OfficialInstJolt707 } from "@app/services/officialInst.jolt707"
+import { OfficialInstJolt707 } from "@app/services/billing.service"
 import { PulseService } from "@app/services/pulse.service"
 import { OfficialInstBadge } from "@app/services/officialInst.badge"
 import { MyAnimeListService } from "@app/services/providers/mal.service"

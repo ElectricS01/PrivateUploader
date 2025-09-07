@@ -297,13 +297,18 @@ export class Application {
     })
     this.app.use(
       "/api/v2/docs",
+      //@ts-ignore
       swaggerUi.serve,
       swaggerUi.setup(swaggerJSDoc(this.swaggerOptions))
     )
 
     if (config.finishedSetup) {
       const spec = ApiSchema.generateSchema()
-      this.app.use("/api/v3/docs", swaggerUi.serve, swaggerUi.setup(spec))
+      this.app.use(
+        "/api/v3/docs", //@ts-ignore
+        swaggerUi.serve,
+        swaggerUi.setup(spec)
+      )
     }
 
     useExpressServer(this.app, {
@@ -490,6 +495,7 @@ export class Application {
       })
     )
     this.app.use(express.urlencoded({ extended: true }))
+    //@ts-ignore
     this.app.use(cookieParser())
     this.app.use(cors())
     this.app.set("view engine", "ejs")

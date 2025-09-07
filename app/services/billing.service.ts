@@ -1,4 +1,11 @@
-import { Container, Service } from "typedi"
+/**
+ * This file contains the Stripe billing management and Jitsi Gold implementation.
+ *
+ * Jitsi Gold is a whitelist that grants access to Flowinity Pro (formerly Gold) features when a specific number of hours is
+ * reached on Jitsi Meet. It is only used on Flowinity.com and for a single user.
+ */
+
+import { Service } from "typedi"
 import axios from "axios"
 import { Subscription } from "@app/models/subscription.model"
 import { User } from "@app/models/user.model"
@@ -6,44 +13,8 @@ import { AdminService } from "@app/services/admin.service"
 import { Op } from "sequelize"
 import { Plan } from "@app/models/plan.model"
 import { SocketNamespaces } from "@app/classes/graphql/SocketEvents"
-import { CoreService } from "@app/services/core.service"
-
-type Jitsi = {
-  id: string
-  createdAt: string
-  updatedAt: string
-  active: boolean
-  jid: string
-  occupants: JitsiOccupant[]
-  polls: object[]
-  raw: object
-  speakerStats: JitsiSpeakers[]
-}
-
-type JitsiOccupant = {
-  active: boolean
-  id: string
-  email: string
-  nick: string
-  sourceInfo: string
-  statsId: string
-  codecType: string
-}
-
-type JitsiSpeakers = {
-  id: string
-  username: string
-  isSilent: boolean
-  isDominantSpeaker: boolean
-  dominantSpeakerStart: number
-  totalDominantSpeakerTime: number
-}
-
-type JitsiUser = {
-  id: number
-  names: string[]
-  giveGold?: boolean
-}
+import { Jitsi, JitsiSpeakers, JitsiUser } from "@app/types/billing"
+import Stripe from "stripe"
 
 const USERS: JitsiUser[] = [
   {
@@ -73,6 +44,8 @@ const USERS: JitsiUser[] = [
 export class OfficialInstJolt707 {
   constructor(private readonly adminService: AdminService) {}
 
+  stripe: Stripe
+
   async createSubscription(id: number) {
     const subscription = await Subscription.create({
       planId: 6,
@@ -96,7 +69,8 @@ export class OfficialInstJolt707 {
   }
 
   async checkJitsiGold() {
-    console.log("[BILLING] Checking Gold")
+    if (!config.officialInstance) return
+    console.log("[BILLING/JITSI] Checking Gold")
     axios
       .get("https://mgmt.meet.troplo.com/api/v1/jitsi", {
         headers: {
@@ -203,7 +177,7 @@ export class OfficialInstJolt707 {
                 },
                 attributes: ["username", "email", "id"]
               })
-              console.log("[BILLING] Jolt707's subscription expired")
+              console.log("[BILLING/JITSI] Jolt707's subscription expired")
               valid = false
               // @ts-ignore
               if (meta && dbUser) {
@@ -271,7 +245,7 @@ export class OfficialInstJolt707 {
               }
             })
             if (!subscription) {
-              console.log("[BILLING] Creating subscription for Jolt707")
+              console.log("[BILLING/JITSI] Creating subscription for Jolt707")
               await this.createSubscription(user.id)
             }
             await User.update(
@@ -303,7 +277,7 @@ export class OfficialInstJolt707 {
                 }
               }
             )
-            console.log("[BILLING] Jolt707's subscription is valid")
+            console.log("[BILLING/JITSI] Jolt707's subscription is valid")
           }
 
           await Subscription.update(

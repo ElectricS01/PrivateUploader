@@ -203,6 +203,7 @@
     "sqlite3": "^5.1.6",
     "string-width": "^6.1.0",
     "strip-ansi": "^7.0.1",
+    "stripe": "18.1.0",
     "swagger-autogen": "^2.22.0",
     "swagger-jsdoc": "6.2.5",
     "swagger-ui-express": "4.5.0",

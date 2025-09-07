@@ -119,12 +119,16 @@ export class MailService {
       source: true
     })
     client.logout()
+    if (!message) {
+      if (gql) throw new GqlError("ATTACHMENT_NOT_FOUND")
+      throw Errors.NOT_FOUND
+    }
     // Buffer to HTML
-    const parser = await simpleParser(message.source)
+    const parser = await simpleParser(message.source!)
     return {
       ...message,
-      modseq: message.modseq.toString(),
-      source: message.source.toString(),
+      modseq: message.modseq!.toString(),
+      source: message.source!.toString(),
       parsed: {
         ...parser,
         html:
