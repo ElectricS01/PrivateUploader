@@ -1,4 +1,5 @@
 <template>
+  <!-- @ts-ignore -->
   <v-btn
     v-bind="{ ...(props || {}), ...($attrs || {}) }"
     class="position-relative overflow-hidden shimmer-parent"
@@ -76,7 +77,10 @@ const props = defineProps({
   minHeight: { type: [String, Number], default: undefined },
   minWidth: { type: [String, Number], default: undefined },
   width: { type: [String, Number], default: undefined },
-  density: { type: [String, Number], default: undefined },
+  density: {
+    type: [String as () => "compact" | "comfortable" | "default"],
+    default: undefined
+  },
   border: { type: [String, Boolean, Number], default: undefined },
   active: { type: Boolean, default: undefined },
   activeColor: { type: String, default: undefined },

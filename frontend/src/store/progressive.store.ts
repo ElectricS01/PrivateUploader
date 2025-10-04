@@ -1076,6 +1076,8 @@ export const useProgressiveUIStore = defineStore("progressive", () => {
     shifting.value = e.shiftKey;
 
     const eligible = navigation.value.railOptions.filter((rail) => {
+      // scared to touch this
+      //@ts-ignore
       if (rail.fake) return false;
       if (!rail.experimentsRequired) return true;
 

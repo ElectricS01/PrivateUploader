@@ -600,7 +600,7 @@ export const useAppStore = defineStore("app", {
           const experiments = window.GLOBAL_FLOWINITY_EXPERIMENTS;
           //@ts-ignore
           if (window.GLOBAL_FLOWINITY_EXPERIMENTS) {
-            const unbased = atob(experiments);
+            const unbased: any[] = atob(experiments) as any;
             for (const experiment of unbased) {
               console.log(`Loaded: ${experiment.id} (from pre-render)`);
               experiments.value[experiment.id] = experiment.value;

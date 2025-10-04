@@ -17,7 +17,7 @@ import {
   VDataTable,
   VInfiniteScroll,
   VSkeletonLoader
-} from "vuetify/lib/components/index.mjs";
+} from "vuetify/components";
 import { aliases, iconify } from "@/plugins/vuetify-iconset";
 
 export class DefaultThemes {

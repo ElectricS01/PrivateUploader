@@ -163,18 +163,18 @@
         />
         {{ $t("themeEditor.colors.toolbar") }}
       </v-card-title>
-      <v-card-title>
-        <v-avatar
-          class="v-avatar--variant-outlined pointer"
-          :color="$user.user.nameColor"
-          size="22"
-          @click="openMenu($event, 'nameColor')"
-        />
-        {{ $t("themeEditor.colors.nameColor") }}
-        <v-chip size="x-small">
-          {{ $t("generic.new") }}
-        </v-chip>
-      </v-card-title>
+      <!--      <v-card-title>-->
+      <!--        <v-avatar-->
+      <!--          class="v-avatar&#45;&#45;variant-outlined pointer"-->
+      <!--          :color="$user.user.nameColor"-->
+      <!--          size="22"-->
+      <!--          @click="openMenu($event, 'nameColor')"-->
+      <!--        />-->
+      <!--        {{ $t("themeEditor.colors.nameColor") }}-->
+      <!--        <v-chip size="x-small">-->
+      <!--          {{ $t("generic.new") }}-->
+      <!--        </v-chip>-->
+      <!--      </v-card-title>-->
       <v-card-title>
         <tpu-switch
           v-model="$app.fluidGradient"
@@ -253,8 +253,8 @@
 import { DefaultThemes } from "@/plugins/vuetify";
 import { defineComponent } from "vue";
 import VueMonacoEditor from "@guolao/vue-monaco-editor";
-import { useTheme } from "vuetify/lib/framework.mjs";
 import PrideSelector from "@/components/Settings/PrideSelector.vue";
+import { useTheme } from "vuetify";
 
 export default defineComponent({
   components: {

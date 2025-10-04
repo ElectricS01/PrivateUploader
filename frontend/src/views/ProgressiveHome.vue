@@ -1,3 +1,4 @@
+<!-- this page is unfinished -->
 <template>
   <v-container v-if="userStore.user">
     <p class="text-2xl font-bold mb-6">
@@ -15,7 +16,7 @@
         <!-- Bubble Button -->
         <tpu-btn height="100" color="toolbar" block variant="flat">
           <div class="flex flex-col items-center space-y-1">
-            <v-icon :icon="item.icon" size="28" />
+            <!--<v-icon :icon="item.icon" size="28" />-->
             <span>{{ item.title }}</span>
           </div>
         </tpu-btn>

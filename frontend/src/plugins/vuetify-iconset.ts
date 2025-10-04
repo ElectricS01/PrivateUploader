@@ -125,12 +125,13 @@ const iconify: IconSet = {
     }
     return h("i", {}, [
       typeof name === "object"
-        ? name.component
+        ? (<any>name)!!.component
         : h("svg", {
             class: ["ri"],
-            debugName: name,
+            // debugName: name,
             innerHTML:
-              json["icons"][name]?.body || json["icons"]["question-mark"].body,
+              json["icons"][<string>name]?.body ||
+              json["icons"]["question-mark"].body,
             viewBox: "0 0 24 24"
           })
     ]);
