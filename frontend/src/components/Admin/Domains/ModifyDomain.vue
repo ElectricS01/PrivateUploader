@@ -18,12 +18,12 @@
     </v-card-text>
     <v-card-actions>
       <v-spacer />
-      <v-btn color="blue darken-1" @click="$emit('update:modelValue', false)">
+      <tpu-btn color="blue darken-1" @click="$emit('update:modelValue', false)">
         {{ $t("generic.cancel") }}
-      </v-btn>
-      <v-btn :loading="loading" color="blue darken-1" @click="updateDomain">
+      </tpu-btn>
+      <tpu-btn :loading="loading" color="blue darken-1" @click="updateDomain">
         {{ $t(`settings.domains.dialog.${type}`) }}
-      </v-btn>
+      </tpu-btn>
     </v-card-actions>
   </CoreDialog>
 </template>

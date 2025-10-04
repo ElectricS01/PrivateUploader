@@ -22,12 +22,12 @@
       </v-container>
       <v-card-actions>
         <v-spacer />
-        <v-btn color="red" @click="$emit('update:modelValue', false)">
+        <tpu-btn color="red" @click="$emit('update:modelValue', false)">
           Cancel
-        </v-btn>
-        <v-btn color="blue" @click="deleteGroup ? (del.step = 1) : leave()">
+        </tpu-btn>
+        <tpu-btn color="blue" @click="deleteGroup ? (del.step = 1) : leave()">
           {{ deleteGroup ? $t("generic.next") : $t("chats.leave.action") }}
-        </v-btn>
+        </tpu-btn>
       </v-card-actions>
     </template>
     <template v-else>
@@ -41,10 +41,10 @@
       </v-card-text>
       <v-card-actions>
         <v-spacer />
-        <v-btn color="blue" @click="$emit('update:modelValue', false)">
+        <tpu-btn color="blue" @click="$emit('update:modelValue', false)">
           Cancel
-        </v-btn>
-        <v-btn color="red" @click="doDelete()">Delete</v-btn>
+        </tpu-btn>
+        <tpu-btn color="red" @click="doDelete()">Delete</tpu-btn>
       </v-card-actions>
     </template>
   </CoreDialog>

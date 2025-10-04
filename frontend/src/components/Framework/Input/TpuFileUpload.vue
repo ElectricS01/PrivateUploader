@@ -29,14 +29,14 @@
                 class="flex justify-between items-center w-full"
               >
                 <span class="truncate pr-2">{{ file.name }}</span>
-                <v-btn
+                <tpu-btn
                   size="x-small"
                   icon
                   @click.prevent.stop="spliceFile(index)"
                   class="flex-shrink-0 ml-2"
                 >
                   <RiCloseLine style="width: 20px" />
-                </v-btn>
+                </tpu-btn>
               </div>
             </div>
           </div>

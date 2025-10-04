@@ -37,7 +37,7 @@
       <v-card-subtitle class="mt-2">
         {{ $t("chats.settings.home.clickToChange") }}
       </v-card-subtitle>
-      <v-btn
+      <tpu-btn
         v-if="$chat.editingChat.icon"
         variant="outlined"
         class="mt-2"
@@ -45,7 +45,7 @@
         @click="$chat.saveSettings({ icon: null })"
       >
         Remove Avatar
-      </v-btn>
+      </tpu-btn>
       <v-divider class="my-4" />
       <v-card-title
         style="
@@ -103,7 +103,7 @@
           </v-card>
         </div>
       </v-hover>
-      <v-btn
+      <tpu-btn
         v-if="$chat.editingChat.background"
         variant="outlined"
         class="mt-2"
@@ -111,7 +111,7 @@
         @click="$chat.saveSettings({ background: null })"
       >
         Remove Background
-      </v-btn>
+      </tpu-btn>
     </div>
     <v-divider vertical class="ml-2 mr-6" />
     <div style="width: 400px">
@@ -153,14 +153,14 @@
           color="blue"
           maxlength="200"
         />
-        <v-btn
+        <tpu-btn
           block
           :disabled="!$chat.hasPermission('OVERVIEW', $chat.editingChat)"
           :loading="$chat.dialogs.groupSettings.loading"
           @click="$chat.saveSettings()"
         >
           Save
-        </v-btn>
+        </tpu-btn>
       </div>
     </div>
   </div>

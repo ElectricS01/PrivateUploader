@@ -50,7 +50,7 @@
     </v-container>
     <v-card-actions>
       <v-spacer />
-      <v-btn
+      <tpu-btn
         color="primary"
         @click="
           banWizard.dialog = false;
@@ -58,8 +58,8 @@
         "
       >
         Cancel
-      </v-btn>
-      <v-btn color="red" @click="ban()">Ban</v-btn>
+      </tpu-btn>
+      <tpu-btn color="red" @click="ban()">Ban</tpu-btn>
     </v-card-actions>
   </CoreDialog>
 </template>

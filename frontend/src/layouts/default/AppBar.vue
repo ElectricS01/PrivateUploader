@@ -78,7 +78,7 @@
             : "Update available to install"
         }}
       </v-tooltip>
-      <v-btn
+      <tpu-btn
         v-if="$app.desktop.updateAvailable"
         icon
         class="mr-4"
@@ -89,7 +89,7 @@
         "
       >
         <v-icon>mdi-cloud-download</v-icon>
-      </v-btn>
+      </tpu-btn>
     </span>
     <template
       v-if="
@@ -120,32 +120,36 @@
     <span id="header-actions" />
     <!-- Workspaces custom actions -->
     <template v-if="$route.path.startsWith('/workspaces/notes/')">
-      <v-btn
+      <tpu-btn
         class="mx-1"
         icon
         @click="$workspaces.versionHistory = !$workspaces.versionHistory"
       >
         <v-icon>mdi-history</v-icon>
-      </v-btn>
-      <v-btn class="mx-1" icon @click="$workspaces.share.dialog = true">
+      </tpu-btn>
+      <tpu-btn class="mx-1" icon @click="$workspaces.share.dialog = true">
         <v-icon>mdi-share</v-icon>
-      </v-btn>
+      </tpu-btn>
     </template>
     <!-- Communications custom actions -->
     <template v-if="$chat.commsSidebar && !$vuetify.display.mobile">
-      <v-btn v-if="$experiments.experiments.PINNED_MESSAGES" class="mx-1" icon>
+      <tpu-btn
+        v-if="$experiments.experiments.PINNED_MESSAGES"
+        class="mx-1"
+        icon
+      >
         <Pins />
         <v-icon>mdi-pin-outline</v-icon>
-      </v-btn>
-      <v-btn
+      </tpu-btn>
+      <tpu-btn
         class="mx-1"
         icon
         @click="$chat.search.value = !$chat.search.value"
       >
         <v-icon>mdi-magnify</v-icon>
-      </v-btn>
+      </tpu-btn>
     </template>
-    <v-btn aria-label="Notifications" class="mr-2" icon>
+    <tpu-btn aria-label="Notifications" class="mr-2" icon>
       <Notifications />
       <v-badge
         :model-value="$user.unreadNotifications > 0"
@@ -156,18 +160,18 @@
           {{ $user.unreadNotifications > 0 ? "mdi-bell" : "mdi-bell-outline" }}
         </v-icon>
       </v-badge>
-    </v-btn>
+    </tpu-btn>
     <template v-if="$user.user">
       <v-menu>
         <template #activator="{ props }">
-          <v-btn aria-label="Personal Menu" icon v-bind="props">
+          <tpu-btn aria-label="Personal Menu" icon v-bind="props">
             <UserAvatar
               :user="$user.user"
               size="32"
               :dot-status="true"
               :status="true"
             />
-          </v-btn>
+          </tpu-btn>
         </template>
         <v-card max-width="360">
           <v-list>
@@ -193,7 +197,7 @@
           <StatusSwitcherList />
         </v-card>
       </v-menu>
-      <v-btn
+      <tpu-btn
         v-if="!$app.rail"
         :aria-label="
           !$chat.communicationsSidebar && $chat.commsSidebar
@@ -205,7 +209,7 @@
         @click="$app.toggleWorkspace()"
       >
         <v-icon>mdi-menu-open</v-icon>
-      </v-btn>
+      </tpu-btn>
     </template>
     <template #extension>
       <div class="d-flex flex-column" style="width: 100%"><AppBarNags /></div>

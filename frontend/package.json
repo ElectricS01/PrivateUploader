@@ -1,6 +1,6 @@
 {
   "name": "tpu-frontend",
-  "version": "4.2.11",
+  "version": "4.3.0",
   "private": true,
   "author": "Troplo <troplo@troplo.com>",
   "type": "module",
@@ -47,6 +47,7 @@
     "@flowinity/vite-version": "^1.0.3",
     "@guolao/vue-monaco-editor": "^1.1.2",
     "@highlightjs/vue-plugin": "1.0.2",
+    "@iconify-json/ri": "^1.2.5",
     "@mdi/font": "7.1.96",
     "@remixicon/vue": "^4.2.0",
     "@rollup/plugin-graphql": "^2.0.4",
@@ -148,7 +149,7 @@
     "vite": "^5.0.10",
     "vite-plugin-pwa": "^0.17.4",
     "vite-plugin-vuetify": "^2.0.1",
-    "vue": "^3.4.15",
+    "vue": "^3.5.22",
     "vue-chartjs": "^5.2.0",
     "vue-codemirror": "^6.1.1",
     "vue-cropperjs": "^5.0.0",
@@ -162,7 +163,7 @@
     "vue-virtual-scroll-grid": "^1.10.2",
     "vue-virtual-scroller": "^2.0.0-beta.8",
     "vue3-apexcharts": "^1.4.1",
-    "vuetify": "^3.8.4",
+    "vuetify": "^3.10.4",
     "webfontloader": "^1.0.0"
   },
   "devDependencies": {

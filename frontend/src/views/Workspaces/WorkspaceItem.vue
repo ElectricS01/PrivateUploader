@@ -74,7 +74,11 @@
         </div>
       </teleport>
     </template>
-    <template v-if="!fail && ready && $experiments.experiments.PROGRESSIVE_UI">
+    <template
+      v-if="
+        !fail && ready && $experiments.experiments.PROGRESSIVE_UI && $user.user
+      "
+    >
       <teleport to="#appbar-options">
         <accessible-transition mode="out-in" name="slide-up" appear>
           <span class="flex gap-2 items-center">
@@ -98,7 +102,7 @@
                 />
               </div>
             </accessible-transition>
-            <v-btn
+            <tpu-btn
               size="small"
               icon
               :active="$workspaces.versionHistory"
@@ -108,10 +112,10 @@
               "
             >
               <RiHistoryLine class="action-bar-item" />
-            </v-btn>
-            <v-btn size="small" icon @click="$workspaces.share.dialog = true">
+            </tpu-btn>
+            <tpu-btn size="small" icon @click="$workspaces.share.dialog = true">
               <RiShareForwardFill class="action-bar-item" />
-            </v-btn>
+            </tpu-btn>
           </span>
         </accessible-transition>
       </teleport>

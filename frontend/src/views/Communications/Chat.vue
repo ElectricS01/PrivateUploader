@@ -13,22 +13,22 @@
   >
     <accessible-transition mode="out-in" name="slide-up" appear>
       <div class="flex gap-2">
-        <v-btn
+        <tpu-btn
           v-if="$experiments.experiments.PINNED_MESSAGES"
           icon
           size="small"
         >
           <Pins />
           <RiPushpin2Line class="action-bar-item" />
-        </v-btn>
-        <v-btn
+        </tpu-btn>
+        <tpu-btn
           icon
           size="small"
           @click="$chat.search.value = !$chat.search.value"
         >
           <RiSearchLine class="action-bar-item" />
-        </v-btn>
-        <v-btn
+        </tpu-btn>
+        <tpu-btn
           icon
           size="small"
           @click="$chat.memberSidebarShown = !$chat.memberSidebarShown"
@@ -38,7 +38,7 @@
             v-if="!$chat.memberSidebarShown"
           />
           <RiUserFill class="action-bar-item" v-else />
-        </v-btn>
+        </tpu-btn>
       </div>
     </accessible-transition>
   </teleport>

@@ -30,9 +30,9 @@
         elevation="0"
         height="220"
       >
-        <v-btn @click="show = true">
+        <tpu-btn @click="show = true">
           {{ $t("gallery.displayLargeFile") }}
-        </v-btn>
+        </tpu-btn>
       </v-card>
     </v-hover>
     <video

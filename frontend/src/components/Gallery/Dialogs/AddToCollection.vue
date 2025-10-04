@@ -25,12 +25,12 @@
     </v-card-text>
     <v-card-actions>
       <v-spacer />
-      <v-btn color="primary" @click="$emit('update:modelValue', false)">
+      <tpu-btn color="primary" @click="$emit('update:modelValue', false)">
         Cancel
-      </v-btn>
-      <v-btn :color="remove ? 'red' : 'primary'" @click="add">
+      </tpu-btn>
+      <tpu-btn :color="remove ? 'red' : 'primary'" @click="add">
         {{ $t(remove ? "generic.remove" : "generic.add") }}
-      </v-btn>
+      </tpu-btn>
     </v-card-actions>
   </CoreDialog>
 </template>

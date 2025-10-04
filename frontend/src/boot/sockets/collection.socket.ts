@@ -22,7 +22,7 @@ export default function setup(app: App) {
     }
   ).onResult(({ data }) => {
     if (collectionsStore.selected?.id === data.onCollectionRemoved) {
-      app.config.globalProperties.$router.push("/gallery");
+      app.config.globalProperties.$router.push("/files");
     }
     collectionsStore.persistent = collectionsStore.persistent.filter(
       (c) => c.id !== data.onCollectionRemoved

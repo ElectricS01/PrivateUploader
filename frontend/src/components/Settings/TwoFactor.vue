@@ -28,9 +28,14 @@
     </v-card-text>
     <v-card-actions>
       <v-spacer />
-      <v-btn :disabled="!valid" :loading="loading" color="red" @click="disable">
+      <tpu-btn
+        :disabled="!valid"
+        :loading="loading"
+        color="red"
+        @click="disable"
+      >
         {{ $t("generic.disable") }}
-      </v-btn>
+      </tpu-btn>
     </v-card-actions>
   </template>
   <template v-else-if="stage === 0">
@@ -50,14 +55,14 @@
     </v-card-text>
     <v-card-actions>
       <v-spacer />
-      <v-btn
+      <tpu-btn
         :disabled="!valid"
         :loading="loading"
         color="green"
         @click="enable"
       >
         {{ $t("generic.enable") }}
-      </v-btn>
+      </tpu-btn>
     </v-card-actions>
   </template>
   <template v-else-if="stage === 1">
@@ -87,14 +92,14 @@
     </v-card-text>
     <v-card-actions>
       <v-spacer />
-      <v-btn
+      <tpu-btn
         :disabled="!valid"
         :loading="loading"
         color="green"
         @click="validate"
       >
         {{ $t("settings.home.totp.confirm") }}
-      </v-btn>
+      </tpu-btn>
     </v-card-actions>
     <v-card-text>
       <v-img :src="url" />

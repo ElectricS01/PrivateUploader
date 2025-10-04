@@ -45,7 +45,7 @@
     </v-list>
     <v-card-actions>
       <v-spacer />
-      <v-btn
+      <tpu-btn
         :disabled="!selected.length && type === ChatType.Direct"
         color="primary"
         @click="createChat()"
@@ -56,7 +56,7 @@
             ? $t("chats.settings.users.addUser.createDM")
             : $t("chats.settings.users.addUser.createGroup")
         }}
-      </v-btn>
+      </tpu-btn>
     </v-card-actions>
   </div>
 </template>

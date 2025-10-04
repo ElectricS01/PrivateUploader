@@ -17,14 +17,14 @@
         <div class="crashed subtitle">
           {{ $app.site.maintenance.message }}
         </div>
-        <v-btn
+        <tpu-btn
           color="primary"
           class="mt-n2"
           :href="$app.site.maintenance.statusPage"
           target="_blank"
         >
           Learn more
-        </v-btn>
+        </tpu-btn>
         <v-card-subtitle
           v-if="checking"
           style="position: fixed; left: 50%; transform: translateX(-50%)"

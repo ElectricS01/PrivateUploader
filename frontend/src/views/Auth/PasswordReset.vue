@@ -42,16 +42,16 @@
             </v-form>
           </v-container>
           <v-card-actions>
-            <v-btn to="/login">Login</v-btn>
+            <tpu-btn to="/login">Login</tpu-btn>
             <v-spacer />
-            <v-btn
+            <tpu-btn
               :disabled="!valid"
               :loading="loading"
               color="primary"
               @click="recover"
             >
               Recover Account
-            </v-btn>
+            </tpu-btn>
           </v-card-actions>
         </v-card>
       </v-col>

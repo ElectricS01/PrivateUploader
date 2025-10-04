@@ -76,19 +76,19 @@
             <small v-if="fact">Fun fact: {{ fact }}</small>
           </v-container>
           <v-card-actions :class="!fact ? 'mt-n10' : ''">
-            <v-btn to="/login">
+            <tpu-btn to="/login">
               <v-icon class="mr-1">mdi-arrow-left</v-icon>
               Login
-            </v-btn>
+            </tpu-btn>
             <v-spacer />
-            <v-btn
+            <tpu-btn
               :disabled="!form || !terms"
               :loading="loading"
               color="primary"
               @click="register"
             >
               Register
-            </v-btn>
+            </tpu-btn>
           </v-card-actions>
         </v-card>
       </v-col>

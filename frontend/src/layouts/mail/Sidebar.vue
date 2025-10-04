@@ -8,10 +8,10 @@
   >
     <MailSidebarList />
     <template #append>
-      <v-btn block>
+      <tpu-btn block>
         <v-icon class="mr-1">mdi-pencil</v-icon>
         Compose
-      </v-btn>
+      </tpu-btn>
     </template>
   </CoreSidebar>
 </template>

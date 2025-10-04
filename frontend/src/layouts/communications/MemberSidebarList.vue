@@ -94,23 +94,23 @@
       </h4>
       <v-card-actions v-if="chat">
         <v-spacer />
-        <v-btn
+        <tpu-btn
           v-if="$experiments.experiments.PINNED_MESSAGES"
           aria-label="Toggle Communications Sidebar"
           class="mr-2"
           icon
         >
           <v-icon>mdi-pin</v-icon>
-        </v-btn>
-        <v-btn
+        </tpu-btn>
+        <tpu-btn
           aria-label="Toggle Communications Search"
           class="mr-2"
           icon
           @click="$chat.search.value = !$chat.search.value"
         >
           <v-icon>mdi-magnify</v-icon>
-        </v-btn>
-        <v-btn
+        </tpu-btn>
+        <tpu-btn
           aria-label="Toggle Communications Settings"
           class="mr-2"
           icon
@@ -120,7 +120,7 @@
           "
         >
           <v-icon>mdi-cog</v-icon>
-        </v-btn>
+        </tpu-btn>
         <v-spacer />
       </v-card-actions>
     </div>
@@ -196,10 +196,10 @@
           @submit="$chat.doSearch(sort)"
         />
         <div class="float-right">
-          <v-btn-toggle v-model="sort" density="compact">
-            <v-btn>Newest</v-btn>
-            <v-btn>Oldest</v-btn>
-          </v-btn-toggle>
+          <tpu-btn-toggle v-model="sort" density="compact">
+            <tpu-btn>Newest</tpu-btn>
+            <tpu-btn>Oldest</tpu-btn>
+          </tpu-btn-toggle>
         </div>
       </v-container>
       <ol

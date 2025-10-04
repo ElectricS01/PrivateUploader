@@ -33,12 +33,12 @@
       </v-card-title>
       <v-card-actions>
         <v-spacer />
-        <v-btn color="red">
+        <tpu-btn color="red">
           {{ $t("generic.cancel") }}
-        </v-btn>
-        <v-btn color="primary" :loading="loading" @click="transfer">
+        </tpu-btn>
+        <tpu-btn color="primary" :loading="loading" @click="transfer">
           Transfer
-        </v-btn>
+        </tpu-btn>
       </v-card-actions>
     </div>
   </CoreDialog>

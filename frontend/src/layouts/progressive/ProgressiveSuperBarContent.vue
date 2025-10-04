@@ -9,22 +9,19 @@
           style="min-height: 64px; max-height: 64px"
         >
           <component
-            :is="
-              $experiments.experiments.DISABLE_ANIMATIONS
-                ? FlowinityLogo
-                : FlowinityLogoAnimated
-            "
-            src="@/"
+            :is="FlowinityLogoAnimated"
             :animate="
-              $app.componentLoading ||
-              $app.loading ||
-              !$app.connected ||
-              clicked
+              !$experiments.experiments.DISABLE_ANIMATIONS &&
+              ($app.componentLoading ||
+                $app.loading ||
+                !$app.connected ||
+                clicked)
             "
+            :skipInit="!!$experiments.experiments.DISABLE_ANIMATIONS"
             alt="Flowinity Logo"
             class="cursor-pointer"
             draggable="false"
-            style="width: 40px"
+            style="width: 40px; height: auto"
             :color="$app.fluidGradient ? 'background' : 'dark'"
             :fill="
               !$app.connected && $experiments.experiments.DISABLE_ANIMATIONS
@@ -106,7 +103,7 @@
           </v-tooltip>
           <template #badge>
             <div
-              class="absolute z-20 -top-2 right-0 text-center flex justify-center bg-outline-dark rounded-full p-1"
+              class="absolute z-20 -top-2 right-0 text-center flex justify-center bg-outline-light dark:bg-outline-dark rounded-full p-1"
               style="font-size: 9px"
             >
               {{ $app.convertTemp(appStore.weather.data?.temp, false)
@@ -189,7 +186,7 @@
           </v-tooltip>
           <RiDownloadCloud2Fill />
         </super-bar-item>
-        <v-btn
+        <tpu-btn
           v-if="userStore.user?.subscription?.metadata?.hours"
           color="gold"
           variant="tonal"
@@ -212,9 +209,9 @@
               Math.round($user.user?.subscription?.metadata?.hours * 100) / 100
             }}h/8h)
           </v-tooltip>
-        </v-btn>
+        </tpu-btn>
 
-        <v-btn
+        <tpu-btn
           :color="calculateColorQuota"
           variant="tonal"
           icon
@@ -237,7 +234,7 @@
               })
             }}
           </v-tooltip>
-        </v-btn>
+        </tpu-btn>
         <super-bar-item-template
           v-for="item in uiStore.navigation.railOptions.filter(
             (opt) => opt.misc

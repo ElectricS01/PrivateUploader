@@ -15,13 +15,13 @@
         mode="hex"
         @update:model-value="setThemeColor($event, menu.selected)"
       />
-      <v-btn
+      <tpu-btn
         :block="true"
         v-if="menu.selected === 'nameColor'"
         @click="setThemeColor(null, menu.selected)"
       >
         Reset
-      </v-btn>
+      </tpu-btn>
     </v-card>
   </v-menu>
   <template v-if="$app.themeEditor">
@@ -32,15 +32,15 @@
           {{ $t("generic.beta") }}
         </v-chip>
       </v-toolbar-title>
-      <v-btn icon @click="reset">
+      <tpu-btn icon @click="reset">
         <v-icon>mdi-restart</v-icon>
         <v-tooltip activator="parent" location="top">
           {{ $t("themeEditor.reset") }}
         </v-tooltip>
-      </v-btn>
-      <v-btn icon @click="$app.themeEditor = false">
+      </tpu-btn>
+      <tpu-btn icon @click="$app.themeEditor = false">
         <v-icon>mdi-close</v-icon>
-      </v-btn>
+      </tpu-btn>
     </v-toolbar>
     <small class="px-4">
       <strong>
@@ -209,7 +209,7 @@
           @update:model-value="triggerSave"
         />
       </v-card-title>
-      <v-btn
+      <tpu-btn
         @click="
           editor = !editor;
           $emit('editor', editor);
@@ -221,7 +221,7 @@
             ? $t("themeEditor.cssEditor.hide")
             : $t("themeEditor.cssEditor.show")
         }}
-      </v-btn>
+      </tpu-btn>
       <p v-show="editor" class="mb-1">
         {{ $t("themeEditor.cssEditor.saveShortcut") }}
         <v-kbd>CTRL</v-kbd>

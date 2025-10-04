@@ -26,14 +26,14 @@
                     appear
                     name="fade-transition"
                   >
-                    <v-btn
+                    <tpu-btn
                       v-if="isHovering"
                       class="rounded-xl"
                       icon
                       style="position: absolute; top: 10px; right: 10px"
                     >
                       <v-icon>mdi-pencil</v-icon>
-                    </v-btn>
+                    </tpu-btn>
                   </accessible-transition>
                 </UserAvatar>
               </v-hover>
@@ -54,7 +54,7 @@
                     >
                       ({{ user.username }})
                     </span>
-                    <v-btn
+                    <tpu-btn
                       v-if="user?.friend === FriendStatus.Accepted"
                       icon
                       size="x-small"
@@ -71,7 +71,7 @@
                         Set friend nickname
                       </v-tooltip>
                       <v-icon>mdi-rename</v-icon>
-                    </v-btn>
+                    </tpu-btn>
                   </h1>
                   <UserBadges
                     :primary-color="primaryColorResult"
@@ -87,7 +87,7 @@
               style="justify-content: flex-end"
             >
               <v-card-text>
-                <v-btn
+                <tpu-btn
                   v-if="friends"
                   :color="friends.color"
                   :loading="friendLoading"
@@ -98,8 +98,8 @@
                     {{ friends.icon }}
                   </v-icon>
                   {{ friends.text }}
-                </v-btn>
-                <v-btn
+                </tpu-btn>
+                <tpu-btn
                   v-if="
                     user?.friend === FriendStatus.Accepted &&
                     $experiments.experiments['COMMUNICATIONS']
@@ -112,7 +112,7 @@
                 >
                   <v-icon class="mr-2">mdi-message-processing</v-icon>
                   Message
-                </v-btn>
+                </tpu-btn>
               </v-card-text>
             </v-col>
           </v-row>
@@ -126,7 +126,7 @@
             style="overflow-wrap: break-word; white-space: pre-line"
           >
             {{ user.description }}
-            <v-btn
+            <tpu-btn
               v-if="$user.user?.id === user.id"
               class="grey--text"
               icon
@@ -134,7 +134,7 @@
               @click="settings.description.value = true"
             >
               <v-icon>mdi-pencil</v-icon>
-            </v-btn>
+            </tpu-btn>
           </v-card-text>
           <v-card-text
             v-else
@@ -154,13 +154,13 @@
             />
             <v-card-actions class="mt-n4">
               <v-spacer />
-              <v-btn
+              <tpu-btn
                 :loading="settings.description.loading"
                 color="primary"
                 @click="save"
               >
                 Save
-              </v-btn>
+              </tpu-btn>
             </v-card-actions>
           </v-card-text>
           <!--          <template-->

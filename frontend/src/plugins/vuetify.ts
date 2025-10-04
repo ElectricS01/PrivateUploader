@@ -18,11 +18,7 @@ import {
   VInfiniteScroll,
   VSkeletonLoader
 } from "vuetify/lib/components/index.mjs";
-import {
-  VTreeview,
-  VTreeviewItem,
-  VTreeviewGroup
-} from "vuetify/labs/components";
+import { aliases, iconify } from "@/plugins/vuetify-iconset";
 
 export class DefaultThemes {
   themes: any;
@@ -150,10 +146,7 @@ export default createVuetify({
     VBottomNavigation,
     VDataTable,
     VInfiniteScroll,
-    VSkeletonLoader,
-    VTreeview,
-    VTreeviewItem,
-    VTreeviewGroup
+    VSkeletonLoader
   },
   display: {
     thresholds: {
@@ -162,7 +155,15 @@ export default createVuetify({
     },
     mobileBreakpoint: "xs"
   },
+  icons: {
+    aliases,
+    sets: {
+      ri: iconify,
+      mdi: iconify
+    }
+  },
   defaults: {
+    global: {},
     VMenu: {
       minWidth: 100
     },

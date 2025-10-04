@@ -29,9 +29,9 @@
       transition="scale-transition"
     >
       <template #activator="{ props }">
-        <v-btn icon v-bind="props" class="mr-2">
+        <tpu-btn icon v-bind="props" class="mr-2">
           <v-icon>mdi-theme-light-dark</v-icon>
-        </v-btn>
+        </tpu-btn>
       </template>
       <v-card>
         <v-list>
@@ -41,8 +41,8 @@
         </v-list>
       </v-card>
     </v-menu>
-    <v-btn color="primary" to="/register">Register</v-btn>
-    <v-btn color="primary" to="/login">Login</v-btn>
+    <tpu-btn color="primary" to="/register">Register</tpu-btn>
+    <tpu-btn color="primary" to="/login">Login</tpu-btn>
     <template v-if="redirected" #extension>
       <v-alert
         :value="redirected"

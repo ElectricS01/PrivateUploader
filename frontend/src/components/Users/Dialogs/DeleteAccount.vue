@@ -21,7 +21,7 @@
         ></danger-zone-input>
       </div>
       <div class="d-flex justify-end pr-2 pb-2">
-        <v-btn
+        <tpu-btn
           color="red"
           :loading="loading"
           :disabled="transferring.loading"
@@ -35,7 +35,7 @@
                 })
               : $t("settings.home.deleteAccount.delete")
           }}
-        </v-btn>
+        </tpu-btn>
       </div>
     </template>
     <template v-else>
@@ -85,14 +85,14 @@
         </div>
       </div>
       <div class="d-flex justify-end pr-2 pb-2">
-        <v-btn
+        <tpu-btn
           color="red"
           :loading="loading"
           :disabled="Object.keys(transferMap).length !== ownedGroups.length"
           @click="stage++"
         >
           {{ $t("generic.next") }}
-        </v-btn>
+        </tpu-btn>
       </div>
     </template>
   </CoreDialog>

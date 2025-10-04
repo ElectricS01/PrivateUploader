@@ -37,7 +37,7 @@
           type="number"
         />
       </v-col>
-      <v-btn @click="updateItem">Update</v-btn>
+      <tpu-btn @click="updateItem">Update</tpu-btn>
     </CoreDialog>
     <v-card>
       <v-toolbar>
@@ -66,8 +66,8 @@
             />
           </v-col>
         </v-row>
-        <v-btn @click="addBadges">Add badges</v-btn>
-        <v-btn class="ml-2" @click="removeBadges">Remove badges</v-btn>
+        <tpu-btn @click="addBadges">Add badges</tpu-btn>
+        <tpu-btn class="ml-2" @click="removeBadges">Remove badges</tpu-btn>
         <v-card-title>Create badge</v-card-title>
         <v-row>
           <v-col>
@@ -106,11 +106,11 @@
             />
           </v-col>
         </v-row>
-        <v-btn @click="createBadge">Create badge</v-btn>
+        <tpu-btn @click="createBadge">Create badge</tpu-btn>
       </v-container>
       <v-data-table :headers="headers" :items="badges" :items-per-page="-1">
         <template #[`item.actions`]="{ item }: any">
-          <v-btn
+          <tpu-btn
             icon
             @click="
               dialog.value = true;
@@ -118,10 +118,10 @@
             "
           >
             <v-icon>mdi-pencil</v-icon>
-          </v-btn>
-          <v-btn icon @click="deleteItem(item.id)">
+          </tpu-btn>
+          <tpu-btn icon @click="deleteItem(item.id)">
             <v-icon>mdi-delete</v-icon>
-          </v-btn>
+          </tpu-btn>
         </template>
       </v-data-table>
     </v-card>

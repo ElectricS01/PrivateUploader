@@ -13,18 +13,18 @@
         Experience the new Colubrina with all the other advantages of Flowinity.
       </v-card-subtitle>
       <v-card-actions class="text-center justify-center">
-        <v-btn
+        <tpu-btn
           class="no-capital mr-8"
           color="primary"
           @click="$emit('update:modelValue', false)"
         >
           <v-icon class="mr-1">mdi-arrow-left</v-icon>
           Learn More
-        </v-btn>
-        <v-btn class="no-capital" color="primary" to="/register">
+        </tpu-btn>
+        <tpu-btn class="no-capital" color="primary" to="/register">
           <v-icon class="mr-1">mdi-arrow-right</v-icon>
           Register now
-        </v-btn>
+        </tpu-btn>
       </v-card-actions>
     </v-card>
   </v-dialog>

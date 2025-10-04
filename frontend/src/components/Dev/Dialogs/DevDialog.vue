@@ -21,9 +21,9 @@
       <div class="flex gap-2 items-center">
         <slot name="header"></slot>
       </div>
-      <v-btn size="small" class="float-right" @click="$emit('close')">
+      <tpu-btn size="small" class="float-right" @click="$emit('close')">
         <v-icon>mdi-close</v-icon>
-      </v-btn>
+      </tpu-btn>
     </div>
     <div class="content">
       <slot />

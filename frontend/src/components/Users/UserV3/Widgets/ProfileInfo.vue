@@ -6,7 +6,7 @@
     style="overflow-wrap: break-word; white-space: pre-line"
   >
     {{ user.description }}
-    <v-btn
+    <tpu-btn
       v-if="$user.user?.id === user.id"
       class="grey--text"
       icon
@@ -14,7 +14,7 @@
       @click="settings.description.value = true"
     >
       <v-icon>mdi-pencil</v-icon>
-    </v-btn>
+    </tpu-btn>
   </v-card-text>
   <v-card-text
     v-else
@@ -34,13 +34,13 @@
     />
     <v-card-actions class="mt-n4">
       <v-spacer />
-      <v-btn
+      <tpu-btn
         :loading="settings.description.loading"
         color="primary"
         @click="save"
       >
         Save
-      </v-btn>
+      </tpu-btn>
     </v-card-actions>
   </v-card-text>
 </template>

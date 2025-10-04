@@ -16,10 +16,10 @@
       class="float-right"
     >
       <slot name="multi-select-actions">
-        <v-btn class="rounded-xl ml-2" variant="text" @click="selectAll()">
+        <tpu-btn class="rounded-xl ml-2" variant="text" @click="selectAll()">
           <v-icon>mdi-plus</v-icon>
           &nbsp;{{ $t("gallery.selectAll") }}
-        </v-btn>
+        </tpu-btn>
       </slot>
     </div>
     <div
@@ -30,25 +30,25 @@
       "
       class="float-right"
     >
-      <v-btn class="rounded-xl ml-2" variant="text" @click="download()">
+      <tpu-btn class="rounded-xl ml-2" variant="text" @click="download()">
         <v-icon class="mr-1">mdi-download</v-icon>
         {{ $t("gallery.downloadSelected") }}
-      </v-btn>
+      </tpu-btn>
       <slot
         :deselect-all="deselectAll"
         :select-all="selectAll"
         :selected="selected"
         name="multi-select-actions-length"
       >
-        <v-btn class="rounded-xl ml-2" variant="text" @click="selectAll()">
+        <tpu-btn class="rounded-xl ml-2" variant="text" @click="selectAll()">
           <v-icon class="mr-1">mdi-plus</v-icon>
           {{ $t("gallery.selectAll") }}
-        </v-btn>
-        <v-btn class="rounded-xl ml-2" variant="text" @click="deselectAll()">
+        </tpu-btn>
+        <tpu-btn class="rounded-xl ml-2" variant="text" @click="deselectAll()">
           <v-icon class="mr-1">mdi-close</v-icon>
           {{ $t("gallery.deselectAll") }}
-        </v-btn>
-        <v-btn
+        </tpu-btn>
+        <tpu-btn
           class="rounded-xl"
           color="red darken-1"
           variant="text"
@@ -56,15 +56,15 @@
         >
           <v-icon class="mr-1">mdi-delete</v-icon>
           {{ $t("gallery.deleteSelected") }}
-        </v-btn>
-        <v-btn
+        </tpu-btn>
+        <tpu-btn
           class="rounded-xl ml-2"
           variant="text"
           @click="bulkAddCollection()"
         >
           <v-icon class="mr-1">mdi-folder-multiple-image</v-icon>
           {{ $t("gallery.collectSelected") }}
-        </v-btn>
+        </tpu-btn>
       </slot>
     </div>
     <br v-if="!$experiments.experiments.PROGRESSIVE_UI" />
@@ -164,7 +164,7 @@
     />
     <small>
       Total Pages: {{ items.pager?.totalPages.toLocaleString() }}
-      <v-btn
+      <tpu-btn
         v-if="
           supports.randomAttachment && !$experiments.experiments.PROGRESSIVE_UI
         "
@@ -173,7 +173,7 @@
         @click="$emit('randomAttachment')"
       >
         Random Attachment
-      </v-btn>
+      </tpu-btn>
       <br />
       Total Items: {{ items.pager?.totalItems.toLocaleString() }}
     </small>
@@ -205,7 +205,7 @@
             :emit="$emit"
           >
             <div class="flex gap-2">
-              <v-btn
+              <tpu-btn
                 icon
                 size="small"
                 :loading="randomAttachmentLoading"
@@ -215,14 +215,14 @@
                   {{ $t("gallery.randomAttachment") }}
                 </v-tooltip>
                 <v-icon>mdi-dice-multiple</v-icon>
-              </v-btn>
-              <v-btn icon size="small" @click="selectAll()">
+              </tpu-btn>
+              <tpu-btn icon size="small" @click="selectAll()">
                 <v-tooltip activator="parent" location="bottom">
                   {{ $t("gallery.selectAll") }}
                 </v-tooltip>
                 <RiAddLine class="action-bar-item" />
-              </v-btn>
-              <v-btn
+              </tpu-btn>
+              <tpu-btn
                 icon
                 size="small"
                 @click="$app.dialogs.upload.value = true"
@@ -231,7 +231,7 @@
                   {{ $t("generic.upload") }}
                 </v-tooltip>
                 <RiUploadCloud2Line class="action-bar-item" />
-              </v-btn>
+              </tpu-btn>
             </div>
           </slot>
         </template>
@@ -245,7 +245,7 @@
             :select-all="selectAll"
             :bulk-add-collection="bulkAddCollection"
           >
-            <v-btn
+            <tpu-btn
               icon
               size="small"
               :loading="randomAttachmentLoading"
@@ -255,8 +255,8 @@
                 {{ $t("gallery.randomAttachment") }}
               </v-tooltip>
               <v-icon>mdi-dice-multiple</v-icon>
-            </v-btn>
-            <v-btn
+            </tpu-btn>
+            <tpu-btn
               icon
               size="small"
               :loading="downloadingLoading"
@@ -266,9 +266,9 @@
                 {{ $t("gallery.downloadSelected") }}
               </v-tooltip>
               <RiDownloadLine class="action-bar-item" />
-            </v-btn>
+            </tpu-btn>
 
-            <v-btn
+            <tpu-btn
               icon
               size="small"
               color="red"
@@ -280,8 +280,8 @@
                 {{ $t("gallery.deleteSelected") }}
               </v-tooltip>
               <RiDeleteBinLine class="action-bar-item" />
-            </v-btn>
-            <v-btn
+            </tpu-btn>
+            <tpu-btn
               icon
               size="small"
               :color="$ui.shifting ? 'red' : 'blue'"
@@ -302,14 +302,14 @@
                 class="action-bar-item"
                 :style="{ fill: $ui.shifting ? '#F44336' : undefined }"
               />
-            </v-btn>
-            <v-btn icon size="small" @click="deselectAll()">
+            </tpu-btn>
+            <tpu-btn icon size="small" @click="deselectAll()">
               <v-tooltip activator="parent" location="bottom">
                 {{ $t("gallery.deselectAll") }}
               </v-tooltip>
               <RiCloseLine class="action-bar-item" />
-            </v-btn>
-            <v-btn
+            </tpu-btn>
+            <tpu-btn
               icon
               size="small"
               :disabled="
@@ -323,13 +323,17 @@
                 {{ $t("gallery.selectAll") }}
               </v-tooltip>
               <RiAddLine />
-            </v-btn>
-            <v-btn icon size="small" @click="$app.dialogs.upload.value = true">
+            </tpu-btn>
+            <tpu-btn
+              icon
+              size="small"
+              @click="$app.dialogs.upload.value = true"
+            >
               <v-tooltip activator="parent" location="bottom">
                 {{ $t("generic.upload") }}
               </v-tooltip>
               <RiUploadCloud2Line class="action-bar-item" />
-            </v-btn>
+            </tpu-btn>
           </slot>
         </div>
       </slot>

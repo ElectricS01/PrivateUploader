@@ -683,7 +683,8 @@ function createBaseResolver<T extends ClassType>(
       const data = (await redis.json.get(`userStats:${user.id}`)) as Stats
       if (
         ctx.meta.friends !== FriendStatus.ACCEPTED &&
-        ctx.user?.id !== user.id
+        ctx.user?.id !== user.id &&
+        data
       ) {
         data.uploadGraph = null
         data.hours = null

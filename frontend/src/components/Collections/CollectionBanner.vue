@@ -16,7 +16,7 @@
       <v-card-title>
         {{ collection.name }}
         <span class="float-end">
-          <v-btn
+          <tpu-btn
             v-if="
               !$route.params.type && collection.permissionsMetadata.configure
             "
@@ -24,8 +24,8 @@
           >
             <v-icon class="mr-1" style="font-size: 20px">mdi-share</v-icon>
             Collection Sharing
-          </v-btn>
-          <v-btn
+          </tpu-btn>
+          <tpu-btn
             v-if="
               !$route.params.type && collection.permissionsMetadata.configure
             "
@@ -33,8 +33,8 @@
           >
             <v-icon class="mr-1" style="font-size: 20px">mdi-cog</v-icon>
             Settings
-          </v-btn>
-          <v-btn
+          </tpu-btn>
+          <tpu-btn
             v-else-if="collection.shareLink"
             @click="
               $functions.copy(
@@ -46,7 +46,7 @@
           >
             <v-icon class="mr-1" style="font-size: 20px">mdi-link</v-icon>
             Copy Share Link
-          </v-btn>
+          </tpu-btn>
         </span>
       </v-card-title>
       <v-card-text v-if="collection.users.length" class="mt-n3">

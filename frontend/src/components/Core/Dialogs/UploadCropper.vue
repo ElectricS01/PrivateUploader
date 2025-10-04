@@ -25,7 +25,7 @@
       <p v-else-if="result">Cropping unsupported on GIFs.</p>
     </v-card-text>
     <v-card-actions>
-      <v-btn
+      <tpu-btn
         v-if="result"
         @click="
           $emit('finish', file);
@@ -33,12 +33,12 @@
         "
       >
         Skip Crop
-      </v-btn>
-      <v-btn v-if="supportsRemoval" color="red" @click="$emit('remove')">
+      </tpu-btn>
+      <tpu-btn v-if="supportsRemoval" color="red" @click="$emit('remove')">
         {{ removeText || $t("dialogs.uploadCropper.removeProfile") }}
-      </v-btn>
+      </tpu-btn>
       <v-spacer />
-      <v-btn
+      <tpu-btn
         @click="
           $emit('update:modelValue', false);
           file = undefined;
@@ -46,10 +46,10 @@
         "
       >
         {{ $t("generic.cancel") }}
-      </v-btn>
-      <v-btn color="primary" :loading="loading" @click="save">
+      </tpu-btn>
+      <tpu-btn color="primary" :loading="loading" @click="save">
         {{ $t("generic.save") }}
-      </v-btn>
+      </tpu-btn>
     </v-card-actions>
   </CoreDialog>
 </template>

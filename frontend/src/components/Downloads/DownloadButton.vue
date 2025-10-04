@@ -3,7 +3,7 @@
     v-if="platform !== 'Android'"
     class="v-btn-group v-btn-group--divided v-btn-group--density-default v-btn-toggle"
   >
-    <v-btn
+    <tpu-btn
       v-if="platform !== 'iOS'"
       class="download-button"
       style="height: 100%"
@@ -15,12 +15,16 @@
       "
     >
       <v-icon class="mr-3">{{ functions.platformIcon(platform) }}</v-icon>
-      Download for {{ platform }} ({{ defaults[platform] }})
-    </v-btn>
-    <v-btn v-else class="download-button" disabled variant="tonal">
+      Download for {{ platform }}
+
+      <template v-if="platform === 'Linux'">
+        ({{ defaults[platform] }})
+      </template>
+    </tpu-btn>
+    <tpu-btn v-else class="download-button" disabled variant="tonal">
       Unavailable for iOS
-    </v-btn>
-    <v-btn
+    </tpu-btn>
+    <tpu-btn
       class="download-button"
       :variant="outlined ? 'outlined' : 'tonal'"
       style="height: 100%"
@@ -44,7 +48,7 @@
         </v-card>
       </v-menu>
       <v-icon>mdi-chevron-down</v-icon>
-    </v-btn>
+    </tpu-btn>
   </div>
   <a
     v-else

@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <div class="mx-2 mb-2">
     <v-card-title
-      class="text-[6vw] md:text-[2.5vw] font-bold text-wrap w-full px-4 font-weight-medium"
+      class="text-[6vw] md:text-[2.2vw] font-bold text-wrap w-full px-4 font-weight-medium text-center"
     >
       Hey, {{ auth.username }}!
     </v-card-title>
@@ -60,7 +60,7 @@
       </div>
     </v-form>
     <v-card-actions>
-      <v-btn
+      <tpu-btn
         class="mx-2"
         color="primary"
         variant="tonal"
@@ -69,9 +69,9 @@
       >
         <v-icon class="mr-2">mdi-chevron-left</v-icon>
         Back
-      </v-btn>
+      </tpu-btn>
       <v-spacer />
-      <v-btn
+      <tpu-btn
         class="mx-2"
         color="primary"
         :disabled="!canContinue || !terms"
@@ -81,7 +81,7 @@
       >
         Register
         <v-icon class="ml-2">mdi-chevron-right</v-icon>
-      </v-btn>
+      </tpu-btn>
     </v-card-actions>
   </div>
 </template>

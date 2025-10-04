@@ -74,7 +74,7 @@
         </div>
         <div class="flex select-none">
           <div v-if="$vuetify.display.mobile">
-            <v-btn
+            <tpu-btn
               v-if="userStore.user"
               color="white"
               size="small"
@@ -83,7 +83,7 @@
               @click="appStore.mainDrawer = !appStore.mainDrawer"
             >
               <RiMenuLine class="action-bar-item" />
-            </v-btn>
+            </tpu-btn>
           </div>
           <!-- @vue-ignore -->
           <transition-group
@@ -122,7 +122,9 @@
                       class="w-8"
                       :class="
                         uiStore.currentNavItem?.item?.path === rail.path
-                          ? 'fill-white'
+                          ? isDark
+                            ? 'fill-white'
+                            : 'fill-black'
                           : 'fill-medium-emphasis-dark'
                       "
                     />
@@ -130,7 +132,9 @@
                       style="margin: 0 8px 0 8px"
                       :class="
                         uiStore.currentNavItem?.item?.path === rail.path
-                          ? 'text-white'
+                          ? isDark
+                            ? 'fill-white'
+                            : 'fill-black'
                           : 'text-medium-emphasis-dark'
                       "
                     >
@@ -227,17 +231,17 @@
             :class="{ 'items-center': !expanded, 'items-end': expanded }"
           />
           <div id="logged-out-actions">
-            <v-btn v-if="!$user.user" color="white" class="mr-2" to="/login">
+            <tpu-btn v-if="!$user.user" color="white" class="mr-2" to="/login">
               {{ $t("generic.login") }}
-            </v-btn>
-            <v-btn
+            </tpu-btn>
+            <tpu-btn
               v-if="!$user.user"
               color="blue"
               variant="tonal"
               to="/register"
             >
               {{ $t("generic.getStarted") }}
-            </v-btn>
+            </tpu-btn>
           </div>
         </div>
       </div>
@@ -330,7 +334,7 @@ import {
 } from "vue";
 import { useRoute } from "vue-router";
 import { RiArrowRightSLine, RiMenuLine } from "@remixicon/vue";
-import { useDisplay } from "vuetify";
+import { useDisplay, useTheme } from "vuetify";
 import { useChatStore } from "@/store/chat.store";
 import AccessibleTransition from "@/components/Core/AccessibleTransition.vue";
 import FlowinityBanner from "@/components/Brand/FlowinityBanner.vue";
@@ -435,6 +439,8 @@ const blur = computed(() => {
   if (isOffset.value) return `10px`;
   return Math.min(uiStore.scrollPosition / 30, 60) + "px";
 });
+
+const isDark = computed(() => useTheme().current.value.dark);
 </script>
 
 <style>

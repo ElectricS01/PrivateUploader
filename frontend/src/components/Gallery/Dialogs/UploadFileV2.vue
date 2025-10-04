@@ -19,13 +19,13 @@
       />
       <v-card-actions>
         <v-spacer />
-        <v-btn
+        <tpu-btn
           :loading="$app.dialogs.upload.loading"
           :disabled="!$app.dialogs.upload.files.length"
           @click="$app.upload()"
         >
           {{ $t("generic.upload") }}
-        </v-btn>
+        </tpu-btn>
       </v-card-actions>
     </template>
   </CoreDialog>

@@ -1,10 +1,10 @@
 <template>
   <v-container>
     <div class="float-right" v-if="!$experiments.experiments.PROGRESSIVE_UI">
-      <v-btn class="rounded-xl ml-2" to="/autoCollect/configure">
+      <tpu-btn class="rounded-xl ml-2" to="/autoCollect/configure">
         <v-icon class="mr-2">mdi-cog</v-icon>
         {{ $t("autoCollects.configure.title") }}
-      </v-btn>
+      </tpu-btn>
     </div>
     <br />
     <br />
@@ -31,9 +31,9 @@
     to="#appbar-options"
   >
     <accessible-transition mode="out-in" name="slide-up" appear>
-      <v-btn icon size="small" to="/autoCollect/configure">
+      <tpu-btn icon size="small" to="/autoCollect/configure">
         <v-icon>mdi-cog</v-icon>
-      </v-btn>
+      </tpu-btn>
     </accessible-transition>
   </teleport>
 </template>

@@ -34,6 +34,7 @@ import TpuSwitch from "@/components/Framework/Input/TpuSwitch.vue";
 import { useEndpointsStore } from "./store/endpoints.store";
 import MasonryWall from "@yeger/vue-masonry-wall";
 import setupWidgets from "@/boot/widget-framework";
+import TpuBtn from "@/components/Framework/Interaction/TpuBtn.vue";
 
 const isSlideshow = window.location.pathname.startsWith("/slideshow/");
 
@@ -155,6 +156,7 @@ useEndpointsStore()
     }
 
     app.component("TpuSwitch", TpuSwitch);
+    app.component("TpuBtn", TpuBtn);
 
     app.mount("#tpu-app");
   });

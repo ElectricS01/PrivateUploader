@@ -17,12 +17,12 @@
     </v-container>
     <v-card-actions>
       <v-spacer />
-      <v-btn color="primary" @click="$emit('update:modelValue', false)">
+      <tpu-btn color="primary" @click="$emit('update:modelValue', false)">
         Cancel
-      </v-btn>
-      <v-btn :loading="loading" color="error" @click="$emit('submit')">
+      </tpu-btn>
+      <tpu-btn :loading="loading" color="error" @click="$emit('submit')">
         {{ btnText ? btnText : "Delete" }}
-      </v-btn>
+      </tpu-btn>
     </v-card-actions>
   </CoreDialog>
 </template>

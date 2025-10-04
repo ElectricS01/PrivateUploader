@@ -40,7 +40,7 @@
           bulkAddCollection
         }"
       >
-        <v-btn
+        <tpu-btn
           icon
           size="small"
           color="green"
@@ -53,8 +53,8 @@
             {{ $t("autoCollects.item.approveAll") }}
           </v-tooltip>
           <RiCheckLine class="action-bar-item" />
-        </v-btn>
-        <v-btn
+        </tpu-btn>
+        <tpu-btn
           icon
           size="small"
           color="red"
@@ -67,8 +67,8 @@
             {{ $t("autoCollects.item.rejectAll") }}
           </v-tooltip>
           <RiCloseLine class="action-bar-item" />
-        </v-btn>
-        <v-btn
+        </tpu-btn>
+        <tpu-btn
           icon
           size="small"
           :color="$ui.shifting ? 'red' : 'blue'"
@@ -89,14 +89,14 @@
             class="action-bar-item"
             :style="{ fill: $ui.shifting ? '#F44336' : undefined }"
           />
-        </v-btn>
-        <v-btn icon size="small" @click="deselectAll()">
+        </tpu-btn>
+        <tpu-btn icon size="small" @click="deselectAll()">
           <v-tooltip activator="parent" location="bottom">
             {{ $t("gallery.deselectAll") }}
           </v-tooltip>
           <RiCloseLine class="action-bar-item" />
-        </v-btn>
-        <v-btn
+        </tpu-btn>
+        <tpu-btn
           icon
           size="small"
           :disabled="
@@ -110,20 +110,20 @@
             {{ $t("gallery.selectAll") }}
           </v-tooltip>
           <RiAddLine />
-        </v-btn>
+        </tpu-btn>
       </template>
 
       <!-- Classic UI Options -->
       <template v-slot:multi-select-actions-length="slotProps: any">
-        <v-btn class="rounded-xl ml-2" @click="slotProps.selectAll()">
+        <tpu-btn class="rounded-xl ml-2" @click="slotProps.selectAll()">
           <v-icon>mdi-plus</v-icon>
           &nbsp;Select all
-        </v-btn>
-        <v-btn class="rounded-xl ml-2" @click="slotProps.deselectAll()">
+        </tpu-btn>
+        <tpu-btn class="rounded-xl ml-2" @click="slotProps.deselectAll()">
           <v-icon>mdi-close</v-icon>
           &nbsp;Unselect all
-        </v-btn>
-        <v-btn
+        </tpu-btn>
+        <tpu-btn
           class="rounded-xl"
           color="red darken-1"
           @click="
@@ -133,8 +133,8 @@
         >
           <v-icon>mdi-close</v-icon>
           Reject all
-        </v-btn>
-        <v-btn
+        </tpu-btn>
+        <tpu-btn
           class="rounded-xl ml-2"
           color="success"
           @click="
@@ -144,7 +144,7 @@
         >
           <v-icon>mdi-check</v-icon>
           &nbsp;Accept all
-        </v-btn>
+        </tpu-btn>
       </template>
       <template v-slot:actions="{ item }: any">
         <HoverChip

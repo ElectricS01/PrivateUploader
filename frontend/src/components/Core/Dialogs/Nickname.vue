@@ -16,7 +16,9 @@
     </v-card-text>
     <v-card-actions>
       <v-spacer />
-      <v-btn :loading="loading" color="primary" @click="update">Update</v-btn>
+      <tpu-btn :loading="loading" color="primary" @click="update">
+        Update
+      </tpu-btn>
     </v-card-actions>
   </CoreDialog>
 </template>

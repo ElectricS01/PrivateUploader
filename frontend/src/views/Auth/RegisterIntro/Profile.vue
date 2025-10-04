@@ -1,13 +1,13 @@
 <template>
   <v-card-title
-    class="text-[6vw] md:text-[2.5vw] font-bold text-wrap w-full px-4 font-weight-medium"
+    class="text-[6vw] md:text-[2vw] font-bold text-wrap w-full px-4 font-weight-medium text-center"
   >
     Make your account your own.
   </v-card-title>
-  <v-card-subtitle class="text-wrap">
+  <v-card-subtitle class="text-wrap text-center">
     Add a profile picture and a profile description to make your account stand
     out. Click on the
-    <v-chip size="x-small" color="gold">glowing</v-chip>
+    <strong>glowing</strong>
     items to get started!
   </v-card-subtitle>
 

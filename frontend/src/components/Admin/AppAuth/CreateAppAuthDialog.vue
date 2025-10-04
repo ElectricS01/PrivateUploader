@@ -64,10 +64,10 @@
     </v-card-text>
     <v-card-actions>
       <v-spacer />
-      <v-btn @click="$emit('update:modelValue', false)">Cancel</v-btn>
-      <v-btn color="primary" :loading="loading" @click="createAppAuth">
+      <tpu-btn @click="$emit('update:modelValue', false)">Cancel</tpu-btn>
+      <tpu-btn color="primary" :loading="loading" @click="createAppAuth">
         Create
-      </v-btn>
+      </tpu-btn>
     </v-card-actions>
   </CoreDialog>
 </template>

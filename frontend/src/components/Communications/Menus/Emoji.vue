@@ -30,7 +30,7 @@
             :grid-items="6"
             style="height: 330px; width: 100%"
           >
-            <v-btn
+            <tpu-btn
               icon
               @click="$emit('emoji', `:${emoji.name}:`)"
               @mouseover="hover = emoji"
@@ -49,7 +49,7 @@
                   .codePointAt(0)
                   ?.toString(16)}.svg`"
               />
-            </v-btn>
+            </tpu-btn>
           </RecycleScroller>
         </v-card-text>
         <div style="position: fixed; bottom: 0; width: 100%">

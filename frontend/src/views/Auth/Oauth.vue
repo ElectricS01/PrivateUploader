@@ -144,16 +144,16 @@
             </template>
           </small>
           <v-card-actions>
-            <v-btn to="/login">Cancel</v-btn>
+            <tpu-btn to="/login">Cancel</tpu-btn>
             <v-spacer />
-            <v-btn
+            <tpu-btn
               color="primary"
               :loading="loading"
               :disabled="bot && !selectedBotChat"
               @click="bot ? addBot() : authorize()"
             >
               Authorize
-            </v-btn>
+            </tpu-btn>
           </v-card-actions>
         </v-card>
       </v-col>

@@ -10,7 +10,7 @@
   />
   <v-card-text class="text-overline mb-n4">
     {{ $t("settings.domains.title") }}
-    <v-btn
+    <tpu-btn
       v-if="$user.user?.administrator"
       icon
       size="x-small"
@@ -20,7 +20,7 @@
       "
     >
       <v-icon>mdi-plus</v-icon>
-    </v-btn>
+    </tpu-btn>
   </v-card-text>
   <v-list>
     <v-list-item v-for="domain in domains" :key="domain.id">
@@ -36,7 +36,7 @@
       </v-list-item-subtitle>
       <template #append>
         <v-list-item-action>
-          <v-btn
+          <tpu-btn
             v-if="$user.user?.administrator"
             icon
             size="x-small"
@@ -44,8 +44,8 @@
             @click="deleteDomain(domain.id)"
           >
             <v-icon>mdi-delete</v-icon>
-          </v-btn>
-          <v-btn
+          </tpu-btn>
+          <tpu-btn
             v-if="$user.user?.administrator"
             icon
             size="x-small"
@@ -56,8 +56,8 @@
             "
           >
             <v-icon>mdi-pencil</v-icon>
-          </v-btn>
-          <v-btn
+          </tpu-btn>
+          <tpu-btn
             :disabled="$user.user?.domain?.domain === domain.domain"
             @click="setDefault(domain.domain)"
           >
@@ -66,7 +66,7 @@
                 ? "Current"
                 : "Set Default"
             }}
-          </v-btn>
+          </tpu-btn>
         </v-list-item-action>
       </template>
     </v-list-item>

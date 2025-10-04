@@ -20,7 +20,7 @@
     <v-card-title>
       {{ collection.name }}
       <span class="float-end">
-        <v-btn
+        <tpu-btn
           v-if="
             !$route.params.type && collection.permissionsMetadata?.configure
           "
@@ -28,8 +28,8 @@
         >
           <v-icon class="mr-1" style="font-size: 20px">mdi-share</v-icon>
           Collection Sharing
-        </v-btn>
-        <v-btn
+        </tpu-btn>
+        <tpu-btn
           v-if="
             !$route.params.type && collection.permissionsMetadata?.configure
           "
@@ -37,8 +37,8 @@
         >
           <v-icon class="mr-1" style="font-size: 20px">mdi-cog</v-icon>
           Settings
-        </v-btn>
-        <v-btn
+        </tpu-btn>
+        <tpu-btn
           v-else-if="collection?.shareLink"
           @click="
             $functions.copy(
@@ -50,7 +50,7 @@
         >
           <v-icon class="mr-1" style="font-size: 20px">mdi-link</v-icon>
           Copy Share Link
-        </v-btn>
+        </tpu-btn>
       </span>
     </v-card-title>
     <v-card-text v-if="collection.users.length" class="mt-n3">
@@ -98,7 +98,7 @@
               :collection="collection"
               v-slot="{ toggle }"
             >
-              <v-btn
+              <tpu-btn
                 @click="toggle"
                 icon
                 v-if="collection?.userId !== $user.user?.id"
@@ -109,11 +109,11 @@
                   {{ $t("collections.leave.title") }}
                 </v-tooltip>
                 <RiLogoutBoxLine class="action-bar-item" />
-              </v-btn>
+              </tpu-btn>
             </leave-collection-dialog>
           </accessible-transition>
           <accessible-transition name="slide-up" mode="out-in">
-            <v-btn
+            <tpu-btn
               icon
               v-if="!!collection?.shareLink"
               :key="collection?.userId"
@@ -129,20 +129,20 @@
                 {{ $t("collections.sharing.copy") }}
               </v-tooltip>
               <RiLink class="action-bar-item" />
-            </v-btn>
+            </tpu-btn>
           </accessible-transition>
-          <v-btn icon size="small" @click="sharing = true">
+          <tpu-btn icon size="small" @click="sharing = true">
             <v-tooltip activator="parent" location="bottom">
               {{ $t("collections.sharing.title") }}
             </v-tooltip>
             <RiShareForwardFill class="action-bar-item" />
-          </v-btn>
-          <v-btn icon size="small" @click="settings = true">
+          </tpu-btn>
+          <tpu-btn icon size="small" @click="settings = true">
             <v-tooltip activator="parent" location="bottom">
               {{ $t("collections.settings.title") }}
             </v-tooltip>
             <RiSettings5Line class="action-bar-item" />
-          </v-btn>
+          </tpu-btn>
           <div class="border-r border-outline-dark"></div>
         </div>
       </accessible-transition>

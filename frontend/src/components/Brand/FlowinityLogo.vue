@@ -33,6 +33,9 @@ const props = defineProps({
   },
   fill: {
     type: String
+  },
+  color: {
+    type: String
   }
 });
 </script>

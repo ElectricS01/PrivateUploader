@@ -7,27 +7,31 @@
           &bullet; {{ parseInt(attributes.total).toLocaleString() }} scrobbles
         </template>
       </v-toolbar-title>
-      <v-btn
+      <tpu-btn
         icon
         :href="`https://last.fm/user/${attributes.user}`"
         target="_blank"
         :disabled="!attributes.user"
       >
         <v-icon>mdi-open-in-new</v-icon>
-      </v-btn>
-      <v-btn
+      </tpu-btn>
+      <tpu-btn
         icon
         :disabled="page === 1"
         @click="page > 1 ? page-- : (page = 1)"
       >
         <v-icon>mdi-chevron-left</v-icon>
-      </v-btn>
-      <v-btn icon @click="getLastFM">
+      </tpu-btn>
+      <tpu-btn icon @click="getLastFM">
         <v-icon>mdi-refresh</v-icon>
-      </v-btn>
-      <v-btn icon :disabled="page >= pages" @click="page < pages ? page++ : ''">
+      </tpu-btn>
+      <tpu-btn
+        icon
+        :disabled="page >= pages"
+        @click="page < pages ? page++ : ''"
+      >
         <v-icon>mdi-chevron-right</v-icon>
-      </v-btn>
+      </tpu-btn>
     </v-toolbar>
     <template v-if="!loading">
       <v-list>

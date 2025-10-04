@@ -5,18 +5,16 @@
     @update:model-value="$emit('update:modelValue', $event)"
   >
     <template #title>
-      <div class="d-flex align-center">
-        Invite a Friend
-        <v-chip
-          v-if="$app.activeNags.IAF_PROMO"
-          color="blue"
-          class="ml-2"
-          size="small"
-          variant="tonal"
-        >
-          PROMOTION
-        </v-chip>
-      </div>
+      Invite a Friend
+      <v-chip
+        v-if="$app.activeNags.IAF_PROMO"
+        color="blue"
+        class="ml-2"
+        size="small"
+        variant="tonal"
+      >
+        PROMOTION
+      </v-chip>
     </template>
     <v-card-text>
       <v-alert
@@ -59,14 +57,14 @@
     </v-card-text>
     <v-card-actions>
       <v-spacer />
-      <v-btn
+      <tpu-btn
         :disabled="!email.length"
         class="rounded-xl"
         color="primary"
         @click="inviteFriend"
       >
         Invite
-      </v-btn>
+      </tpu-btn>
     </v-card-actions>
   </CoreDialog>
 </template>

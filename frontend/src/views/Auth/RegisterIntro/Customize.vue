@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-card-title
-      class="text-[6vw] md:text-[2.5vw] font-bold text-wrap w-full px-4 font-weight-medium"
+      class="text-[6vw] md:text-[2.5vw] font-bold text-wrap w-full px-4 font-weight-medium text-center"
     >
       {{ appStore.site.name }}, your way.
     </v-card-title>
@@ -20,9 +20,9 @@
           <v-card-title>
             {{ theme.name }}
           </v-card-title>
-          <v-btn v-if="themeStore.global.name.value === theme.key" icon>
+          <tpu-btn v-if="themeStore.global.name.value === theme.key" icon>
             <v-icon>mdi-check</v-icon>
-          </v-btn>
+          </tpu-btn>
         </v-card>
       </v-col>
     </v-row>

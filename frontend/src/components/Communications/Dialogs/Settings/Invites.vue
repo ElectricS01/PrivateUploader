@@ -5,7 +5,7 @@
   <v-data-table :items="$chat.editingChat.invites" :headers="headers">
     <template #[`item.id`]="{ item }: any">
       {{ item.id }}
-      <v-btn
+      <tpu-btn
         icon
         size="x-small"
         @click="
@@ -13,7 +13,7 @@
         "
       >
         <v-icon>mdi-content-copy</v-icon>
-      </v-btn>
+      </tpu-btn>
     </template>
     <template #[`item.userId`]="{ item }: any">
       <UserAvatar :user="$user.users[item.userId]" size="32" />
@@ -31,9 +31,9 @@
       }}
     </template>
     <template #[`item.actions`]="{ item }: any">
-      <v-btn icon @click="invalidate(item.id)">
+      <tpu-btn icon @click="invalidate(item.id)">
         <v-icon>mdi-close</v-icon>
-      </v-btn>
+      </tpu-btn>
     </template>
   </v-data-table>
   <small>

@@ -67,7 +67,7 @@
     </small>
     <v-card-actions>
       <v-spacer v-if="centeredButtons" />
-      <v-btn
+      <tpu-btn
         class="no-capital"
         color="red"
         @click="$emit('update:modelValue', false)"
@@ -75,10 +75,10 @@
       >
         <v-icon class="mr-1">mdi-arrow-left</v-icon>
         Close
-      </v-btn>
+      </tpu-btn>
       <v-spacer v-if="!centeredButtons" />
       <span>
-        <v-btn
+        <tpu-btn
           v-if="$app.activeNags.IAF_NAG"
           class="no-capital"
           color="primary"
@@ -86,8 +86,8 @@
         >
           Get your free month
           <v-icon class="ml-1">mdi-arrow-right</v-icon>
-        </v-btn>
-        <v-btn
+        </tpu-btn>
+        <tpu-btn
           v-else-if="!$app.activeNags.IAF_NAG && !$user.gold"
           class="no-capital"
           color="primary"
@@ -95,15 +95,15 @@
         >
           Get started
           <v-icon class="ml-1">mdi-arrow-right</v-icon>
-        </v-btn>
-        <v-btn
+        </tpu-btn>
+        <tpu-btn
           v-else
           to="/settings/subscriptions"
           class="no-capital"
           color="primary"
         >
           Settings
-        </v-btn>
+        </tpu-btn>
       </span>
       <v-spacer v-if="centeredButtons" />
     </v-card-actions>

@@ -2,11 +2,7 @@
   <v-container class="center-container" :fluid="true">
     <v-row align="center" justify="center">
       <v-col cols="12" md="7" sm="8" xl="5">
-        <v-card
-          :color="$vuetify.display.mobile ? 'transparent' : 'card'"
-          :elevation="$vuetify.display.mobile ? 0 : 8"
-          :flat="$vuetify.display.mobile"
-        >
+        <v-card>
           <template v-if="!ban">
             <div
               v-if="$experiments.experiments.FLOWINITY"
@@ -54,11 +50,11 @@
               </a>
             </v-card-actions>
             <v-card-actions>
-              <v-btn to="/register">Register</v-btn>
+              <tpu-btn to="/register">Register</tpu-btn>
               <v-spacer />
-              <v-btn :loading="loading" color="primary" @click="login">
+              <tpu-btn :loading="loading" color="primary" @click="login">
                 Login
-              </v-btn>
+              </tpu-btn>
             </v-card-actions>
           </template>
           <template
@@ -84,7 +80,7 @@
                 <strong>Permanent account deletion:</strong>
                 {{ $date(ban.pendingDeletionDate).format("MMMM Do, YYYY") }}
               </p>
-              <v-btn
+              <tpu-btn
                 variant="tonal"
                 color="primary"
                 class="mt-2"
@@ -92,7 +88,7 @@
                 @click="reactivate"
               >
                 Reactivate
-              </v-btn>
+              </tpu-btn>
             </v-card-text>
           </template>
           <template v-else>

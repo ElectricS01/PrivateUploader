@@ -33,14 +33,14 @@
                       appear
                       name="fade-transition"
                     >
-                      <v-btn
+                      <tpu-btn
                         v-if="isHovering"
                         class="rounded-xl"
                         icon
                         style="position: absolute; top: 10px; right: 10px"
                       >
                         <v-icon>mdi-pencil</v-icon>
-                      </v-btn>
+                      </tpu-btn>
                     </accessible-transition>
                   </UserAvatar>
                 </div>
@@ -64,7 +64,7 @@
                     >
                       ({{ user.username }})
                     </span>
-                    <v-btn
+                    <tpu-btn
                       v-if="
                         $experiments.experiments.USER_V3_MODIFY &&
                         user?.id === $user.user?.id &&
@@ -85,8 +85,8 @@
                         Settings
                       </v-tooltip>
                       <v-icon>mdi-cog</v-icon>
-                    </v-btn>
-                    <v-btn
+                    </tpu-btn>
+                    <tpu-btn
                       v-if="
                         $experiments.experiments.USER_V3_MODIFY &&
                         user?.id === $user.user?.id &&
@@ -108,8 +108,8 @@
                       </v-tooltip>
                       <v-icon v-if="!config.editMode">mdi-pencil</v-icon>
                       <v-icon v-else>mdi-check</v-icon>
-                    </v-btn>
-                    <v-btn
+                    </tpu-btn>
+                    <tpu-btn
                       v-if="user?.friend === FriendStatus.Accepted"
                       size="x-small"
                       class="ml-2"
@@ -127,8 +127,8 @@
                       </v-tooltip>
                       <v-icon class="mr-2">mdi-rename</v-icon>
                       Set Nickname
-                    </v-btn>
-                    <v-btn
+                    </tpu-btn>
+                    <tpu-btn
                       v-if="friends && user.id !== $user.user?.id"
                       size="x-small"
                       class="ml-2"
@@ -147,8 +147,8 @@
                         {{ friends.icon }}
                       </v-icon>
                       {{ friends.text }}
-                    </v-btn>
-                    <v-btn
+                    </tpu-btn>
+                    <tpu-btn
                       v-if="
                         friends.status === FriendStatus.Accepted &&
                         $experiments.experiments['COMMUNICATIONS']
@@ -169,7 +169,7 @@
                       </v-tooltip>
                       <v-icon class="mr-2">mdi-message-processing</v-icon>
                       Message
-                    </v-btn>
+                    </tpu-btn>
                   </h1>
                   <UserBadges
                     :primary-color="primaryColorResult.primary"
@@ -884,9 +884,11 @@ export default defineComponent({
           this.$ui.currentNavItem = {
             item: this.$ui.userRail(this.user),
             rail: [
-              this.$ui.navigation.options[RailMode.SOCIAL].find(
-                (i) => i.path === "/users"
-              )
+              this.$ui.navigation.options[
+                this.$experiments.experiments.USERS_IN_DASH
+                  ? RailMode.HOME
+                  : RailMode.SOCIAL
+              ].find((item) => item.path === "/users")
             ]
           };
         }

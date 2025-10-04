@@ -14,7 +14,7 @@
             @keydown.enter="deleteCommunicationsMessage"
           />
         </v-form>
-        <v-btn
+        <tpu-btn
           :disabled="actions.deleteCommunicationsMessage.processing"
           class="mx-3 my-3"
           variant="outlined"
@@ -22,7 +22,7 @@
         >
           <v-icon>mdi-delete</v-icon>
           Delete Communications Message
-        </v-btn>
+        </tpu-btn>
       </v-container>
     </v-card>
   </v-container>

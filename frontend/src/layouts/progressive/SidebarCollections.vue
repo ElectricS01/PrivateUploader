@@ -21,10 +21,10 @@
 
       <v-menu location="right">
         <template #activator="{ props }">
-          <v-btn icon v-bind="props" style="width: 40px; height: 40px">
+          <tpu-btn icon v-bind="props" style="width: 40px; height: 40px">
             <RiSortDesc v-if="desc" class="action-bar-item" />
             <RiSortAsc v-else class="action-bar-item" />
-          </v-btn>
+          </tpu-btn>
         </template>
         <v-card :padding="false" class="py-1">
           <v-list>

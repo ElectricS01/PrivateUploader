@@ -14,9 +14,9 @@
         </p>
         <v-card-actions>
           <v-spacer />
-          <v-btn color="red" @click="leaveCollection">
+          <tpu-btn color="red" @click="leaveCollection">
             {{ $t("collections.leave.action") }}
-          </v-btn>
+          </tpu-btn>
         </v-card-actions>
       </template>
     </CoreDialog>

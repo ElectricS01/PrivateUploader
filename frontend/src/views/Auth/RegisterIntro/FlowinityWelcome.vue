@@ -21,7 +21,7 @@
     </v-row>
     <v-card-actions>
       <v-spacer />
-      <v-btn color="primary" @click="emit('next')">Register</v-btn>
+      <tpu-btn color="primary" @click="emit('next')">Register</tpu-btn>
     </v-card-actions>
   </div>
 </template>

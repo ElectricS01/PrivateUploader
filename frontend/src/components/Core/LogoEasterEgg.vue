@@ -85,7 +85,7 @@
         mdi-numeric-2-box
       </v-icon>
     </v-card-title>
-    <v-btn class="ml-n5" disabled>Dev</v-btn>
+    <tpu-btn class="ml-n5" disabled>Dev</tpu-btn>
   </template>
 </template>
 

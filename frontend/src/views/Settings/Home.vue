@@ -18,13 +18,13 @@
             />
             <v-card-actions>
               <v-spacer />
-              <v-btn
+              <tpu-btn
                 :disabled="!valid.username"
                 color="primary"
                 @click="changeUsername"
               >
                 {{ $t("generic.update") }}
-              </v-btn>
+              </tpu-btn>
             </v-card-actions>
           </v-form>
         </v-expansion-panel-text>
@@ -52,13 +52,13 @@
             />
             <v-card-actions>
               <v-spacer />
-              <v-btn
+              <tpu-btn
                 :disabled="!valid.password"
                 color="primary"
                 @click="changePassword()"
               >
                 {{ $t("generic.update") }}
-              </v-btn>
+              </tpu-btn>
             </v-card-actions>
           </v-form>
         </v-expansion-panel-text>
@@ -79,13 +79,13 @@
             />
             <v-card-actions>
               <v-spacer />
-              <v-btn
+              <tpu-btn
                 :disabled="!valid.username"
                 color="primary"
                 @click="changeEmail"
               >
                 {{ $t("generic.update") }}
-              </v-btn>
+              </tpu-btn>
             </v-card-actions>
           </v-form>
         </v-expansion-panel-text>
@@ -121,13 +121,13 @@
           </v-card-text>
           <delete-account v-model="deletion.deletionDialog" />
           <v-card-actions>
-            <v-btn
+            <tpu-btn
               color="red"
               variant="tonal"
               @click="deletion.deletionDialog = true"
             >
               {{ $t("settings.home.deleteAccount.delete") }}
-            </v-btn>
+            </tpu-btn>
             <danger-zone-dialog :require-both="true" @confirm="deleteGallery">
               <template #title>
                 {{ $t("settings.home.deleteAccount.purgeGallery") }}
@@ -136,23 +136,23 @@
                 {{ $t("settings.home.deleteAccount.purgeText") }}
               </template>
               <template #default="{ toggle }">
-                <v-btn
+                <tpu-btn
                   color="red"
                   :loading="deletion.deleting"
                   variant="tonal"
                   @click="toggle()"
                 >
                   {{ $t("settings.home.deleteAccount.purgeGallery") }}
-                </v-btn>
+                </tpu-btn>
               </template>
               <template #actions="{ confirm }">
-                <v-btn
+                <tpu-btn
                   color="red"
                   :loading="deletion.purging"
                   @click="confirm()"
                 >
                   {{ $t("settings.home.deleteAccount.purgeGallery") }}
-                </v-btn>
+                </tpu-btn>
               </template>
             </danger-zone-dialog>
           </v-card-actions>
@@ -269,7 +269,7 @@
       multiple
       @update:model-value="$emit('update')"
     />
-    <v-btn
+    <tpu-btn
       v-if="$user.gold || !$app.site.officialInstance"
       class="mb-2 ml-5"
       @click="$app.themeEditor = !$app.themeEditor"
@@ -279,7 +279,7 @@
         {{ $t("settings.home.preferences.themeEditor") }}
         <v-chip size="x-small" class="ml-1">{{ $t("generic.beta") }}</v-chip>
       </span>
-    </v-btn>
+    </tpu-btn>
   </div>
 </template>
 

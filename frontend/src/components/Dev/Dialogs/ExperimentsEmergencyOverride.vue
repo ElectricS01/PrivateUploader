@@ -32,8 +32,8 @@
       v-model="emergency.experiment.force"
       label="Force for everyone (even when overridden in ExpMan)"
     />
-    <v-btn @click="emergency.value = false">Cancel</v-btn>
-    <v-btn @click="createEmergencyOverride" color="red">Create</v-btn>
+    <tpu-btn @click="emergency.value = false">Cancel</tpu-btn>
+    <tpu-btn @click="createEmergencyOverride" color="red">Create</tpu-btn>
     <v-card-title>Active</v-card-title>
     <v-list class="mx-4">
       <v-alert
@@ -64,9 +64,9 @@
         <v-card-subtitle v-if="override.userId">
           User ID: {{ override.userId }}
         </v-card-subtitle>
-        <v-btn @click="deleteEmergencyOverride(override.id)" color="red">
+        <tpu-btn @click="deleteEmergencyOverride(override.id)" color="red">
           Delete
-        </v-btn>
+        </tpu-btn>
       </v-card>
     </v-list>
   </v-container>

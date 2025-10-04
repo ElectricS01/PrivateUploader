@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-card-title
-      class="text-[6vw] md:text-[2.5vw] font-bold text-wrap w-full px-4 font-weight-medium"
+      class="text-[6vw] md:text-[2.5vw] font-bold text-wrap w-full px-4 font-weight-medium text-center"
     >
       Verify your email.
     </v-card-title>
@@ -12,10 +12,10 @@
     </v-card-subtitle>
     <v-card-actions>
       <v-spacer />
-      <v-btn color="red" @click="userStore.logout()">Logout</v-btn>
-      <v-btn color="primary" @click="userStore.resendVerificationEmail()">
+      <tpu-btn color="red" @click="userStore.logout()">Logout</tpu-btn>
+      <tpu-btn color="primary" @click="userStore.resendVerificationEmail()">
         Resend Verification Email
-      </v-btn>
+      </tpu-btn>
     </v-card-actions>
   </div>
 </template>

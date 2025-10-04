@@ -20,13 +20,13 @@
       </v-container>
       <v-card-actions>
         <v-spacer />
-        <v-btn
+        <tpu-btn
           color="primary"
           :loading="importDoc.loading"
           @click="doImportDoc"
         >
           {{ $t("workspaces.import.import") }}
-        </v-btn>
+        </tpu-btn>
       </v-card-actions>
     </CoreDialog>
     <ShareWorkspace
@@ -59,7 +59,7 @@
       </v-container>
       <v-card-actions>
         <v-spacer />
-        <v-btn
+        <tpu-btn
           color="red"
           @click="
             download.dialog = false;
@@ -68,14 +68,14 @@
           "
         >
           {{ $t("generic.cancel") }}
-        </v-btn>
-        <v-btn
+        </tpu-btn>
+        <tpu-btn
           color="primary"
           :loading="download.loading"
           @click="downloadItem"
         >
           {{ $t("workspaces.download.title") }}
-        </v-btn>
+        </tpu-btn>
       </v-card-actions>
     </CoreDialog>
     <WorkspaceDeleteDialog
@@ -354,7 +354,7 @@
     </v-list>
     <template v-else>
       <v-card-title>Version history</v-card-title>
-      <v-btn
+      <tpu-btn
         block
         variant="outlined"
         color="green"
@@ -362,7 +362,7 @@
         v-if="$route.params.version"
       >
         Restore Version
-      </v-btn>
+      </tpu-btn>
       <v-list>
         <v-list-item
           v-for="version in versions"

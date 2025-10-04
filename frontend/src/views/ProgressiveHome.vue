@@ -13,12 +13,12 @@
         class="flex flex-col items-center justify-space-between w-full"
       >
         <!-- Bubble Button -->
-        <v-btn height="100" color="toolbar" block variant="flat">
+        <tpu-btn height="100" color="toolbar" block variant="flat">
           <div class="flex flex-col items-center space-y-1">
             <v-icon :icon="item.icon" size="28" />
             <span>{{ item.title }}</span>
           </div>
-        </v-btn>
+        </tpu-btn>
       </div>
     </div>
 

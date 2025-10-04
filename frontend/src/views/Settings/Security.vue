@@ -6,10 +6,10 @@
         {{ $t("settings.security.apiKeys") }}
       </v-toolbar-title>
       <v-spacer />
-      <v-btn color="primary" @click="dialogs.key = true">
+      <tpu-btn color="primary" @click="dialogs.key = true">
         <v-icon left>mdi-plus</v-icon>
         {{ $t("settings.security.addAPIKey") }}
-      </v-btn>
+      </tpu-btn>
     </v-toolbar>
     <v-data-table :headers="headers" :items="apiKeys">
       <template #[`item.actions`]="{ item }: any">
@@ -49,10 +49,10 @@
         {{ $t("settings.security.alternatePasswords") }}
       </v-toolbar-title>
       <v-spacer />
-      <v-btn color="primary" @click="dialogs.password = true">
+      <tpu-btn color="primary" @click="dialogs.password = true">
         <v-icon left>mdi-plus</v-icon>
         {{ $t("settings.security.addAlternatePassword") }}
-      </v-btn>
+      </tpu-btn>
     </v-toolbar>
     <v-data-table :headers="headers" :items="alternatePasswords.items">
       <template #[`item.actions`]="{ item }: any">
@@ -119,13 +119,13 @@
           </v-list-item-subtitle>
         </div>
         <template #append>
-          <v-btn color="red" icon @click="deleteApiKey(login.id)">
+          <tpu-btn color="red" icon @click="deleteApiKey(login.id)">
             <v-tooltip activator="parent" location="top">
               {{ $t("settings.security.deleteSession") }}
             </v-tooltip>
             <v-icon>mdi-delete</v-icon>
-          </v-btn>
-          <v-btn
+          </tpu-btn>
+          <tpu-btn
             :disabled="!login.info?.accessedFrom?.length"
             color="blue"
             icon
@@ -143,7 +143,7 @@
               </span>
             </v-tooltip>
             <v-icon>mdi-web</v-icon>
-          </v-btn>
+          </tpu-btn>
         </template>
       </v-list-item>
     </v-list>

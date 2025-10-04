@@ -21,14 +21,14 @@
         <v-card-subtitle class="text-wrap">
           {{ $t("chats.restricted.setup.description") }}
         </v-card-subtitle>
-        <v-btn
+        <tpu-btn
           class="mb-2 mt-1 ml-4"
           color="blue"
           variant="tonal"
           @click="$user.dialogs.dateOfBirth.value = true"
         >
           {{ $t("chats.restricted.setup.confirm") }}
-        </v-btn>
+        </tpu-btn>
       </div>
     </v-card>
     <v-card
@@ -123,13 +123,13 @@
             <v-card-actions class="text-grey">
               {{ $functions.fileSize(media.upload.fileSize) }}
               <v-spacer />
-              <v-btn
+              <tpu-btn
                 :href="`${$app.domain}${media.attachment}`"
                 icon
                 target="_blank"
               >
                 <v-icon>mdi-download</v-icon>
-              </v-btn>
+              </tpu-btn>
             </v-card-actions>
           </template>
           <DeletedFile v-else />
@@ -197,7 +197,7 @@
             >
               {{ invite.chat.description }}
             </v-card-subtitle>
-            <v-btn
+            <tpu-btn
               v-if="!$chat.chats.find((chat) => chat.id === invite.chat.id)"
               variant="outlined"
               class="ml-3 mb-2"
@@ -205,8 +205,8 @@
               @click="join"
             >
               Join
-            </v-btn>
-            <v-btn
+            </tpu-btn>
+            <tpu-btn
               v-else
               variant="outlined"
               class="ml-3 mb-2"
@@ -221,7 +221,7 @@
               "
             >
               Go
-            </v-btn>
+            </tpu-btn>
             <br />
             <small v-if="invite.expiredAt" class="ml-3 mb-2">
               Expires in {{ $date(invite.expiredAt).fromNow() }}

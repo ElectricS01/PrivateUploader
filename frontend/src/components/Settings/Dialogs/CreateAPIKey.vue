@@ -46,21 +46,21 @@
     </v-card-text>
     <v-card-actions v-if="!key">
       <v-spacer />
-      <v-btn color="primary" @click="$emit('update:modelValue', false)">
+      <tpu-btn color="primary" @click="$emit('update:modelValue', false)">
         Cancel
-      </v-btn>
-      <v-btn
+      </tpu-btn>
+      <tpu-btn
         color="primary"
         @click="type === 'api' ? addAPIKey() : addAlternatePassword()"
       >
         Add
-      </v-btn>
+      </tpu-btn>
     </v-card-actions>
     <v-card-actions v-else>
       <v-spacer />
-      <v-btn color="primary" @click="$emit('update:modelValue', false)">
+      <tpu-btn color="primary" @click="$emit('update:modelValue', false)">
         Close
-      </v-btn>
+      </tpu-btn>
     </v-card-actions>
   </CoreDialog>
 </template>

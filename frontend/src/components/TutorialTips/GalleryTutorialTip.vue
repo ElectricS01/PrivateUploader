@@ -9,10 +9,10 @@
     :no-click-animation="true"
   >
     <v-card color="default" density="compact" style="pointer-events: all">
-      <template #title>The Gallery is the home to your files.</template>
+      <template #title>This is the home to your files.</template>
       <template #text>
-        <p>Upload any type of file to your Personal Gallery, private to all.</p>
-        <strong>Click the "My Gallery" item to get started!</strong>
+        <p>Upload anything to your Personal Files, private to all.</p>
+        <strong>Click the "My Files" item to get started!</strong>
         <small
           class="float-right cursor-pointer pa-4"
           @click="

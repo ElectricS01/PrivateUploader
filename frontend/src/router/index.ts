@@ -74,13 +74,24 @@ const routes = [
         redirect: "/"
       },
       {
-        path: "/gallery/:page?",
-        name: "Personal Gallery",
+        path: "/files/:page?",
+        name: "Personal Files",
         component: () => import("@/views/Gallery.vue"),
         props: {
           type: GalleryType.Personal,
-          path: "/gallery",
-          name: "Gallery"
+          path: "/files",
+          name: "Files"
+        }
+      },
+      {
+        path: "/gallery/:page?",
+        name: "Personal Gallery (Redirect)",
+        redirect: (to) => {
+          if (to.params.page) {
+            return { name: "Personal Files", params: { page: to.params.page } };
+          } else {
+            return { name: "Personal Files" };
+          }
         }
       },
       {

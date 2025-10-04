@@ -21,8 +21,10 @@
     </v-card-text>
     <v-card-actions>
       <v-spacer />
-      <v-btn @click="$emit('update:modelValue', false)">Cancel</v-btn>
-      <v-btn color="primary" @click="$chat.confirmLink(false)">Continue</v-btn>
+      <tpu-btn @click="$emit('update:modelValue', false)">Cancel</tpu-btn>
+      <tpu-btn color="primary" @click="$chat.confirmLink(false)">
+        Continue
+      </tpu-btn>
     </v-card-actions>
     <small
       class="text-grey text-center mb-1 pointer"

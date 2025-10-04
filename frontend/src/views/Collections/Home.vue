@@ -7,9 +7,9 @@
       @refresh-gallery="getCollections(undefined, true)"
       @update:filter="filter = $event"
     />
-    <v-btn class="mt-1 ml-1" style="float: right" @click="create = true">
+    <tpu-btn class="mt-1 ml-1" style="float: right" @click="create = true">
       {{ $t("collections.create") }}
-    </v-btn>
+    </tpu-btn>
     <br />
     <br />
     <br />

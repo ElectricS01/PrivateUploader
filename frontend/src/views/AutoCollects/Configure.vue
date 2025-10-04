@@ -15,9 +15,9 @@
             <template #title>
               {{ rule.name }}
               <div style="float: right">
-                <v-btn icon @click="deleteRule(rule.id)">
+                <tpu-btn icon @click="deleteRule(rule.id)">
                   <v-icon>mdi-close</v-icon>
-                </v-btn>
+                </tpu-btn>
               </div>
             </template>
             <template #text>
@@ -56,9 +56,9 @@
               <div v-for="(subrule, i) in rule.rules" :key="subrule.id">
                 <v-card-subtitle v-if="i !== 0" class="grey--text">
                   {{ $t("autoCollects.configure.or") }}
-                  <v-btn icon @click="removeSubRule(rule, subrule.id)">
+                  <tpu-btn icon @click="removeSubRule(rule, subrule.id)">
                     <v-icon>mdi-close</v-icon>
-                  </v-btn>
+                  </tpu-btn>
                 </v-card-subtitle>
                 <v-card-text
                   v-for="subsubrule in subrule.rules"
@@ -91,12 +91,12 @@
                       />
                     </v-col>
                     <v-col cols="1" style="max-width: 40px">
-                      <v-btn
+                      <tpu-btn
                         icon
                         @click="removeSubSubRule(subrule, subsubrule.id)"
                       >
                         <v-icon>mdi-close</v-icon>
-                      </v-btn>
+                      </tpu-btn>
                     </v-col>
                   </v-row>
                   <v-alert

@@ -12,38 +12,38 @@
           v-if="!$experiments.experiments.DIALOG_REFRESH"
           color="toolbar"
         >
-          <v-btn
+          <tpu-btn
             v-if="$vuetify.display.mobile && !persistent"
             icon
             @click="$emit('update:modelValue', false)"
           >
             <v-icon>mdi-arrow-left</v-icon>
-          </v-btn>
+          </tpu-btn>
           <v-toolbar-title>
             <slot name="title">Default title</slot>
           </v-toolbar-title>
-          <v-btn
+          <tpu-btn
             v-if="!$vuetify.display.mobile && !persistent"
             class="float-end"
             icon
             @click="$emit('update:modelValue', false)"
           >
             <v-icon>mdi-close</v-icon>
-          </v-btn>
+          </tpu-btn>
         </v-toolbar>
         <div class="position-relative" v-else>
           <div
             class="d-flex justify-end flex-1 mt-3 position-absolute"
             style="width: 100%"
           >
-            <v-btn
+            <tpu-btn
               class="mr-4"
               icon
               size="small"
               @click="$emit('update:modelValue', false)"
             >
               <v-icon>mdi-close</v-icon>
-            </v-btn>
+            </tpu-btn>
           </div>
           <div class="flex-grow text-center mt-4">
             <p class="text-h5 font-weight-bold">

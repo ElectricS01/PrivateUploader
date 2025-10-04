@@ -25,14 +25,14 @@
       <strong>{{ $user.user?.email }}</strong>
     </small>
     <template #append>
-      <v-btn
+      <tpu-btn
         class="mr-3"
         :loading="$user.actions.emailSent.loading"
         size="x-small"
         @click="$user.resendVerificationEmail"
       >
         Resend Verification Email
-      </v-btn>
+      </tpu-btn>
     </template>
   </v-alert>
   <v-alert
@@ -50,13 +50,13 @@
       {{ $app.site.name }} experience.
     </small>
     <template #append>
-      <v-btn
+      <tpu-btn
         size="x-small"
         to="/downloads"
         @click="$experiments.setExperiment('DOWNLOAD_THE_APP_NAG', 3)"
       >
         Download now!
-      </v-btn>
+      </tpu-btn>
       <v-icon
         @click="$experiments.setExperiment('DOWNLOAD_THE_APP_NAG', 0)"
         size="16"
@@ -79,7 +79,7 @@
       Never miss a message when {{ $app.site.name }} starts at boot!
     </small>
     <template #append>
-      <v-btn size="x-small" @click="enableStartup">Enable now!</v-btn>
+      <tpu-btn size="x-small" @click="enableStartup">Enable now!</tpu-btn>
       <v-icon
         @click="$experiments.setExperiment('ENABLE_AUTOSTART_APP_NAG', 0)"
         size="16"
@@ -107,7 +107,7 @@
       }}
     </small>
     <template #append>
-      <v-btn
+      <tpu-btn
         size="x-small"
         @click="
           $user.gold
@@ -116,7 +116,7 @@
         "
       >
         {{ $user.gold ? `Invite a friend!` : `Claim now!` }}
-      </v-btn>
+      </tpu-btn>
       <v-icon
         @click="$experiments.setExperiment('IAF_NAG', 5)"
         size="16"

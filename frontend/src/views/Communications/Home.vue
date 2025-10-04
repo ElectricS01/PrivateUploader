@@ -13,7 +13,7 @@
         :value="index"
       >
         {{ tab.title }}
-        <v-btn
+        <tpu-btn
           v-if="tab.badge"
           icon
           size="x-small"
@@ -25,7 +25,7 @@
             //@ts-ignore
             tab.badge()
           }}
-        </v-btn>
+        </tpu-btn>
       </v-tab>
     </v-tabs>
     <component :is="superBarMode ? 'div' : VContainer" class="w-full">
@@ -93,7 +93,7 @@
             @keydown.enter="sendFriendRequest()"
             autofocus
           />
-          <v-btn
+          <tpu-btn
             :loading="addFriend.loading"
             :color="addFriend.success ? 'success' : 'primary'"
             class="mb-5 friend-button"
@@ -108,7 +108,7 @@
                 ? $t("chats.socialHub.friends.friendRequestSuccess")
                 : $t("chats.socialHub.friends.addFriend")
             }}
-          </v-btn>
+          </tpu-btn>
         </v-container>
         <div>
           <v-divider></v-divider>

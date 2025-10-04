@@ -1,7 +1,7 @@
 <template>
   <v-container>
     <small>Theme: Dark = {{ $vuetify.theme.current.dark }}</small>
-    <v-btn
+    <tpu-btn
       variant="tonal"
       @click="
         $experiments.setExperiment(
@@ -11,7 +11,7 @@
       "
     >
       Set Brand Version
-    </v-btn>
+    </tpu-btn>
     <br />
     ANIMATION DOES NOT SUPPORT SVG HOTSWAP
     <div :key="$experiments.experiments.NEW_BRANDING as number">
@@ -30,7 +30,7 @@
         style="max-width: 120px"
         :key="`${forceAnimate}-${$vuetify.theme.current.dark}-${$experiments.experiments.PRIDE}`"
       />
-      <v-btn variant="tonal" @click="forceAnimate++">Re-animate</v-btn>
+      <tpu-btn variant="tonal" @click="forceAnimate++">Re-animate</tpu-btn>
       <br />
       Animated (Loading):
       <FlowinityLogoAnimated
@@ -39,9 +39,9 @@
         style="max-width: 120px"
         :key="`${$vuetify.theme.current.dark}-${$experiments.experiments.PRIDE}`"
       />
-      <v-btn variant="tonal" @click="loading = !loading">
+      <tpu-btn variant="tonal" @click="loading = !loading">
         {{ loading }}
-      </v-btn>
+      </tpu-btn>
       <br />
       Not Animated:
       <FlowinityLogo

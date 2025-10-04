@@ -152,18 +152,18 @@
       style="gap: 4px"
       v-if="!$experiments.experiments.PROGRESSIVE_UI"
     >
-      <v-btn class="mx-2" to="/communications/home">
+      <tpu-btn class="mx-2" to="/communications/home">
         <v-icon class="mr-1">mdi-account-multiple</v-icon>
         {{ $t("chats.socialHub.title") }}
-      </v-btn>
-      <v-btn
+      </tpu-btn>
+      <tpu-btn
         class="mx-2"
         v-if="$experiments.experiments.CHAT_GUIDED_WIZARD"
         @click="$app.dialogs.createChat = !$app.dialogs.createChat"
       >
         <v-icon class="mr-1">mdi-plus</v-icon>
         {{ $t("chats.join.title") }}
-      </v-btn>
+      </tpu-btn>
     </div>
     <overline
       class="ml-3 mb-n1"
@@ -175,9 +175,9 @@
         v-model="$app.dialogs.createChat"
         type="create"
       >
-        <v-btn class="mr-1" icon size="xsmall" v-bind="props">
+        <tpu-btn class="mr-1" icon size="xsmall" v-bind="props">
           <v-icon>mdi-plus</v-icon>
-        </v-btn>
+        </tpu-btn>
       </CreateChat>
       {{ $t("chats.chats") }}
     </overline>
@@ -218,9 +218,8 @@
               chat.recipient
                 ? chat.typers?.find(
                     (typer) => typer.userId === chat.recipient.id
-                  )
-                : // exclude the current user from the typers list
-                  chat.typers?.find((typer) => typer.userId !== $user.user?.id)
+                  ) // exclude the current user from the typers list
+                : chat.typers?.find((typer) => typer.userId !== $user.user?.id)
             "
             :emulated-status="
               chat.type === 'group' && chat.onlineCount > 1

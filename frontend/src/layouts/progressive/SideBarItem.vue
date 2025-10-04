@@ -9,6 +9,7 @@ import { useRoute, useRouter } from "vue-router";
 import { useAppStore } from "@/store/app.store";
 import { useDisplay } from "vuetify";
 import { useExperimentsStore } from "@/store/experiments.store";
+import { useShimmer } from "@/plugins/composables/useShimmer";
 
 const props = defineProps({
   highlighted: Boolean,
@@ -134,6 +135,16 @@ function openContextMenu(event: MouseEvent) {
     show: true
   };
 }
+
+const {
+  eligibleForShimmer,
+  shimmerX,
+  shimmerY,
+  isHovered,
+  handleMouseMove,
+  handleMouseEnter,
+  handleMouseLeave
+} = useShimmer();
 </script>
 
 <template>
@@ -145,13 +156,16 @@ function openContextMenu(event: MouseEvent) {
     tabindex="-1"
   >
     <div
-      class="rounded-2xl hover:bg-outline-light p-2 cursor-pointer flex items-center h-full w-full relative dark:fill-white"
+      class="shimmer-parent rounded-2xl hover:bg-outline-light p-2 cursor-pointer flex items-center h-full w-full relative dark:fill-white"
       :class="{
         'dark:bg-outline-dark bg-outline-light': selected || props.highlighted,
         'rounded-full': props.highlighted,
         'cursor-not-allowed opacity-50': props.disabled,
         'dark:hover:bg-outline-amoled': !selected && !props.highlighted,
-        'tutorial-tip-glow-superbar': tutorialTipActive
+        'tutorial-tip-glow-superbar': tutorialTipActive,
+        'chip-never-active transition-transform duration-150 ease-out active:scale-[97%]':
+          experimentsStore.experiments.INTERACTIVE_BUTTONS &&
+          !experimentsStore.experiments.DISABLE_ANIMATIONS
       }"
       @click.prevent.stop="handleClick"
       v-ripple
@@ -168,7 +182,20 @@ function openContextMenu(event: MouseEvent) {
         $event.target?.click();
       "
       @contextmenu="openContextMenu"
+      @mousemove="handleMouseMove"
+      @mouseenter="handleMouseEnter"
+      @mouseleave="handleMouseLeave"
     >
+      <div
+        v-if="eligibleForShimmer"
+        class="shimmer-effect"
+        :class="{ active: isHovered }"
+        :style="{
+          '--shimmer-x': shimmerX + '%',
+          '--shimmer-y': shimmerY + '%',
+          '--shimmer-strength': !$vuetify.theme.dark ? '10%' : '5%'
+        }"
+      ></div>
       <slot />
       <template v-if="item?.selectedIcon || item?.icon">
         <component

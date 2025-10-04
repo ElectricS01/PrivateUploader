@@ -325,8 +325,8 @@ onMounted(() => {
         duration: 1000
       });
   }
-  if (!props.skipInit) tlLoading.pause();
-  if (props.skipInit) tlLoading.play();
+  if (!props.skipInit && props.animate) tlLoading.pause();
+  if (props.skipInit && props.animate) tlLoading.play();
 });
 
 watch(

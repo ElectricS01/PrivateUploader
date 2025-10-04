@@ -5,7 +5,7 @@ import {
   SetExperimentMutation
 } from "@/graphql/core/experiments.graphql";
 import { useApolloClient } from "@vue/apollo-composable";
-import { ref, watch } from "vue";
+import { onMounted, ref, watch } from "vue";
 import { gql } from "@apollo/client/core";
 import { ExperimentOverrideInput } from "@/gql/graphql";
 
@@ -70,6 +70,7 @@ export const useExperimentsStore = defineStore("experiments", () => {
         //
       }
     }
+
     const {
       data: { experiments: getExperiments }
     } = await useApolloClient().client.query({

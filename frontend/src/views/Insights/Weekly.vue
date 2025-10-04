@@ -23,33 +23,33 @@
         </span>
       </v-card-text>
       <div v-if="!$vuetify.display.mobile" class="float-right mb-3 mr-4">
-        <v-btn
+        <tpu-btn
           :color="type === 'weekly' ? 'black' : 'white'"
           :to="'/insights/weekly' + requiredString"
           class="mr-2"
         >
           {{ $t("insights.types.weekly") }}
-        </v-btn>
-        <v-btn
+        </tpu-btn>
+        <tpu-btn
           :color="type === 'weekly' ? 'black' : 'white'"
           :to="'/insights/monthly' + requiredString"
           class="mr-2"
         >
           {{ $t("insights.types.monthly") }}
-        </v-btn>
-        <v-btn
+        </tpu-btn>
+        <tpu-btn
           :color="type === 'weekly' ? 'black' : 'white'"
           :to="'/insights/yearly' + requiredString"
           class="mr-2"
         >
           {{ $t("insights.types.annually") }}
-        </v-btn>
-        <v-btn
+        </tpu-btn>
+        <tpu-btn
           :color="type === 'weekly' ? 'black' : 'white'"
           :to="'/insights/dynamic' + requiredString"
         >
           {{ $t("insights.types.dynamic") }}
-        </v-btn>
+        </tpu-btn>
       </div>
     </DynamicCard>
     <div class="d-flex justify-center">
@@ -152,8 +152,8 @@
           <InsightsStatsCard
             :subtitle="
               $t('insights.statsCards.upload.subtitle', {
-                hour: report?.data.uploads.hours.series[0].data.reduce(
-                  (a, b) => (a.y > b.y ? a : b)
+                hour: report?.data.uploads.hours.series[0].data.reduce((a, b) =>
+                  a.y > b.y ? a : b
                 ).x
               })
             "
@@ -259,8 +259,8 @@
             :title="$t('insights.statsCards.uploadsPerYear.title')"
             :subtitle="
               $t('insights.statsCards.uploadsPerYear.subtitle', {
-                year: report?.data.uploads.years.series[0].data.reduce(
-                  (a, b) => (a.y > b.y ? a : b)
+                year: report?.data.uploads.years.series[0].data.reduce((a, b) =>
+                  a.y > b.y ? a : b
                 ).x
               })
             "
@@ -678,9 +678,11 @@ export default defineComponent({
           path: this.$route.path
         },
         rail: [
-          this.$ui.navigation.options[RailMode.HOME].find(
-            (item) => item.path === "/users"
-          ),
+          this.$ui.navigation.options[
+            this.$experiments.experiments.USERS_IN_DASH
+              ? RailMode.HOME
+              : RailMode.SOCIAL
+          ].find((item) => item.path === "/users"),
           this.$ui.userRail(this.$route.params.username),
           this.$ui.navigation.options[RailMode.HOME].find(
             (item) => item.path === "/insights"

@@ -30,10 +30,10 @@
         }}
       </v-card-subtitle>
       <v-card-actions>
-        <v-btn to="/" :active="false">Cancel</v-btn>
+        <tpu-btn to="/" :active="false">Cancel</tpu-btn>
         <v-spacer />
-        <v-btn v-if="$user.user" color="blue" @click="join">Join</v-btn>
-        <v-btn
+        <tpu-btn v-if="$user.user" color="blue" @click="join">Join</tpu-btn>
+        <tpu-btn
           v-else
           color="blue"
           @click="
@@ -45,7 +45,7 @@
           "
         >
           Login & Join
-        </v-btn>
+        </tpu-btn>
       </v-card-actions>
     </v-card>
     <v-card
@@ -69,7 +69,7 @@
       </v-card-subtitle>
       <v-card-actions>
         <v-spacer />
-        <v-btn color="blue" to="/" :active="false">Continue</v-btn>
+        <tpu-btn color="blue" to="/" :active="false">Continue</tpu-btn>
       </v-card-actions>
     </v-card>
   </div>

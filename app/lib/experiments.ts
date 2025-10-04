@@ -1,7 +1,24 @@
 import { registerEnumType } from "type-graphql"
 
 export enum Experiments {
+  // Compliance
+  UNAVAILABLE_IN_REGION = "UNAVAILABLE_IN_REGION",
+  ID_VERIFICATION_REQUIRED = "ID_VERIFICATION_REQUIRED",
+
+  // Private Files Update
+  ENCRYPTED_FILES = "ENCRYPTED_FILES",
+  PRIVATE_FILES = "PRIVATE_FILES",
+
+  REMOVE_PUBLIC_USERS = "REMOVE_PUBLIC_USERS",
+  USERS_IN_DASH = "USERS_IN_DASH",
+
+  SETTINGS_MOVE_INTRO = "SETTINGS_MOVE_INTRO",
+  SUPERBAR_SETTINGS_NORMAL_ITEM = "SUPERBAR_SETTINGS_NORMAL_ITEM",
+
+  INTERACTIVE_BUTTONS = "INTERACTIVE_BUTTONS",
   DIALOG_REFRESH = "DIALOG_REFRESH",
+
+  // Original Experiments
   REGISTER_V2_LANDING = "REGISTER_V2_LANDING",
   REGISTER_V2 = "REGISTER_V2",
   REGISTER_INTRO = "REGISTER_INTRO",
@@ -100,7 +117,16 @@ export type ExperimentsLegacy = Experiments | ExperimentsMeta
 
 export function getExperiments() {
   return {
-    DIALOG_REFRESH: false,
+    UNAVAILABLE_IN_REGION: false,
+    ID_VERIFICATION_REQUIRED: false,
+    ENCRYPTED_FILES: false,
+    PRIVATE_FILES: false,
+    REMOVE_PUBLIC_USERS: false,
+    USERS_IN_DASH: true,
+    SETTINGS_MOVE_INTRO: true,
+    SUPERBAR_SETTINGS_NORMAL_ITEM: true,
+    INTERACTIVE_BUTTONS: true,
+    DIALOG_REFRESH: true,
     REGISTER_V2_LANDING: false,
     REGISTER_V2: true,
     REGISTER_INTRO: 0,
@@ -194,6 +220,54 @@ export function getExperiments() {
     // ALWAYS LAST! USED FOR CODEGEN
     ZZ_TEST: false,
     meta: {
+      UNAVAILABLE_IN_REGION: {
+        description: "Unavailable in Region.",
+        createdAt: "2025-10-03T00:00:00.000Z",
+        versions: [4, 5]
+      },
+      ID_VERIFICATION_REQUIRED: {
+        description: "Require ID verification (Compliance)",
+        createdAt: "2025-10-03T00:00:00.000Z",
+        versions: [4, 5]
+      },
+      ENCRYPTED_FILES: {
+        description:
+          "Give the user access to Encrypted Files (Private Files Update)",
+        createdAt: "2025-10-03T00:00:00.000Z",
+        versions: [4, 5]
+      },
+      PRIVATE_FILES: {
+        description:
+          "Give the user access to Unencrypted Files, but private (requires login to access direct link) (Private Files Update)",
+        createdAt: "2025-10-03T00:00:00.000Z",
+        versions: [4, 5]
+      },
+      REMOVE_PUBLIC_USERS: {
+        description: "Remove the Explore Users page.",
+        createdAt: "2025-10-03T00:00:00.000Z",
+        versions: [4, 5]
+      },
+      USERS_IN_DASH: {
+        description: "Revert moving Explore Users to the Social Hub.",
+        createdAt: "2025-10-03T00:00:00.000Z",
+        versions: [4, 5]
+      },
+      SETTINGS_MOVE_INTRO: {
+        description: "Show tutorial introduction about new Settings location.",
+        createdAt: "2025-10-03T00:00:00.000Z",
+        versions: [4, 5]
+      },
+      SUPERBAR_SETTINGS_NORMAL_ITEM: {
+        description: "Move Settings to look like a regular Superbar item.",
+        createdAt: "2025-10-03T00:00:00.000Z",
+        versions: [4, 5]
+      },
+      INTERACTIVE_BUTTONS: {
+        description:
+          "Enable interactive buttons. Responsible for: Shimmer, Button Press Effect",
+        createdAt: "2025-10-03T00:00:00.000Z",
+        versions: [4, 5]
+      },
       DIALOG_REFRESH: {
         description: "Use new design language for dialogs.",
         createdAt: "2025-02-15T00:00:00.000Z",

@@ -27,10 +27,10 @@
           </div>
           <v-card-actions>
             <v-spacer />
-            <v-btn :loading="loading" color="primary" @click="step++">
+            <tpu-btn :loading="loading" color="primary" @click="step++">
               {{ $t("generic.next") }}
               <v-icon class="ml-1">mdi-arrow-right</v-icon>
-            </v-btn>
+            </tpu-btn>
           </v-card-actions>
         </v-card>
       </template>
@@ -84,14 +84,14 @@
           </v-form>
           <v-card-actions>
             <v-spacer />
-            <v-btn
+            <tpu-btn
               :loading="loading"
               color="primary"
               @click="testMariaDBConnection"
             >
               {{ $t("generic.next") }}
               <v-icon class="ml-1">mdi-arrow-right</v-icon>
-            </v-btn>
+            </tpu-btn>
           </v-card-actions>
         </v-card>
       </template>
@@ -125,14 +125,14 @@
           </v-form>
           <v-card-actions>
             <v-spacer />
-            <v-btn
+            <tpu-btn
               :loading="loading"
               color="primary"
               @click="createDefaultPlan"
             >
               {{ $t("generic.next") }}
               <v-icon class="ml-1">mdi-arrow-right</v-icon>
-            </v-btn>
+            </tpu-btn>
           </v-card-actions>
         </v-card>
       </template>
@@ -178,14 +178,14 @@
           </v-form>
           <v-card-actions>
             <v-spacer />
-            <v-btn
+            <tpu-btn
               :loading="loading"
               color="primary"
               @click="createAdminAccount"
             >
               {{ $t("generic.next") }}
               <v-icon class="ml-1">mdi-arrow-right</v-icon>
-            </v-btn>
+            </tpu-btn>
           </v-card-actions>
         </v-card>
       </template>
@@ -251,10 +251,10 @@
           </v-form>
           <v-card-actions>
             <v-spacer />
-            <v-btn :loading="loading" color="primary" @click="step++">
+            <tpu-btn :loading="loading" color="primary" @click="step++">
               {{ $t("generic.next") }}
               <v-icon class="ml-1">mdi-arrow-right</v-icon>
-            </v-btn>
+            </tpu-btn>
           </v-card-actions>
         </v-card>
       </template>
@@ -333,16 +333,16 @@
             />
           </PromoCard>
           <v-card-actions>
-            <v-btn @click="step--">Back</v-btn>
+            <tpu-btn @click="step--">Back</tpu-btn>
             <v-spacer />
-            <v-btn
+            <tpu-btn
               :loading="loading"
               color="primary"
               @click="configureInstance"
             >
               {{ $t("generic.next") }}
               <v-icon class="ml-1">mdi-arrow-right</v-icon>
-            </v-btn>
+            </tpu-btn>
           </v-card-actions>
         </v-card>
       </template>
@@ -407,13 +407,13 @@
 
           <v-card-actions>
             <v-spacer />
-            <v-btn :loading="loading" @click="testMail">
+            <tpu-btn :loading="loading" @click="testMail">
               {{ $t("setup.step6.test") }}
-            </v-btn>
-            <v-btn :loading="loading" color="primary" @click="configureMail">
+            </tpu-btn>
+            <tpu-btn :loading="loading" color="primary" @click="configureMail">
               {{ $t("generic.next") }}
               <v-icon class="ml-1">mdi-arrow-right</v-icon>
-            </v-btn>
+            </tpu-btn>
           </v-card-actions>
         </v-card>
       </template>
@@ -442,9 +442,9 @@
             </v-card-text>
             <v-card-actions>
               <v-spacer />
-              <v-btn :loading="loading" @click="setupDomain">
+              <tpu-btn :loading="loading" @click="setupDomain">
                 {{ $t("generic.next") }}
-              </v-btn>
+              </tpu-btn>
             </v-card-actions>
           </v-form>
         </v-card>
@@ -466,14 +466,14 @@
               <v-card-text class="text-grey overflow">
                 {{ $t("setup.step7.subtitle") }}
               </v-card-text>
-              <v-btn
+              <tpu-btn
                 :loading="loading"
                 class="mb-4"
                 color="primary"
                 @click="restartTPU"
               >
                 {{ $t("setup.step7.restart") }}
-              </v-btn>
+              </tpu-btn>
             </v-container>
           </div>
         </v-card>

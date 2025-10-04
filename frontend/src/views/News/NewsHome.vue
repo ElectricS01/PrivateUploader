@@ -51,13 +51,13 @@
                 {{ announcement.description }}
               </v-card-text>
               <v-card-actions>
-                <v-btn
+                <tpu-btn
                   :to="`/news/${announcement.id}`"
                   variant="outlined"
                   class="ml-2"
                 >
                   Read more
-                </v-btn>
+                </tpu-btn>
               </v-card-actions>
             </div>
           </div>
@@ -88,7 +88,7 @@
     >
       <accessible-transition mode="out-in" name="slide-up" appear>
         <div class="flex gap-2">
-          <v-btn
+          <tpu-btn
             icon
             size="small"
             href="https://troplo.com/admin/announcements/new"
@@ -98,7 +98,7 @@
             <v-tooltip location="bottom" activator="parent">
               Create post on Troplo.com
             </v-tooltip>
-          </v-btn>
+          </tpu-btn>
         </div>
       </accessible-transition>
     </teleport>

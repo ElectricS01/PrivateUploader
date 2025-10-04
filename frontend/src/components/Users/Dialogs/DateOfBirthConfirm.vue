@@ -18,14 +18,14 @@
     />
     <v-card-actions>
       <v-spacer />
-      <v-btn
+      <tpu-btn
         color="blue"
         @click="confirmDOB()"
         :disabled="!dateOfBirth"
         :loading="loading"
       >
         {{ $t("dialogs.dateOfBirthConfirm.action") }}
-      </v-btn>
+      </tpu-btn>
     </v-card-actions>
   </CoreDialog>
 </template>

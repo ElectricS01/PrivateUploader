@@ -19,11 +19,11 @@
       {{ item.user?.username || "Unresolved user" }}
       <template v-if="dev">({{ item.id }})</template>
       <template v-if="item.user?.id === $chat.editingChat.userId">
-        <span>
+        <span class="ml-2">
           <v-tooltip activator="parent" location="top">
             {{ $t("chats.roles.owner") }}
           </v-tooltip>
-          <v-icon color="gold">mdi-crown</v-icon>
+          <v-icon color="gold" size="small">mdi-crown</v-icon>
         </span>
       </template>
     </template>
@@ -65,7 +65,7 @@
       {{ $date(item.user?.createdAt).fromNow() }}
     </template>
     <template #[`item.actions`]="{ item }: any">
-      <v-btn
+      <tpu-btn
         icon
         class="my-1"
         :disabled="item.user?.id === $chat.editingChat.userId"
@@ -81,8 +81,8 @@
           {{ $t("chats.settings.users.remove") }}
         </v-tooltip>
         <v-icon>mdi-close</v-icon>
-      </v-btn>
-      <v-btn
+      </tpu-btn>
+      <tpu-btn
         v-if="$chat.editingChat.userId === $user.user.id"
         icon
         class="my-1"
@@ -96,7 +96,7 @@
           {{ $t("chats.settings.users.transferOwnership") }}
         </v-tooltip>
         <v-icon>mdi-swap-horizontal</v-icon>
-      </v-btn>
+      </tpu-btn>
     </template>
   </v-data-table>
 </template>

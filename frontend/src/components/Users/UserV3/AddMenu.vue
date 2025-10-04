@@ -1,5 +1,5 @@
 <template>
-  <v-btn class="float-right mb-2">
+  <tpu-btn class="float-right mb-2">
     <v-menu activator="parent" location="bottom">
       <template #activator>
         <v-icon class="mr-1">mdi-plus</v-icon>
@@ -21,7 +21,7 @@
         </div>
       </v-list>
     </v-menu>
-  </v-btn>
+  </tpu-btn>
 </template>
 
 <script lang="ts" setup>

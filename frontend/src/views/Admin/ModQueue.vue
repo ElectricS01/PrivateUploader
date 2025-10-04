@@ -8,7 +8,7 @@
   >
     <template #title>Enter your password or TOTP to delete</template>
     <template #actions="{ confirm }">
-      <v-btn color="red" @click="confirm">Delete Account</v-btn>
+      <tpu-btn color="red" @click="confirm">Delete Account</tpu-btn>
     </template>
   </DangerZoneDialog>
   <CoreDialog
@@ -39,8 +39,8 @@
       />
     </v-card-text>
     <v-card-actions>
-      <v-btn @click="dialogs.report.value = false">Cancel</v-btn>
-      <v-btn color="red" @click="punish">Do action</v-btn>
+      <tpu-btn @click="dialogs.report.value = false">Cancel</tpu-btn>
+      <tpu-btn color="red" @click="punish">Do action</tpu-btn>
     </v-card-actions>
   </CoreDialog>
   <CoreDialog
@@ -54,8 +54,8 @@
       Are you sure you want to trust this user? Undo from admin panel
     </v-card-text>
     <v-card-actions>
-      <v-btn @click="dialogs.trusted.value = false">Cancel</v-btn>
-      <v-btn
+      <tpu-btn @click="dialogs.trusted.value = false">Cancel</tpu-btn>
+      <tpu-btn
         color="green"
         @click="
           $admin.setTrusted(dialogs.trusted.id, true);
@@ -63,7 +63,7 @@
         "
       >
         Trust
-      </v-btn>
+      </tpu-btn>
     </v-card-actions>
   </CoreDialog>
   <Gallery
@@ -89,7 +89,7 @@
     <template
       #appbar-options-selected="{ selected, $emit, deselectAll, select }"
     >
-      <v-btn icon size="small" color="red">
+      <tpu-btn icon size="small" color="red">
         <v-tooltip
           activator="parent"
           location="bottom"
@@ -108,8 +108,8 @@
           Flag selected
         </v-tooltip>
         <RiFlagLine class="action-bar-item" />
-      </v-btn>
-      <v-btn icon size="small" color="green">
+      </tpu-btn>
+      <tpu-btn icon size="small" color="green">
         <v-tooltip activator="parent" location="bottom">
           Approve selected
         </v-tooltip>
@@ -127,7 +127,7 @@
           "
           :loading="loading"
         />
-      </v-btn>
+      </tpu-btn>
     </template>
     <template #custom-values="{ item }">
       <v-card-subtitle>

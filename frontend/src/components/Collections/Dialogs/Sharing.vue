@@ -45,9 +45,9 @@
             </v-list-item>
           </template>
         </v-autocomplete>
-        <v-btn icon @click="addUser" :disabled="!friend">
+        <tpu-btn icon @click="addUser" :disabled="!friend">
           <RiAddLine />
-        </v-btn>
+        </tpu-btn>
       </div>
     </v-card-text>
     <v-data-table :items="users" :headers="headers" class="pt-2">
@@ -60,7 +60,7 @@
               {{ $t("collections.sharing.pending") }}
             </span>
           </div>
-          <v-btn
+          <tpu-btn
             v-if="item.user.id === collection.userId"
             icon
             :ripple="false"
@@ -70,7 +70,7 @@
               {{ $t("chats.roles.owner") }}
             </v-tooltip>
             <RiVipCrownFill class="action-bar-item" />
-          </v-btn>
+          </tpu-btn>
         </div>
       </template>
       <template v-slot:item.read="{ item }: any">
@@ -159,7 +159,7 @@
             </div>
           </template>
           <template #default="{ toggle }: any">
-            <v-btn
+            <tpu-btn
               style="width: 40px; height: 40px"
               icon
               @click="
@@ -173,30 +173,30 @@
               :disabled="!item.accepted"
             >
               <RiUserSharedLine class="w-full h-full" />
-            </v-btn>
+            </tpu-btn>
           </template>
 
           <template #actions="{ confirm }">
-            <v-btn :loading="loading" @click="confirm()" class="mt-4">
+            <tpu-btn :loading="loading" @click="confirm()" class="mt-4">
               {{ $t("collections.transfer.action") }}
-            </v-btn>
+            </tpu-btn>
           </template>
         </danger-zone-dialog>
-        <v-btn
+        <tpu-btn
           style="width: 40px; height: 40px"
           icon
           :disabled="item.recipientId === collection.userId"
           @click="removeUser(item.recipientId)"
         >
           <RiCloseLine class="w-full h-full" />
-        </v-btn>
+        </tpu-btn>
       </template>
     </v-data-table>
     <v-card-actions>
       <v-spacer />
-      <v-btn color="blue darken-1" @click="$emit('update:modelValue', false)">
+      <tpu-btn color="blue darken-1" @click="$emit('update:modelValue', false)">
         OK
-      </v-btn>
+      </tpu-btn>
     </v-card-actions>
   </CoreDialog>
 </template>

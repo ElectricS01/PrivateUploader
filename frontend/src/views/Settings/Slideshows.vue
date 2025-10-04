@@ -14,9 +14,9 @@
           <template #title>
             {{ slideshow.name }}
             <div style="float: right">
-              <v-btn icon @click="deleteSlideshow(slideshow)">
+              <tpu-btn icon @click="deleteSlideshow(slideshow)">
                 <v-icon>mdi-close</v-icon>
-              </v-btn>
+              </tpu-btn>
             </div>
           </template>
           <template #text>

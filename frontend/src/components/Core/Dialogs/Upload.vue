@@ -28,13 +28,13 @@
     </v-card-text>
     <v-card-actions>
       <v-spacer />
-      <v-btn
+      <tpu-btn
         :loading="$app.dialogs.upload.loading"
         color="primary"
         @click="upload"
       >
         Upload
-      </v-btn>
+      </tpu-btn>
     </v-card-actions>
   </CoreDialog>
 </template>

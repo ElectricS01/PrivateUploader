@@ -6,7 +6,7 @@
       <span :style="{ color: item.connected ? '#0190ea' : '#e12929' }">
         &nbsp;
         {{ item.connected ? "Connected" : "Disconnected" }}
-        <v-btn color="white" @click="item.disconnect">Kill</v-btn>
+        <tpu-btn color="white" @click="item.disconnect">Kill</tpu-btn>
       </span>
     </div>
     Ensure the scoped password/API has permissions for socket.

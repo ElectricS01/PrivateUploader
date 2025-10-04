@@ -43,19 +43,16 @@
       </template>
       <accessible-transition
         v-if="canEdit"
-        :duration="{ enter: 300, leave: 300 }"
+        :duration="{ enter: 100, leave: 100 }"
         appear
         name="fade-transition"
       >
-        <v-btn
-          variant="flat"
-          v-if="isHovering"
-          icon
-          style="position: absolute; top: 10px; right: 10px"
-          @click="dialog = true"
-        >
-          <v-icon>mdi-pencil</v-icon>
-        </v-btn>
+        <div class="d-flex relative justify-between" v-if="isHovering">
+          <v-spacer></v-spacer>
+          <tpu-btn class="ma-2" variant="flat" icon @click="dialog = true">
+            <v-icon>mdi-pencil</v-icon>
+          </tpu-btn>
+        </div>
       </accessible-transition>
       <slot :hovering="isHovering" />
     </v-img>

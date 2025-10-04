@@ -11,7 +11,7 @@
     >
       <accessible-transition mode="out-in" name="slide-up" appear>
         <div class="flex gap-2">
-          <v-btn
+          <tpu-btn
             icon
             size="small"
             :href="`https://troplo.com/admin/announcements/${announcement?.id}`"
@@ -21,7 +21,7 @@
             <v-tooltip location="bottom" activator="parent">
               Edit on Troplo.com
             </v-tooltip>
-          </v-btn>
+          </tpu-btn>
         </div>
       </accessible-transition>
     </teleport>

@@ -42,10 +42,10 @@
         environments) to make manual changes to the TPU environment, and press
         the Restart button below to restart the TPU cluster.
         <br />
-        <v-btn class="mx-3 my-3" variant="outlined" @click="restart">
+        <tpu-btn class="mx-3 my-3" variant="outlined" @click="restart">
           <v-icon>mdi-restart</v-icon>
           Restart TPU Cluster
-        </v-btn>
+        </tpu-btn>
         <br />
         <v-card-title style="padding: 0">Raw Config Options:</v-card-title>
         <p class="text-grey mb-4">
@@ -54,7 +54,7 @@
           to take effect.
         </p>
         <div v-if="config">
-          <v-btn
+          <tpu-btn
             :loading="loading"
             class="mx-3 my-3 ml-n1"
             variant="outlined"
@@ -62,7 +62,7 @@
           >
             <v-icon class="mr-2">mdi-content-save</v-icon>
             Save Config
-          </v-btn>
+          </tpu-btn>
           <div v-for="(value, key, i) in config" :key="key">
             <v-card-text v-if="i === 0" style="padding: 0">root:</v-card-text>
             <ConfigObject
@@ -74,7 +74,7 @@
               @update:object="update"
             />
           </div>
-          <v-btn
+          <tpu-btn
             :loading="loading"
             class="mx-3 my-3 ml-n1"
             variant="outlined"
@@ -82,7 +82,7 @@
           >
             <v-icon class="mr-2">mdi-content-save</v-icon>
             Save Config
-          </v-btn>
+          </tpu-btn>
         </div>
       </v-container>
     </v-card>
@@ -90,10 +90,10 @@
       <v-card-title>
         For management please use TPU Classic until the admin panel is added.
       </v-card-title>
-      <v-btn class="mx-3 my-3" variant="outlined" @click="restart">
+      <tpu-btn class="mx-3 my-3" variant="outlined" @click="restart">
         <v-icon>mdi-restart</v-icon>
         Restart TPU Cluster
-      </v-btn>
+      </tpu-btn>
     </v-card>
   </v-container>
 </template>
@@ -118,7 +118,7 @@ export default defineComponent({
   async mounted() {
     this.getDashboard();
     this.getConfig();
-    const experiments = await this.$experiments.getEmergencyOverrides();
+    const experiments = await this.$experiments.getEmergencyOverrides(0);
     this.newUI = experiments.find((k) => k.id === "PROGRESSIVE_UI")?.value;
     this.newUISwitch = experiments.find(
       (k) => k.id === "CAN_ENABLE_PROGRESSIVE_UI"

@@ -23,9 +23,9 @@
     </v-card-text>
     <v-card-actions>
       <v-spacer />
-      <v-btn color="primary" @click="$emit('update:modelValue', false)">
+      <tpu-btn color="primary" @click="$emit('update:modelValue', false)">
         {{ $t("generic.close") }}
-      </v-btn>
+      </tpu-btn>
     </v-card-actions>
   </CoreDialog>
 </template>

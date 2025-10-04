@@ -6,10 +6,28 @@
     :href="href"
     :size="sizeComputed"
     :to="to"
-    class="mr-2 chip-never-active"
+    class="shimmer-parent mr-2 overflow-hidden"
+    :class="{
+      'chip-never-active transition-transform duration-150 ease-out active:scale-95 origin-center':
+        $experiments.experiments.INTERACTIVE_BUTTONS &&
+        !$experiments.experiments.DISABLE_ANIMATIONS
+    }"
     style="cursor: pointer"
     @click="() => {}"
+    @mousemove="handleMouseMove"
+    @mouseenter="handleMouseEnter"
+    @mouseleave="handleMouseLeave"
   >
+    <div
+      v-if="eligibleForShimmer"
+      class="shimmer-effect"
+      :class="{ active: isHovered }"
+      :style="{
+        '--shimmer-x': shimmerX + '%',
+        '--shimmer-y': shimmerY + '%',
+        '--shimmer-strength': '5%'
+      }"
+    ></div>
     <template v-if="typeof icon === 'string'">
       <v-icon
         v-if="!shortText && icon"
@@ -24,6 +42,7 @@
     <v-img v-if="image" :height="18" :src="image" :width="18" />
     <span v-else class="unselectable">{{ shortText }}</span>
     <v-tooltip
+      v-if="text"
       :eager="false"
       activator="parent"
       location="top"
@@ -32,11 +51,13 @@
       {{ text }}
     </v-tooltip>
     <span v-if="old" class="ml-1">{{ text }}</span>
+    <slot />
   </v-chip>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
+import { useShimmer } from "@/plugins/composables/useShimmer";
 
 export default defineComponent({
   name: "HoverChip",
@@ -61,6 +82,27 @@ export default defineComponent({
     "ariaLabel",
     "disabledText"
   ],
+  setup() {
+    const {
+      eligibleForShimmer,
+      shimmerX,
+      shimmerY,
+      isHovered,
+      handleMouseMove,
+      handleMouseEnter,
+      handleMouseLeave
+    } = useShimmer();
+
+    return {
+      eligibleForShimmer,
+      shimmerX,
+      shimmerY,
+      isHovered,
+      handleMouseMove,
+      handleMouseEnter,
+      handleMouseLeave
+    };
+  },
   computed: {
     contrast() {
       return "white";

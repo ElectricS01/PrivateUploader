@@ -22,9 +22,9 @@
           label="Rule"
           return-object
         />
-        <v-btn color="red" @click="runGallery">
+        <tpu-btn color="red" @click="runGallery">
           Run entire gallery through AutoCollect Rule (may take up to 24h)
-        </v-btn>
+        </tpu-btn>
       </v-container>
     </v-card>
   </v-container>

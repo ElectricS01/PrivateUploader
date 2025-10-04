@@ -219,9 +219,9 @@
         />
         {{ replying?.content }}
         <v-spacer />
-        <v-btn @click="replyId = null">
+        <tpu-btn @click="replyId = null">
           <v-icon>mdi-close</v-icon>
-        </v-btn>
+        </tpu-btn>
       </v-toolbar>
       <v-toolbar v-if="files.length" color="card" height="auto">
         <v-slide-group class="my-2 mx-1">
@@ -244,13 +244,13 @@
                 </v-card-text>
                 <v-spacer />
                 <v-card-actions>
-                  <v-btn
+                  <tpu-btn
                     class="mr-2"
                     color="error"
                     @click="files.splice(index, 1)"
                   >
                     <v-icon>mdi-close</v-icon>
-                  </v-btn>
+                  </tpu-btn>
                 </v-card-actions>
               </v-toolbar>
             </v-card>
@@ -410,11 +410,11 @@ export default defineComponent({
             you: true
           }
         : this.$user.users[this.chat?.recipient?.id]?.blocked
-          ? {
-              value: true,
-              you: false
-            }
-          : { value: false, you: false };
+        ? {
+            value: true,
+            you: false
+          }
+        : { value: false, you: false };
     },
     ScrollPosition() {
       return ScrollPosition;

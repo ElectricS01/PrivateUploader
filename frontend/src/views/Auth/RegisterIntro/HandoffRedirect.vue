@@ -14,6 +14,7 @@ onMounted(() => {
   // We don't want to show the same Social Hub tooltip twice in the setup process
   // This flag is for existing users who haven't seen the Social Hub yet
   experimentsStore.setExperiment("SOCIAL_HUB_MOVE_INTRO", 0);
+  experimentsStore.setExperiment("SETTINGS_MOVE_INTRO", 0);
 });
 </script>
 

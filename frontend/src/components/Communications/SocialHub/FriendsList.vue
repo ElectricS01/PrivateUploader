@@ -33,7 +33,7 @@
           }}
         </v-list-item-subtitle>
         <template #append>
-          <v-btn
+          <tpu-btn
             v-if="
               friend.status === FriendStatus.Accepted ||
               friend.status === FriendStatus.Outgoing
@@ -61,8 +61,8 @@
               </template>
             </v-tooltip>
             <v-icon>mdi-close</v-icon>
-          </v-btn>
-          <v-btn
+          </tpu-btn>
+          <tpu-btn
             v-if="friend.status === FriendStatus.Incoming"
             color="success"
             icon
@@ -78,7 +78,7 @@
               }}
             </v-tooltip>
             <v-icon>mdi-check</v-icon>
-          </v-btn>
+          </tpu-btn>
         </template>
       </v-list-item>
     </template>

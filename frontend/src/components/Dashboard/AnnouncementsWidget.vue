@@ -5,7 +5,7 @@
         <strong class="text-gradient" style="font-size: 24px">
           {{ $t("dashboard.announcements") }}
         </strong>
-        <v-btn
+        <tpu-btn
           v-if="$user.user?.administrator"
           icon
           size="x-small"
@@ -14,7 +14,7 @@
           @click="newAnnouncement"
         >
           <v-icon>mdi-plus</v-icon>
-        </v-btn>
+        </tpu-btn>
       </span>
       <v-card
         v-for="announcement in announcements"
@@ -55,7 +55,7 @@
           >
             <template #append>
               <div class="d-flex flex-column">
-                <v-btn
+                <tpu-btn
                   icon
                   size="x-small"
                   :loading="loading"
@@ -66,8 +66,8 @@
                   "
                 >
                   <v-icon>mdi-check</v-icon>
-                </v-btn>
-                <v-btn
+                </tpu-btn>
+                <tpu-btn
                   icon
                   class="mt-1"
                   size="x-small"
@@ -78,7 +78,7 @@
                   "
                 >
                   <v-icon>mdi-close</v-icon>
-                </v-btn>
+                </tpu-btn>
               </div>
             </template>
             <template #details>
@@ -96,7 +96,7 @@
             }}
           </small>
           <template v-if="!announcement.editing && $user.user?.administrator">
-            <v-btn
+            <tpu-btn
               v-if="announcement.userId === $user.user?.id"
               icon
               size="x-small"
@@ -104,8 +104,8 @@
               @click="announcement.editing = true"
             >
               <v-icon>mdi-pencil</v-icon>
-            </v-btn>
-            <v-btn
+            </tpu-btn>
+            <tpu-btn
               icon
               size="x-small"
               class="ml-2"
@@ -113,7 +113,7 @@
               @click="deleteAnnouncement(announcement)"
             >
               <v-icon>mdi-delete</v-icon>
-            </v-btn>
+            </tpu-btn>
           </template>
         </v-card-text>
       </v-card>

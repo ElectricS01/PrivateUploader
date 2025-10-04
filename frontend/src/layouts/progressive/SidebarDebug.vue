@@ -10,7 +10,7 @@
       in CTRL + ALT + M Menu > Experiments
     </p>
 
-    <v-btn @click="toggleWidget('Action Dialog')">Open Dialog</v-btn>
+    <tpu-btn @click="toggleWidget('Action Dialog')">Open Dialog</tpu-btn>
   </div>
 </template>
 

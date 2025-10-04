@@ -12,9 +12,9 @@
         {{ description }}
       </p>
       <div class="mt-2" v-if="$slots.button">
-        <v-btn @click="$emit('button:click')" class="font-bold">
+        <tpu-btn @click="$emit('button:click')" class="font-bold">
           <slot name="button" />
-        </v-btn>
+        </tpu-btn>
       </div>
     </div>
   </div>

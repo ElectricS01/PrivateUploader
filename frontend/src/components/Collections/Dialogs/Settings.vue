@@ -9,33 +9,33 @@
     </template>
     <v-card-text v-if="collection">
       <v-text-field v-model="name" :autofocus="true" label="Name" required />
-      <v-btn class="ml-n4" color="red" @click="removeBanner">
+      <tpu-btn class="ml-n4" color="red" @click="removeBanner">
         {{ $t("collections.settings.removeBanner") }}
-      </v-btn>
-      <v-btn
+      </tpu-btn>
+      <tpu-btn
         :loading="loading"
         class="float-right"
         @click="downloadCollectionAsZIPFile"
       >
         <v-icon class="mr-1" style="font-size: 20px">mdi-download</v-icon>
         {{ $t("collections.settings.export") }}
-      </v-btn>
+      </tpu-btn>
     </v-card-text>
     <v-card-actions v-if="collection" class="mt-2">
-      <v-btn
+      <tpu-btn
         v-if="collection.userId === $user.user?.id"
         color="red"
         @click="deleteCollection"
       >
         {{ $t("collections.settings.delete") }}
-      </v-btn>
+      </tpu-btn>
       <v-spacer />
-      <v-btn color="blue darken-1" @click="$emit('update:modelValue', false)">
+      <tpu-btn color="blue darken-1" @click="$emit('update:modelValue', false)">
         {{ $t("generic.cancel") }}
-      </v-btn>
-      <v-btn color="blue darken-1" @click="updateSettings">
+      </tpu-btn>
+      <tpu-btn color="blue darken-1" @click="updateSettings">
         {{ $t("generic.update") }}
-      </v-btn>
+      </tpu-btn>
     </v-card-actions>
   </CoreDialog>
 </template>

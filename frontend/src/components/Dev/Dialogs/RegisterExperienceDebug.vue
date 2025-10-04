@@ -10,14 +10,14 @@
         experimentsStore.setExperiment('REGISTER_INTRO', <number>$event)
       "
     ></v-select>
-    <v-btn
+    <tpu-btn
       to="/register"
       :disabled="
         <number>experimentsStore.experiments.REGISTER_INTRO >= RegisterSteps.HANDOFF
       "
     >
       Go to setup flow page
-    </v-btn>
+    </tpu-btn>
   </v-container>
 </template>
 

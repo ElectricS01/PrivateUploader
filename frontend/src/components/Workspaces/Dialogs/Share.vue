@@ -30,7 +30,7 @@
     </v-card-text>
     <v-card-actions>
       <v-spacer />
-      <v-btn @click="$emit('update:modelValue', false)">Close</v-btn>
+      <tpu-btn @click="$emit('update:modelValue', false)">Close</tpu-btn>
     </v-card-actions>
   </CoreDialog>
 </template>

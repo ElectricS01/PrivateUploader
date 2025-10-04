@@ -18,7 +18,7 @@
             $chat.changeUsers($event, true, $chat.editingChat.association.id)
           "
         >
-          <v-btn
+          <tpu-btn
             v-if="$chat.hasPermission('ADD_USERS', $chat.editingChat)"
             class="float-end mr-2"
             icon
@@ -29,10 +29,10 @@
               {{ $t("chats.settings.addUser") }}
             </v-tooltip>
             <v-icon>mdi-account-plus</v-icon>
-          </v-btn>
+          </tpu-btn>
         </CreateChat>
 
-        <v-btn
+        <tpu-btn
           class="float-end"
           icon
           @click="$emit('update:modelValue', false)"
@@ -41,7 +41,7 @@
             {{ $t("generic.close") }}
           </v-tooltip>
           <v-icon>mdi-close</v-icon>
-        </v-btn>
+        </tpu-btn>
       </v-toolbar>
     </template>
     <v-overlay
@@ -128,7 +128,7 @@
           {{ $t("chats.settings.tabs.bans") }}
         </v-tab>
         <v-divider class="my-2" />
-        <v-btn
+        <tpu-btn
           v-if="$chat.editingChat.userId === $user.user.id"
           class="text-left"
           value="delete"
@@ -140,7 +140,7 @@
         >
           <v-icon class="mr-2">mdi-delete</v-icon>
           {{ $t("chats.leave.delete.title") }}
-        </v-btn>
+        </tpu-btn>
       </v-tabs>
       <div
         style="width: 100%"

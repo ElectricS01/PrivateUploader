@@ -1,7 +1,7 @@
 <template>
   <v-container>
     <overline>UI Options</overline>
-    <v-btn
+    <tpu-btn
       :color="$experiments.experiments.PROGRESSIVE_UI ? 'red' : 'blue'"
       variant="tonal"
       @click="
@@ -13,8 +13,8 @@
     >
       {{ $experiments.experiments.PROGRESSIVE_UI ? "Disable" : "Enable" }}
       New UI (v5in4)
-    </v-btn>
-    <v-btn
+    </tpu-btn>
+    <tpu-btn
       @click="
         $experiments.setExperiment(
           'DISABLE_ANIMATIONS',
@@ -24,7 +24,7 @@
     >
       {{ $experiments.experiments.DISABLE_ANIMATIONS ? "Enable" : "Disable" }}
       Animations (New UI)
-    </v-btn>
+    </tpu-btn>
   </v-container>
 </template>
 <script setup lang="ts">

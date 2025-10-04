@@ -6,7 +6,7 @@
           class="d-flex justify-space-between flex-1 mt-3 ml-2 position-absolute"
           style="width: 100%"
         >
-          <v-btn
+          <tpu-btn
             class="mr-2"
             icon
             size="small"
@@ -14,11 +14,11 @@
             @click="selection = null"
           >
             <v-icon>mdi-arrow-left</v-icon>
-          </v-btn>
+          </tpu-btn>
           <div v-else />
-          <v-btn class="mr-4" icon size="small" @click="model = false">
+          <tpu-btn class="mr-4" icon size="small" @click="model = false">
             <v-icon>mdi-close</v-icon>
-          </v-btn>
+          </tpu-btn>
         </div>
         <div class="flex-grow text-center mt-4">
           <p class="text-h5 font-weight-bold">
@@ -76,11 +76,11 @@
                 "
               >
                 <div class="d-flex flex-column align-center">
-                  <v-btn variant="outlined" icon size="96" :ripple="false">
+                  <tpu-btn variant="outlined" icon size="96" :ripple="false">
                     <v-icon class="mr-1" size="48">
                       mdi-account-multiple-plus
                     </v-icon>
-                  </v-btn>
+                  </tpu-btn>
                   <v-card-title class="text-h6">
                     Create a new group
                   </v-card-title>
@@ -100,9 +100,9 @@
                 "
               >
                 <div class="d-flex flex-column align-center">
-                  <v-btn variant="outlined" icon size="96" :ripple="false">
-                    <v-icon class="mr-1" size="48">mdi-account-multiple</v-icon>
-                  </v-btn>
+                  <tpu-btn variant="outlined" icon size="96" :ripple="false">
+                    <v-icon class="mr-1" size="48">links-line</v-icon>
+                  </tpu-btn>
                   <v-card-title class="text-h6">Have an invite?</v-card-title>
                   <v-card-subtitle class="text-caption">
                     Join an existing group
@@ -121,7 +121,7 @@
               "
             >
               <div class="d-flex align-center justify-center">
-                <v-icon>mdi-account</v-icon>
+                <v-icon>mdi-user</v-icon>
                 <v-card-title>Start a direct message</v-card-title>
               </div>
             </v-card>
@@ -179,15 +179,15 @@
           </p>
           <v-card-actions>
             <v-spacer />
-            <v-btn color="primary" @click="joinChat()" :loading="loading">
+            <tpu-btn color="primary" @click="joinChat()" :loading="loading">
               Join
-            </v-btn>
+            </tpu-btn>
           </v-card-actions>
         </template>
       </transition-group>
       <v-card-actions v-if="step === Step.Invite">
         <v-spacer />
-        <v-btn color="primary" @click="model = false">Finish</v-btn>
+        <tpu-btn color="primary" @click="model = false">Finish</tpu-btn>
       </v-card-actions>
     </div>
   </CoreDialog>

@@ -4,7 +4,7 @@
       <v-col>
         <v-card>
           <v-card-title>Memory Usage by Store</v-card-title>
-          <v-btn @click="memoryUsageByStore()">Refresh</v-btn>
+          <tpu-btn @click="memoryUsageByStore()">Refresh</tpu-btn>
           <v-card-text>
             <v-data-table
               :headers="[

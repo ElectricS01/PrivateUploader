@@ -17,9 +17,9 @@
     </v-container>
     <v-card-actions>
       <v-spacer />
-      <v-btn @click="create">
+      <tpu-btn @click="create">
         {{ $t("generic.create") }}
-      </v-btn>
+      </tpu-btn>
     </v-card-actions>
   </CoreDialog>
 </template>

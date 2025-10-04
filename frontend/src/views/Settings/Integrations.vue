@@ -61,7 +61,7 @@
         >
           <v-list-item-title>
             {{ getIntegrationMeta(integration.type).name }}
-            <v-btn
+            <tpu-btn
               v-if="integration.error"
               class="ml-1"
               color="red"
@@ -73,7 +73,7 @@
               <v-tooltip activator="parent" location="top">
                 {{ integration.error }}
               </v-tooltip>
-            </v-btn>
+            </tpu-btn>
           </v-list-item-title>
           <v-list-item-subtitle>
             {{ integration.providerUsername
@@ -91,9 +91,9 @@
             }}
           </v-list-item-subtitle>
           <template #append>
-            <v-btn icon @click="removeIntegration(integration.type)">
+            <tpu-btn icon @click="removeIntegration(integration.type)">
               <v-icon>mdi-close</v-icon>
-            </v-btn>
+            </tpu-btn>
           </template>
         </v-list-item>
       </v-list>
@@ -136,13 +136,13 @@
             :class="{ 'mb-n1': scope.description }"
           >
             {{ scope.name }}
-            <v-btn
+            <tpu-btn
               v-if="scope.id === 'oauth.save'"
               color="primary"
               class="ml-1"
             >
               {{ $t("settings.integrations.manageSaves") }}
-            </v-btn>
+            </tpu-btn>
           </v-list-item-title>
           <v-list-item-subtitle
             v-if="scope.description"
@@ -165,12 +165,12 @@
           {{ $t("settings.integrations.unlinkWarningSaves") }}
         </small>
         <v-card-actions>
-          <v-btn :to="`/oauth/${app.id}`" color="primary">
+          <tpu-btn :to="`/oauth/${app.id}`" color="primary">
             {{ $t("generic.login") }}
-          </v-btn>
-          <v-btn color="red" @click="disconnect(app.id)">
+          </tpu-btn>
+          <tpu-btn color="red" @click="disconnect(app.id)">
             {{ $t("settings.integrations.disconnect") }}
-          </v-btn>
+          </tpu-btn>
         </v-card-actions>
       </v-card>
     </v-container>

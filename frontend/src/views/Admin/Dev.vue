@@ -5,15 +5,15 @@
         <v-toolbar-title>Dev</v-toolbar-title>
       </v-toolbar>
       <v-card-text>
-        <v-btn @click="crash">Crash SPA</v-btn>
-        <v-btn @click="acceptFriends">Accept all friend requests</v-btn>
+        <tpu-btn @click="crash">Crash SPA</tpu-btn>
+        <tpu-btn @click="acceptFriends">Accept all friend requests</tpu-btn>
       </v-card-text>
       <v-card-text>
         <v-card-title>Send email</v-card-title>
         <v-text-field v-model="email" label="Email" />
         <v-text-field v-model="subject" label="Subject" />
         <v-textarea v-model="body" auto-grow label="Body" />
-        <v-btn @click="sendEmail">Send</v-btn>
+        <tpu-btn @click="sendEmail">Send</tpu-btn>
       </v-card-text>
       <v-card-text>
         <v-text-field
@@ -21,7 +21,7 @@
           label="Script Name"
           @keyup.enter="runScript"
         />
-        <v-btn @click="runScript">Run script</v-btn>
+        <tpu-btn @click="runScript">Run script</tpu-btn>
       </v-card-text>
     </v-card>
   </v-container>

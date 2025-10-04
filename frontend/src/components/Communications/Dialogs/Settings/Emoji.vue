@@ -12,9 +12,9 @@
     <v-card-subtitle class="initial" style="max-width: 600px">
       {{ $t("chats.settings.emoji.description") }}
     </v-card-subtitle>
-    <v-btn class="my-1 ml-2" @click="upload = true">
+    <tpu-btn class="my-1 ml-2" @click="upload = true">
       {{ $t("chats.settings.emoji.add") }}
-    </v-btn>
+    </tpu-btn>
     <v-list v-for="emoji in emojis" :key="emoji.id" max-width="600">
       <v-list-item>
         <template #prepend>
@@ -26,9 +26,9 @@
           />
         </template>
         <template #append>
-          <v-btn icon size="small" @click="deleteEmoji(emoji.id)">
+          <tpu-btn icon size="small" @click="deleteEmoji(emoji.id)">
             <v-icon>mdi-delete</v-icon>
-          </v-btn>
+          </tpu-btn>
         </template>
         <v-list-item-title
           v-if="editing !== emoji.id"

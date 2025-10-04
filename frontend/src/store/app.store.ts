@@ -198,7 +198,7 @@ export const useAppStore = defineStore("app", {
         {
           id: 6,
           externalPath: "",
-          path: "/gallery",
+          path: "/files",
           exact: false,
           name: i18n.t("core.sidebar.gallery"),
           icon: "mdi-image-multiple",
@@ -579,6 +579,7 @@ export const useAppStore = defineStore("app", {
         }
       }
       let experiments: any = localStorage.getItem("experimentsStore");
+      let failedExp = false;
       if (experiments) {
         try {
           experiments = JSON.parse(experiments);
@@ -586,7 +587,29 @@ export const useAppStore = defineStore("app", {
             experimentsStore.experiments[experiment.id] = experiment.value;
           }
         } catch {
-          //
+          failedExp = true;
+        }
+      } else {
+        failedExp = true;
+      }
+
+      if (failedExp) {
+        console.log("trying to load");
+        try {
+          //@ts-ignore
+          const experiments = window.GLOBAL_FLOWINITY_EXPERIMENTS;
+          //@ts-ignore
+          if (window.GLOBAL_FLOWINITY_EXPERIMENTS) {
+            const unbased = atob(experiments);
+            for (const experiment of unbased) {
+              console.log(`Loaded: ${experiment.id} (from pre-render)`);
+              experiments.value[experiment.id] = experiment.value;
+              if (!experiments.value["meta"]) experiments.value.meta = {};
+              experiments.value["meta"][experiment.id] = experiment;
+            }
+          }
+        } catch {
+          console.log("Failed loading experiments from pre-render string");
         }
       }
     },

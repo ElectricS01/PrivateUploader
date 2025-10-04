@@ -76,7 +76,13 @@ import { computed } from "vue";
 import { useTheme } from "vuetify";
 
 const theme = useTheme();
-const fill = computed(() => (theme.current.value.dark ? "#fff" : "#121212"));
+const props = defineProps<{
+  fill?: string;
+}>();
+
+const fill = computed(
+  () => props.fill || (theme.current.value.dark ? "#fff" : "#121212")
+);
 </script>
 
 <style scoped></style>

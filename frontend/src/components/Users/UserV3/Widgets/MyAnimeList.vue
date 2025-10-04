@@ -16,27 +16,31 @@
           days
         </template>
       </v-toolbar-title>
-      <v-btn
+      <tpu-btn
         icon
         :href="`https://myanimelist.net/profile/${malUser?.name}`"
         target="_blank"
         :disabled="!malUser?.name"
       >
         <v-icon>mdi-open-in-new</v-icon>
-      </v-btn>
-      <v-btn
+      </tpu-btn>
+      <tpu-btn
         icon
         :disabled="page === 1"
         @click="page > 1 ? page-- : (page = 1)"
       >
         <v-icon>mdi-chevron-left</v-icon>
-      </v-btn>
-      <v-btn icon @click="getMAL">
+      </tpu-btn>
+      <tpu-btn icon @click="getMAL">
         <v-icon>mdi-refresh</v-icon>
-      </v-btn>
-      <v-btn icon :disabled="page >= pages" @click="page < pages ? page++ : ''">
+      </tpu-btn>
+      <tpu-btn
+        icon
+        :disabled="page >= pages"
+        @click="page < pages ? page++ : ''"
+      >
         <v-icon>mdi-chevron-right</v-icon>
-      </v-btn>
+      </tpu-btn>
     </v-toolbar>
     <template v-if="!loading">
       <v-list>
@@ -120,7 +124,7 @@
                     anime.node.my_list_status.status === 'watching'
                   "
                 >
-                  <v-btn
+                  <tpu-btn
                     :loading="partialLoading"
                     icon
                     size="x-small"
@@ -137,8 +141,8 @@
                     <v-tooltip :eager="false" activator="parent" location="top">
                       Decrease watched episode count
                     </v-tooltip>
-                  </v-btn>
-                  <v-btn
+                  </tpu-btn>
+                  <tpu-btn
                     :loading="partialLoading"
                     icon
                     size="x-small"
@@ -155,7 +159,7 @@
                     <v-tooltip :eager="false" activator="parent" location="top">
                       Increase watched episode count
                     </v-tooltip>
-                  </v-btn>
+                  </tpu-btn>
                 </template>
               </div>
             </template>

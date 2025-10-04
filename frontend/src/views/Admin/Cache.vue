@@ -18,7 +18,7 @@
           <v-list-item v-for="item in items" :key="item.id">
             {{ item.name }}
             <template #append>
-              <v-btn @click="purgeKeys(item.id)">Purge</v-btn>
+              <tpu-btn @click="purgeKeys(item.id)">Purge</tpu-btn>
             </template>
           </v-list-item>
         </v-list>
@@ -32,9 +32,9 @@
           faults, or updates to the Insights specification. This will take a
           while.
         </p>
-        <v-btn variant="outlined" @click="regenerateInsights">
+        <tpu-btn variant="outlined" @click="regenerateInsights">
           Regenerate Insights
-        </v-btn>
+        </tpu-btn>
       </v-container>
     </v-card>
   </v-container>

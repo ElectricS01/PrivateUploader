@@ -62,7 +62,7 @@
     </v-container>
     <v-card-actions>
       <v-spacer />
-      <v-btn
+      <tpu-btn
         color="primary"
         @click="
           subWizard.dialog = false;
@@ -70,8 +70,8 @@
         "
       >
         Cancel
-      </v-btn>
-      <v-btn color="red" @click="gold">Save</v-btn>
+      </tpu-btn>
+      <tpu-btn color="red" @click="gold">Save</tpu-btn>
     </v-card-actions>
   </CoreDialog>
 
@@ -92,7 +92,7 @@
               </v-kbd>
             </template>
             <br />
-            <v-btn
+            <tpu-btn
               variant="tonal"
               @click="
                 banWizard.user = item;
@@ -100,7 +100,7 @@
               "
             >
               Ban...
-            </v-btn>
+            </tpu-btn>
           </template>
           <template #[`item.administrator`]="{ item }: any">
             <v-checkbox :model-value="item.administrator" :disabled="true" />
@@ -108,7 +108,7 @@
           <template #[`item.plan.name`]="{ item }: any">
             {{ item.plan.name }}
             <br />
-            <v-btn
+            <tpu-btn
               variant="tonal"
               class="gold-promo"
               @click="
@@ -118,7 +118,7 @@
               "
             >
               Sub...
-            </v-btn>
+            </tpu-btn>
           </template>
           <template #[`item.createdAt`]="{ item }: any">
             {{ $date(item.createdAt).format("YYYY/MM/DD hh:mm:ss A") }}

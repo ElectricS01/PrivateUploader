@@ -20,7 +20,7 @@
         }}
       </v-list-item-subtitle>
       <template #append>
-        <v-btn
+        <tpu-btn
           color="error"
           icon
           @click="
@@ -36,7 +36,7 @@
             }}
           </v-tooltip>
           <v-icon>mdi-close</v-icon>
-        </v-btn>
+        </tpu-btn>
       </template>
     </v-list-item>
   </v-list>

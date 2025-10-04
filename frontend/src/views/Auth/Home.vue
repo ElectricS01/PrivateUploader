@@ -17,9 +17,9 @@
       </div>
       <div class="mt-4">
         <div class="d-flex justify-center" style="height: 48px; gap: 10px" :class="{'mb-8': $vuetify.display.mobile}">
-          <v-btn variant="outlined" style="height: 100%" to="/register">
+          <tpu-btn variant="outlined" style="height: 100%" to="/register">
             Register now
-          </v-btn>
+          </tpu-btn>
           <DownloadButton
             v-if="$app.platform === Platform.WEB && platform !== 'Android' && platform !== 'iOS' && !$vuetify.display.mobile"
             :outlined="true"/>
@@ -70,10 +70,10 @@
       <PromoCard width="100%" title="100% Open Source" image="https://assets.flowinity.com/home/6th.png" :right="true">
         {{ $app.site.name }} is completely open source on GitHub, and can also be easily self-hosted bare-metal or under
         Docker (Only Linux supported).<br><br>
-        <v-btn variant="outlined" href="https://github.com/Flowinity/Flowinity">
+        <tpu-btn variant="outlined" href="https://github.com/Flowinity/Flowinity">
           <v-icon class="mr-2">mdi-star</v-icon>
           Star on GitHub
-        </v-btn>
+        </tpu-btn>
       </PromoCard>
     </div>
     <PromoCard
@@ -117,13 +117,13 @@
         />
         <v-card-actions>
           <v-spacer/>
-          <v-btn
+          <tpu-btn
             :loading="report.loading"
             color="primary"
             @click="reportUpload"
           >
             Report
-          </v-btn>
+          </tpu-btn>
         </v-card-actions>
       </div>
     </PromoCard>

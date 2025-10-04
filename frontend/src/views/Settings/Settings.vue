@@ -38,7 +38,7 @@
           to="/settings/integrations"
         >
           {{ $t("settings.tabs.integrations") }}
-          <v-btn
+          <tpu-btn
             v-if="$user.user?.integrations?.some((i) => i.error)"
             class="mr-n2"
             color="red"
@@ -49,7 +49,7 @@
             <v-tooltip activator="parent" location="top">
               {{ $t("settings.tabs.integrationError") }}
             </v-tooltip>
-          </v-btn>
+          </tpu-btn>
         </v-tab>
         <v-tab prepend-icon="mdi-code-tags" to="/settings/developer">
           {{ $t("settings.tabs.developer") }}

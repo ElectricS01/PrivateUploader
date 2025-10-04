@@ -1,13 +1,13 @@
 <template>
   <v-container>
-    <v-btn
+    <tpu-btn
       class="mb-2"
       color="red"
       variant="tonal"
       @click="toggleWidget('Emergency Experiment Override')"
     >
       !! Create global emergency override !!
-    </v-btn>
+    </tpu-btn>
     <v-text-field v-model="search" label="Search" />
     <v-select
       v-model="version"
@@ -35,9 +35,9 @@
       incompatible
     </span>
     <br />
-    <v-btn size="x-small" @click="$experiments.init(0)">
+    <tpu-btn size="x-small" @click="$experiments.init(0)">
       Load incompatible
-    </v-btn>
+    </tpu-btn>
     <v-card
       v-for="experiment in relevantExperiments"
       :key="experiment.name"

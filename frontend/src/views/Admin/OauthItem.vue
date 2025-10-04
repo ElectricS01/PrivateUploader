@@ -13,8 +13,8 @@
       </v-card-text>
       <v-card-actions>
         <v-spacer />
-        <v-btn color="blue" @click="deleteConfirm = false">Cancel</v-btn>
-        <v-btn color="red" @click="deleteApp()">Delete</v-btn>
+        <tpu-btn color="blue" @click="deleteConfirm = false">Cancel</tpu-btn>
+        <tpu-btn color="red" @click="deleteApp()">Delete</tpu-btn>
       </v-card-actions>
     </CoreDialog>
     <v-card width="100%">
@@ -60,9 +60,9 @@
               @keyup.enter="addUser()"
             >
               <template #append>
-                <v-btn color="primary" :loading="loading" @click="addUser()">
+                <tpu-btn color="primary" :loading="loading" @click="addUser()">
                   Add User
-                </v-btn>
+                </tpu-btn>
               </template>
             </v-text-field>
             <v-card-subtitle class="initial">
@@ -74,13 +74,13 @@
             </v-card-subtitle>
             <v-data-table :headers="headers" :items="app.oauthUsers">
               <template #[`item.actions`]="{ item }: any">
-                <v-btn
+                <tpu-btn
                   icon
                   color="red"
                   @click="addUser(item.user.username, true)"
                 >
                   <v-icon>mdi-close</v-icon>
-                </v-btn>
+                </tpu-btn>
               </template>
               <template #[`item.manage`]="{ item }: any">
                 <v-checkbox
@@ -162,28 +162,32 @@
                   </template>
                 </v-expansion-panel>
               </v-expansion-panels>
-              <v-btn color="primary" :loading="loading" @click="updateAppAuth">
+              <tpu-btn
+                color="primary"
+                :loading="loading"
+                @click="updateAppAuth"
+              >
                 Save
-              </v-btn>
+              </tpu-btn>
             </v-form>
           </v-card-text>
           <v-card-text>
-            <v-btn color="blue" @click="$functions.copy(app.secret)">
+            <tpu-btn color="blue" @click="$functions.copy(app.secret)">
               <v-icon class="mr-1">mdi-content-copy</v-icon>
               Copy secret
-            </v-btn>
-            <v-btn class="ml-1" color="blue" @click="$functions.copy(app.id)">
+            </tpu-btn>
+            <tpu-btn class="ml-1" color="blue" @click="$functions.copy(app.id)">
               <v-icon class="mr-1">mdi-content-copy</v-icon>
               Copy client ID
-            </v-btn>
-            <v-btn class="ml-1" color="red" @click="resetSecret">
+            </tpu-btn>
+            <tpu-btn class="ml-1" color="red" @click="resetSecret">
               <v-icon class="mr-1">mdi-sync</v-icon>
               Reset secret
-            </v-btn>
-            <v-btn class="ml-1" color="red" @click="deleteConfirm = true">
+            </tpu-btn>
+            <tpu-btn class="ml-1" color="red" @click="deleteConfirm = true">
               <v-icon class="mr-1">mdi-delete</v-icon>
               Delete
-            </v-btn>
+            </tpu-btn>
             <br />
             <small>
               The secret is only used for OpenID Connect and Communications Bot
@@ -313,9 +317,9 @@
               v-model="createBot"
               @refresh="getAppAuth"
             />
-            <v-btn class="my-2 mx-2" @click="createBot = true">
+            <tpu-btn class="my-2 mx-2" @click="createBot = true">
               Create bot account
-            </v-btn>
+            </tpu-btn>
           </template>
         </v-window-item>
       </v-window>

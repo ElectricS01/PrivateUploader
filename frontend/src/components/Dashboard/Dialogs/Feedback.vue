@@ -42,16 +42,20 @@
     </v-card-text>
     <v-card-actions>
       <v-spacer />
-      <v-btn
+      <tpu-btn
         class="rounded-xl"
         color="blue darken-1"
         @click="$emit('update:modelValue', false)"
       >
         Close
-      </v-btn>
-      <v-btn class="rounded-xl" color="blue darken-1" @click="submitFeedback()">
+      </tpu-btn>
+      <tpu-btn
+        class="rounded-xl"
+        color="blue darken-1"
+        @click="submitFeedback()"
+      >
         Submit
-      </v-btn>
+      </tpu-btn>
     </v-card-actions>
   </CoreDialog>
 </template>

@@ -55,7 +55,7 @@
       </v-list>
       <v-card-actions>
         <v-spacer />
-        <v-btn
+        <tpu-btn
           :disabled="!selected.length"
           color="primary"
           @click="type === 'create' ? createChat() : $emit('add', selected)"
@@ -70,7 +70,7 @@
           <template v-else>
             {{ $t("chats.settings.users.addUser.add") }}
           </template>
-        </v-btn>
+        </tpu-btn>
       </v-card-actions>
       <template
         v-if="
@@ -87,7 +87,7 @@
         </v-card-subtitle>
         <p v-if="invite" class="mx-4">
           {{ $app.site.hostnameWithProtocol + "/invite/" + invite }}
-          <v-btn
+          <tpu-btn
             icon
             size="x-small"
             class="ml-1"
@@ -98,7 +98,7 @@
             "
           >
             <v-icon>mdi-content-copy</v-icon>
-          </v-btn>
+          </tpu-btn>
         </p>
         <i
           v-else-if="!loading"
@@ -131,13 +131,13 @@
           item-value="id"
           :label="$t('chats.settings.users.addUser.invites.rank')"
         />
-        <v-btn
+        <tpu-btn
           :loading="loading"
           class="mt-n2 mb-4 mx-4 float-right"
           @click="generateInvite()"
         >
           Generate
-        </v-btn>
+        </tpu-btn>
       </template>
     </v-card>
   </v-menu>

@@ -5,10 +5,10 @@
       <v-toolbar>
         <v-toolbar-title>My Applications</v-toolbar-title>
         <v-spacer />
-        <v-btn icon @click="create = true">
+        <tpu-btn icon @click="create = true">
           <v-tooltip activator="parent" location="bottom">Create app</v-tooltip>
           <v-icon>mdi-plus</v-icon>
-        </v-btn>
+        </tpu-btn>
       </v-toolbar>
 
       <v-container>
@@ -28,7 +28,7 @@
             </v-list-item-subtitle>
             <template #append>
               <v-list-item-action>
-                <v-btn
+                <tpu-btn
                   :to="
                     $route.fullPath.startsWith('/admin')
                       ? `/admin/oauth/${app.id}`
@@ -37,8 +37,8 @@
                   color="primary"
                 >
                   Manage
-                </v-btn>
-                <v-btn :to="`/oauth/${app.id}`">Login</v-btn>
+                </tpu-btn>
+                <tpu-btn :to="`/oauth/${app.id}`">Login</tpu-btn>
               </v-list-item-action>
             </template>
           </v-list-item>

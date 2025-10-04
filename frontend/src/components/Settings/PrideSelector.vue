@@ -10,6 +10,7 @@
     <template #label>
       {{ $t("settings.home.preferences.pride") }}
       <v-chip
+        :class="theme.current.value.dark ? 'text-white' : 'text-black'"
         size="x-small"
         variant="tonal"
         style="
@@ -34,6 +35,7 @@ import { PrideVariant } from "@/types/pride";
 import { isNumeric } from "@/plugins/isNumeric";
 import { computed } from "vue";
 import { useI18n } from "vue-i18n";
+import { useTheme } from "vuetify";
 const { t } = useI18n();
 
 const prideVariants = computed(() => {
@@ -47,6 +49,8 @@ const prideVariants = computed(() => {
   }
   return result;
 });
+
+const theme = useTheme();
 </script>
 
 <style scoped></style>

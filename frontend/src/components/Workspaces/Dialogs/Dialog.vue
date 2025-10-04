@@ -19,12 +19,16 @@
     </v-container>
     <v-card-actions>
       <v-spacer />
-      <v-btn color="error" @click="$emit('update:modelValue', false)">
+      <tpu-btn color="error" @click="$emit('update:modelValue', false)">
         Cancel
-      </v-btn>
-      <v-btn :loading="loading" color="primary" @click="$emit('submit', name)">
+      </tpu-btn>
+      <tpu-btn
+        :loading="loading"
+        color="primary"
+        @click="$emit('submit', name)"
+      >
         {{ btnText ? btnText : "Create" }}
-      </v-btn>
+      </tpu-btn>
     </v-card-actions>
   </CoreDialog>
 </template>

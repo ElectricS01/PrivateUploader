@@ -26,7 +26,7 @@
           />
         </v-col>
         <v-col sm="2">
-          <v-btn @click="addUser">Add</v-btn>
+          <tpu-btn @click="addUser">Add</tpu-btn>
         </v-col>
       </v-row>
       <v-data-table :headers="sharing.headers" :items="workspace.users">
@@ -53,13 +53,13 @@
               />
             </td>
             <td>
-              <v-btn
+              <tpu-btn
                 :disabled="row.item.userId === $user.user?.id"
                 icon
                 @click="deleteUser(row.item)"
               >
                 <v-icon>mdi-close</v-icon>
-              </v-btn>
+              </tpu-btn>
             </td>
           </tr>
         </template>
@@ -76,7 +76,7 @@
     </v-card-text>
     <v-card-actions>
       <v-spacer />
-      <v-btn @click="$emit('update:modelValue', false)">Close</v-btn>
+      <tpu-btn @click="$emit('update:modelValue', false)">Close</tpu-btn>
     </v-card-actions>
   </CoreDialog>
 </template>

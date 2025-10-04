@@ -71,10 +71,10 @@
           </div>
         </v-tab>
       </VueDraggable>
-      <v-btn @click="createRank = true">
+      <tpu-btn @click="createRank = true">
         <v-icon class="mr-2">mdi-plus</v-icon>
         {{ $t("chats.settings.ranks.manage.create") }}
-      </v-btn>
+      </tpu-btn>
     </v-tabs>
     <v-window v-model="selected" class="flex-grow-1" :touch="false">
       <v-window-item
@@ -111,14 +111,14 @@
               :disabled="!$chat.canEditRank(rank.index, $chat.editingChat)"
               :label="$t('chats.settings.ranks.manage.name')"
             />
-            <v-btn
+            <tpu-btn
               block
               :disabled="!$chat.canEditRank(rank.index, $chat.editingChat)"
               :loading="$chat.dialogs.groupSettings.loading"
               @click="updateRank(rank)"
             >
               Save
-            </v-btn>
+            </tpu-btn>
           </div>
         </v-container>
         <v-list-item-subtitle v-if="rank.managed" class="ml-4">

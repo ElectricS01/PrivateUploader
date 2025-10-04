@@ -17,7 +17,7 @@
         "
       >
         <v-toolbar-title>{{ item.name }}</v-toolbar-title>
-        <v-btn
+        <tpu-btn
           v-if="!$vuetify.display.mobile && supports.multiSelect"
           icon
           @click.prevent.stop="$emit('select', item)"
@@ -26,7 +26,7 @@
             v-if="selected.find((select) => select.id === item.id)"
           />
           <RiCircleLine v-else />
-        </v-btn>
+        </tpu-btn>
       </v-toolbar>
       <GalleryPreview :item="item" />
       <v-card-subtitle class="mt-3">
@@ -63,7 +63,7 @@
             :icon="RiAddLine"
             @click="$emit('collectivize', item)"
           />
-          <v-chip
+          <HoverChip
             v-for="collection in item.collections"
             :key="collection.id"
             :disabled="!$user.user"
@@ -77,7 +77,7 @@
             >
               <RiCloseLine />
             </v-icon>
-          </v-chip>
+          </HoverChip>
         </v-chip-group>
       </div>
       <v-divider />

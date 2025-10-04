@@ -1,12 +1,12 @@
 <template>
   <div>
     <v-card-title
-      class="text-[6vw] md:text-[2.5vw] font-bold text-wrap w-full px-4 font-weight-medium"
+      class="text-[6vw] md:text-[2.2vw] font-bold text-wrap w-full px-4 font-weight-medium text-center"
     >
-      Let's start with a username.
+      Let's start with a username!
     </v-card-title>
-    <v-card-subtitle class="text-wrap">
-      Your username is unique, and can be used by others to friend you.
+    <v-card-subtitle class="text-wrap text-center">
+      Your username is unique, and can be used by others to find you.
     </v-card-subtitle>
     <v-text-field
       v-model="auth.username"
@@ -24,7 +24,7 @@
     ></v-text-field>
     <v-card-actions>
       <v-spacer />
-      <v-btn
+      <tpu-btn
         @click="$emit('next')"
         color="primary"
         :disabled="!canContinue"
@@ -32,7 +32,7 @@
       >
         Next
         <v-icon class="ml-2">mdi-chevron-right</v-icon>
-      </v-btn>
+      </tpu-btn>
     </v-card-actions>
   </div>
 </template>
@@ -43,6 +43,8 @@ import { Auth } from "@/views/Auth/RegisterV2.vue";
 import { useLazyQuery } from "@vue/apollo-composable";
 import { CheckUsernameDocument } from "@/gql/graphql";
 import { debounce } from "lodash";
+import FlowinityBanner from "@/components/Brand/FlowinityBanner.vue";
+import FlowinityBannerHandler from "@/components/Brand/FlowinityBannerHandler.vue";
 
 const auth = defineModel<Auth>("auth");
 

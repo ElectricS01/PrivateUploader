@@ -8,7 +8,7 @@
     </p>
     <v-divider />
     <PrivacyPolicy class="mx-4 mt-n11 mb-n16" />
-    <v-btn
+    <tpu-btn
       style="z-index: 9999"
       @click="
         $user.user.privacyPolicyAccepted = true;
@@ -16,7 +16,7 @@
       "
     >
       {{ $t("core.privacy.close") }}
-    </v-btn>
+    </tpu-btn>
   </CoreDialog>
 </template>
 

@@ -5,15 +5,15 @@
         {{ $date(item.createdAt).format("MMMM Do YYYY, h:mm:ss A") }}
       </template>
       <template #[`item.actions`]="{ item }: any">
-        <v-btn
+        <tpu-btn
           v-if="item.status === 'pending'"
           icon
           small
           @click="actInvite('accepted', item)"
         >
           <v-icon>mdi-check</v-icon>
-        </v-btn>
-        <v-btn
+        </tpu-btn>
+        <tpu-btn
           v-if="item.status === 'pending'"
           icon
           small
@@ -21,7 +21,7 @@
           @click="actInvite('rejected', item)"
         >
           <v-icon>mdi-close</v-icon>
-        </v-btn>
+        </tpu-btn>
       </template>
     </v-data-table>
   </v-container>

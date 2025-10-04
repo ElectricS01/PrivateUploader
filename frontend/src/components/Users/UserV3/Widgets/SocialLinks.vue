@@ -13,7 +13,7 @@
     </v-container>
     <v-card-actions>
       <v-spacer />
-      <v-btn
+      <tpu-btn
         color="primary"
         @click="
           $emit('addLink', [
@@ -29,7 +29,7 @@
         "
       >
         Add
-      </v-btn>
+      </tpu-btn>
     </v-card-actions>
   </CoreDialog>
   <v-card class="mx-2 my-5">

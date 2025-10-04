@@ -113,12 +113,12 @@
             </div>
           </div>
           <div>
-            <v-btn icon @click="showTips = false">
+            <tpu-btn icon @click="showTips = false">
               <v-tooltip location="bottom" activator="parent">
                 Close tips
               </v-tooltip>
               <v-icon>mdi-close</v-icon>
-            </v-btn>
+            </tpu-btn>
           </div>
         </div>
       </v-card>

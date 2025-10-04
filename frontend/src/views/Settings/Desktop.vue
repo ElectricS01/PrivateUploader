@@ -7,9 +7,9 @@
       v-model="settings.instance"
       :label="$t('settings.desktop.instance')"
     />
-    <v-btn class="mt-n4 mb-4" color="red" @click="changeInstance">
+    <tpu-btn class="mt-n4 mb-4" color="red" @click="changeInstance">
       {{ $t("settings.desktop.instanceChange") }}
-    </v-btn>
+    </tpu-btn>
 
     <tpu-switch
       v-model="settings.startup"
@@ -54,7 +54,7 @@
       {{ $t("settings.desktop.windowBorderDesc") }}
     </small>
     <br />
-    <v-btn
+    <tpu-btn
       color="green"
       variant="tonal"
       class="mt-4"
@@ -62,18 +62,18 @@
       @click="restart"
     >
       {{ $t("settings.desktop.restartRequired") }}
-    </v-btn>
+    </tpu-btn>
   </div>
   <v-card-title class="mt-4">
     {{ $t("settings.desktop.flowshot.title") }}
   </v-card-title>
-  <v-btn
+  <tpu-btn
     class="mx-4"
     @click="flowshotLaunch"
     :disabled="!flowshotVersion || flowshotVersion === 'Not installed'"
   >
     {{ $t("settings.desktop.flowshot.launchConfig") }}
-  </v-btn>
+  </tpu-btn>
 
   {{ flowshotVersion || "Not installed" }}
 </template>

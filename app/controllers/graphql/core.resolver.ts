@@ -266,6 +266,10 @@ export class CoreResolver {
     @Arg("input") input: SetExperimentInput
   ) {
     const validExperiments = [
+      Experiments.SETTINGS_MOVE_INTRO,
+      Experiments.INTERACTIVE_BUTTONS,
+      Experiments.DIALOG_REFRESH,
+      Experiments.SUPERBAR_SETTINGS_NORMAL_ITEM,
       Experiments.REGISTER_INTRO,
       Experiments.HDWD_SURV_NEWUSR,
       Experiments.HDWD_SURV_LNGUSR,

@@ -2,46 +2,63 @@
   <v-container
     v-if="$user.user || inviter || $app.site.registrations"
     :fluid="false"
+    class="center-container"
   >
-    <component
-      v-model:auth="auth"
-      :key="step"
-      :is="component"
-      @next="step++"
-      @back="step--"
-    />
-    <small
-      v-if="step >= RegisterSteps.CUSTOMIZE"
-      class="mx-4 text-blue"
-      @click="
-        experimentsStore.setExperiment(
-          'REGISTER_INTRO',
-          SkipRegisterStepStage.INITIAL_SETUP
-        );
-        $router.push('/');
-      "
-    >
-      Skip account setup and tutorial
-    </small>
-    <v-card-actions>
-      <v-btn
-        v-if="step > RegisterSteps.CUSTOMIZE"
-        @click="experimentsStore.setExperiment('REGISTER_INTRO', step - 1)"
-        color="primary"
-      >
-        <v-icon class="mr-2">mdi-chevron-left</v-icon>
-        Back
-      </v-btn>
-      <v-spacer />
-      <v-btn
-        v-if="step >= RegisterSteps.CUSTOMIZE"
-        @click="experimentsStore.setExperiment('REGISTER_INTRO', step + 1)"
-        color="primary"
-      >
-        Next
-        <v-icon class="ml-2">mdi-chevron-right</v-icon>
-      </v-btn>
-    </v-card-actions>
+    <v-row align="center" justify="center">
+      <v-col cols="12" md="7" sm="8" xl="5">
+        <v-card>
+          <component
+            v-model:auth="auth"
+            :key="step"
+            :is="component"
+            @next="step++"
+            @back="step--"
+          />
+          <small
+            v-if="step >= RegisterSteps.CUSTOMIZE"
+            class="mx-4 text-blue"
+            @click="
+              experimentsStore.setExperiment(
+                'REGISTER_INTRO',
+                SkipRegisterStepStage.INITIAL_SETUP
+              );
+              $router.push('/');
+            "
+          >
+            Skip account setup and tutorial
+          </small>
+          <v-card-actions v-if="step >= RegisterSteps.CUSTOMIZE">
+            <tpu-btn
+              v-if="step > RegisterSteps.CUSTOMIZE"
+              @click="
+                experimentsStore.setExperiment('REGISTER_INTRO', step - 1)
+              "
+              color="primary"
+            >
+              <v-icon class="mr-2">mdi-chevron-left</v-icon>
+              Back
+            </tpu-btn>
+            <v-spacer />
+            <tpu-btn
+              v-if="step >= RegisterSteps.CUSTOMIZE"
+              @click="
+                experimentsStore.setExperiment('REGISTER_INTRO', step + 1)
+              "
+              color="primary"
+            >
+              Next
+              <v-icon class="ml-2">mdi-chevron-right</v-icon>
+            </tpu-btn>
+          </v-card-actions>
+        </v-card>
+        <div class="d-flex justify-center mt-4">
+          <FlowinityBannerHandler
+            fill="#878889"
+            style="width: 96px; height: auto"
+          />
+        </div>
+      </v-col>
+    </v-row>
   </v-container>
   <v-container
     v-else-if="!$app.componentLoading"
@@ -89,6 +106,7 @@ import Customize from "@/views/Auth/RegisterIntro/Customize.vue";
 import Profile from "@/views/Auth/RegisterIntro/Profile.vue";
 import ClientIntegration from "@/views/Auth/RegisterIntro/ClientIntegration.vue";
 import HandoffRedirect from "@/views/Auth/RegisterIntro/HandoffRedirect.vue";
+import FlowinityBannerHandler from "@/components/Brand/FlowinityBannerHandler.vue";
 
 const component = computed(() => {
   switch (step.value) {

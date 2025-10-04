@@ -27,9 +27,9 @@
       </v-container>
       <v-card-actions>
         <v-spacer />
-        <v-btn color="red" @click="$user.blockUser()">
+        <tpu-btn color="red" @click="$user.blockUser()">
           {{ $t("dialogs.block.action") }}
-        </v-btn>
+        </tpu-btn>
       </v-card-actions>
     </template>
     <template v-else>
@@ -40,9 +40,9 @@
       </v-container>
       <v-card-actions>
         <v-spacer />
-        <v-btn color="blue" @click="$user.blockUser()">
+        <tpu-btn color="blue" @click="$user.blockUser()">
           {{ $t("dialogs.unblock.action") }}
-        </v-btn>
+        </tpu-btn>
       </v-card-actions>
     </template>
   </CoreDialog>

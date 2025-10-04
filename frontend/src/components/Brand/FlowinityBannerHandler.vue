@@ -7,6 +7,7 @@
     "
     id="tpu-brand-logo"
     class="ml-4 unselectable pointer"
+    :fill="fill"
     src="@/assets/images/flowinity-logo-banner.svg"
   />
   <FlowinityBannerRainbow
@@ -17,6 +18,7 @@
     "
     id="tpu-brand-logo"
     class="ml-4 unselectable pointer"
+    :fill="fill"
     src="@/assets/images/flowinity-logo-banner.svg"
   />
   <h1
@@ -34,6 +36,10 @@
 <script setup lang="ts">
 import FlowinityBanner from "@/components/Brand/FlowinityBanner.vue";
 import FlowinityBannerRainbow from "@/components/Brand/FlowinityBannerRainbow.vue";
+
+const props = defineProps<{
+  fill?: string;
+}>();
 </script>
 
 <style scoped></style>

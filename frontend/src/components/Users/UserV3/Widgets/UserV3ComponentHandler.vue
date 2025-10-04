@@ -9,10 +9,10 @@
     <v-toolbar-title>
       {{ components.find((c) => c.id === component.name)?.name }}
     </v-toolbar-title>
-    <v-btn icon @click="$emit('delete', component)">
+    <tpu-btn icon @click="$emit('delete', component)">
       <v-icon>mdi-delete</v-icon>
-    </v-btn>
-    <v-btn
+    </tpu-btn>
+    <tpu-btn
       v-if="
         component.name !== 'parent' &&
         components.find((c) => c.id === component.name)?.props
@@ -21,13 +21,13 @@
       @click="$emit('settings', component.id)"
     >
       <v-icon>mdi-cog</v-icon>
-    </v-btn>
-    <v-btn icon @click="$emit('moveUp', component)">
+    </tpu-btn>
+    <tpu-btn icon @click="$emit('moveUp', component)">
       <v-icon>mdi-arrow-up</v-icon>
-    </v-btn>
-    <v-btn icon @click="$emit('moveDown', component)">
+    </tpu-btn>
+    <tpu-btn icon @click="$emit('moveDown', component)">
       <v-icon>mdi-arrow-down</v-icon>
-    </v-btn>
+    </tpu-btn>
     <v-icon class="drag-handle mr-3 ml-1">mdi-drag</v-icon>
   </v-toolbar>
   <div
@@ -36,13 +36,13 @@
   >
     <template v-if="editMode && $experiments.experiments.USER_V3_EDITOR">
       <v-card-subtitle class="mt-2">Dev UserV3 actions:</v-card-subtitle>
-      <v-btn
+      <tpu-btn
         v-for="comp in components"
         :key="comp.id"
         @click="addItemDebug(comp.id)"
       >
         Add {{ comp.name }}
-      </v-btn>
+      </tpu-btn>
     </template>
     <template v-else-if="editMode">
       <UserV3AddMenu :components="components" @add="addItemDebug" />
