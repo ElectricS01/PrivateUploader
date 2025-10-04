@@ -7,7 +7,12 @@ import {
 import { useApolloClient } from "@vue/apollo-composable";
 import { onMounted, ref, watch } from "vue";
 import { gql } from "@apollo/client/core";
-import { ExperimentOverrideInput } from "@/gql/graphql";
+import {
+  Experiment,
+  ExperimentOverrideInput,
+  Experiments
+} from "@/gql/graphql";
+import { undefined } from "zod";
 
 export interface ExperimentsState {
   experiments: Record<string, string | number | boolean | object>;
@@ -15,11 +20,12 @@ export interface ExperimentsState {
 }
 
 export const useExperimentsStore = defineStore("experiments", () => {
-  const experiments = ref<Record<string, number | object>>({
+  const experiments = ref<Record<Experiments, number | object>>({
+    // Synced from the server
     API_VERSION: 3,
     FLOWINITY: 1,
     DISABLE_ANIMATIONS: 0
-  });
+  } as any);
   const experimentsInherit = ref<Record<string, number | boolean | object>>({});
 
   async function setExperiment(key: string, value: number, userId?: number) {
@@ -58,6 +64,15 @@ export const useExperimentsStore = defineStore("experiments", () => {
     }
   );
 
+  watch(
+    () => experiments.value.DISABLE_NEW_ICONSET,
+    (val) => {
+      if (val) window.DISABLE_V5_ICONSET_HACK = true;
+      else if (!val && window.DISABLE_V5_ICONSET_HACK)
+        delete window.DISABLE_V5_ICONSET_HACK;
+    }
+  );
+
   async function init(version?: number) {
     let localExperiments: any = localStorage.getItem("experimentsStore");
     if (localExperiments) {
@@ -80,7 +95,7 @@ export const useExperimentsStore = defineStore("experiments", () => {
           ? {
               version
             }
-          : undefined,
+          : 0,
       fetchPolicy: "network-only"
     });
     for (const experiment of getExperiments) {

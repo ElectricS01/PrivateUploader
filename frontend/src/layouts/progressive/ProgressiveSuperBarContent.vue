@@ -244,7 +244,7 @@
           :highlighted="true"
         />
         <super-bar-item
-          v-if="experimentsStore.experiments.CAN_ENABLE_PROGRESSIVE_UI"
+          v-if="experimentsStore.experiments.CAN_DISABLE_PROGRESSIVE_UI"
           highlighted
           @click="
             $ui.appBarReady = false;

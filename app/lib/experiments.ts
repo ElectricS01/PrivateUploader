@@ -6,6 +6,8 @@ export enum Experiments {
   ID_VERIFICATION_REQUIRED = "ID_VERIFICATION_REQUIRED",
 
   // Private Files Update
+  CAN_DISABLE_PROGRESSIVE_UI = "CAN_DISABLE_PROGRESSIVE_UI",
+  DISABLE_NEW_ICONSET = "DISABLE_NEW_ICONSET",
   ENCRYPTED_FILES = "ENCRYPTED_FILES",
   PRIVATE_FILES = "PRIVATE_FILES",
 
@@ -117,6 +119,8 @@ export type ExperimentsLegacy = Experiments | ExperimentsMeta
 
 export function getExperiments() {
   return {
+    CAN_DISABLE_PROGRESSIVE_UI: true,
+    DISABLE_NEW_ICONSET: false,
     UNAVAILABLE_IN_REGION: false,
     ID_VERIFICATION_REQUIRED: false,
     ENCRYPTED_FILES: false,
@@ -220,6 +224,16 @@ export function getExperiments() {
     // ALWAYS LAST! USED FOR CODEGEN
     ZZ_TEST: false,
     meta: {
+      CAN_DISABLE_PROGRESSIVE_UI: {
+        description: "Allow the user to disable Progressive UI.",
+        createdAt: "2025-10-05T00:00:00.000Z",
+        versions: [4, 5]
+      },
+      DISABLE_NEW_ICONSET: {
+        description: "Kill-switch for the new icon redesign.",
+        createdAt: "2025-10-05T00:00:00.000Z",
+        versions: [4, 5]
+      },
       UNAVAILABLE_IN_REGION: {
         description:
           "**DO NOT ENABLE IN EXPMAN EMERGENCY OVERRIDES** Unavailable in Region.",
@@ -352,7 +366,7 @@ export function getExperiments() {
       },
       CAN_ENABLE_PROGRESSIVE_UI: {
         description:
-          "As of v4.3: Progressive UI is the default, this now allows people to revert to old UI.\n" +
+          "As of v4.3: Progressive UI is the default.\n" +
           "Early v4: Provide the option for users to enable the experimental UI.",
         createdAt: "2024-06-18T00:00:00.000Z",
         versions: [4]

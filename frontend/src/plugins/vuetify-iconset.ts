@@ -3,6 +3,7 @@ import type { IconSet, IconAliases, IconProps } from "vuetify";
 import json from "@iconify-json/ri/icons.json";
 import Linux from "@/components/Icons/Linux.vue";
 import MdiDice from "@/components/Icons/v5/MdiDice.vue";
+import { mdi } from "vuetify/iconsets/mdi";
 //@ts-ignore
 const aliases: IconAliases = {
   collapse: "arrow-up-s-line",
@@ -83,7 +84,9 @@ const substitutions = {
   "content-copy-fill": "file-copy-fill",
   "content-copy-line": "file-copy-line",
   "message-processing-line": "chat-1-line",
+  "message-processing-fill": "chat-1-fill",
   "account-plus-fill": "user-add-fill",
+  "account-plus-line": "user-add-line",
   "crown-fill": "vip-crown-fill",
   "crown-line": "vip-crown-line",
   "swap-horizontal-fill": "arrow-left-right-fill",
@@ -107,11 +110,19 @@ const substitutions = {
   "check-circle-fill": "checkbox-circle-fill",
   "check-circle-line": "checkbox-circle-line",
   "sync-fill": "loop-right-fill",
-  "sync-line": "loop-right-line"
+  "sync-line": "loop-right-line",
+  "rename-fill": "input-field",
+  "rename-line": "input-field",
+  "account-minus-fill": "user-minus-fill",
+  "account-minus-line": "user-minus-line"
 };
 
 const iconify: IconSet = {
   component: (props: IconProps) => {
+    //@ts-ignore
+    // if (window.DISABLE_V5_ICONSET_HACK) {
+    //   return mdi.component
+    // }
     if (typeof props.icon !== "string") {
       return props.icon;
     }

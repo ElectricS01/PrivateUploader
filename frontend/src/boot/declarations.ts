@@ -68,6 +68,8 @@ declare global {
     flowinityInitError: (error: string) => void;
     socket: Socket;
     _tpu_router: Router;
+    DISABLE_V5_ICONSET_HACK?: boolean;
+    GLOBAL_FLOWINITY_EXPERIMENTS?: string;
     isSlideshow: boolean | undefined;
     editor?: EditorJS & { configuration: EditorConfig };
     tpuInternals: {

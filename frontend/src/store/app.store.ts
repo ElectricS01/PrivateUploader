@@ -325,8 +325,8 @@ export const useAppStore = defineStore("app", {
         // warning: i18n.t("generic.beta"),
         scope: "",
         icon: "mdi-new-box",
-        new: true
-        // experimentsRequired: ["CAN_ENABLE_PROGRESSIVE_UI"]
+        new: true,
+        experimentsRequired: ["CAN_ENABLE_PROGRESSIVE_UI"]
       });
       items.push({
         id: 31,
@@ -602,9 +602,7 @@ export const useAppStore = defineStore("app", {
 
       if (failedExp) {
         try {
-          //@ts-ignore
           const globalExperiments = window.GLOBAL_FLOWINITY_EXPERIMENTS;
-          //@ts-ignore
           if (window.GLOBAL_FLOWINITY_EXPERIMENTS) {
             const unbased: any[] = JSON.parse(atob(globalExperiments)) as any;
             for (const experiment of unbased) {

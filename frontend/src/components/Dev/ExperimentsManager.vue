@@ -125,8 +125,10 @@ export default defineComponent({
           const metaA = this.$experiments.experimentsInherit?.meta?.[a.name];
           const metaB = this.$experiments.experimentsInherit?.meta?.[b.name];
           if (!metaA || !metaB) return 0;
-          if (metaA.createdAt < metaB.createdAt) return 1;
-          if (metaA.createdAt > metaB.createdAt) return -1;
+          const metaATime = new Date(metaA.createdAt).getTime();
+          const metaBTime = new Date(metaB.createdAt).getTime();
+          if (metaATime < metaBTime) return 1;
+          if (metaATime > metaBTime) return -1;
           return 0;
         })
         .filter((experiment) => {
