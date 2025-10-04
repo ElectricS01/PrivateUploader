@@ -15,6 +15,7 @@ import type { TypedDocumentNode as DocumentNode } from '@graphql-typed-document-
 const documents = {
     "\n  mutation AdminClearCache($input: ClearCacheInput!) {\n    adminClearCache(input: $input) {\n      success\n    }\n  }\n": types.AdminClearCacheDocument,
     "\n  query AdminGetPlans {\n    adminPlans {\n      id\n      name\n      quotaMax\n      price\n      features\n      color\n      internalName\n      purchasable\n      internalFeatures\n      icon\n    }\n  }\n": types.AdminGetPlansDocument,
+    "\n  mutation AdminMarkNewPPVersion {\n    adminMarkNewPPVersion {\n      success\n    }\n  }\n": types.AdminMarkNewPpVersionDocument,
     "\n  query CheckUsername($input: CheckUsernameInput!) {\n    checkUsername(input: $input)\n  }\n": types.CheckUsernameDocument,
     "\n  mutation Login($input: LoginInput!) {\n    login(input: $input) {\n      token\n      user {\n        id\n        username\n        email\n      }\n    }\n  }\n": types.LoginDocument,
     "\n  mutation Register($input: RegisterInput!) {\n    register(input: $input) {\n      token\n      user {\n        id\n        username\n        email\n      }\n    }\n  }\n": types.RegisterDocument,
@@ -162,6 +163,10 @@ export function graphql(source: "\n  mutation AdminClearCache($input: ClearCache
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
 export function graphql(source: "\n  query AdminGetPlans {\n    adminPlans {\n      id\n      name\n      quotaMax\n      price\n      features\n      color\n      internalName\n      purchasable\n      internalFeatures\n      icon\n    }\n  }\n"): (typeof documents)["\n  query AdminGetPlans {\n    adminPlans {\n      id\n      name\n      quotaMax\n      price\n      features\n      color\n      internalName\n      purchasable\n      internalFeatures\n      icon\n    }\n  }\n"];
+/**
+ * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ */
+export function graphql(source: "\n  mutation AdminMarkNewPPVersion {\n    adminMarkNewPPVersion {\n      success\n    }\n  }\n"): (typeof documents)["\n  mutation AdminMarkNewPPVersion {\n    adminMarkNewPPVersion {\n      success\n    }\n  }\n"];
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */

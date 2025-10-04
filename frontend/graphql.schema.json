@@ -1,13 +1,16 @@
 {
   "__schema": {
     "queryType": {
-      "name": "Query"
+      "name": "Query",
+      "kind": "OBJECT"
     },
     "mutationType": {
-      "name": "Mutation"
+      "name": "Mutation",
+      "kind": "OBJECT"
     },
     "subscriptionType": {
-      "name": "Subscription"
+      "name": "Subscription",
+      "kind": "OBJECT"
     },
     "types": [
       {
@@ -7752,6 +7755,12 @@
             "deprecationReason": null
           },
           {
+            "name": "DIALOG_REFRESH",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "DISABLE_ANIMATIONS",
             "description": null,
             "isDeprecated": false,
@@ -7783,6 +7792,12 @@
           },
           {
             "name": "ENABLE_PULSE_TAB",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "ENCRYPTED_FILES",
             "description": null,
             "isDeprecated": false,
             "deprecationReason": null
@@ -7866,7 +7881,19 @@
             "deprecationReason": null
           },
           {
+            "name": "ID_VERIFICATION_REQUIRED",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "INSTANT_UPLOAD",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "INTERACTIVE_BUTTONS",
             "description": null,
             "isDeprecated": false,
             "deprecationReason": null
@@ -7986,6 +8013,12 @@
             "deprecationReason": null
           },
           {
+            "name": "PRIVATE_FILES",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "PROFILE_BANNER",
             "description": null,
             "isDeprecated": false,
@@ -8052,7 +8085,19 @@
             "deprecationReason": null
           },
           {
+            "name": "REMOVE_PUBLIC_USERS",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "RESIZABLE_SIDEBARS",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "SETTINGS_MOVE_INTRO",
             "description": null,
             "isDeprecated": false,
             "deprecationReason": null
@@ -8082,6 +8127,12 @@
             "deprecationReason": null
           },
           {
+            "name": "SUPERBAR_SETTINGS_NORMAL_ITEM",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "SUPERBAR_SOCIAL_HUB",
             "description": null,
             "isDeprecated": false,
@@ -8095,6 +8146,18 @@
           },
           {
             "name": "THEME",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "UNAVAILABLE_IN_REGION",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "USERS_IN_DASH",
             "description": null,
             "isDeprecated": false,
             "deprecationReason": null
@@ -11295,6 +11358,22 @@
           },
           {
             "name": "adminGenerateMimeTypeMap",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "GenericSuccessObject",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "adminMarkNewPPVersion",
             "description": null,
             "args": [],
             "type": {

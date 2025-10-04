@@ -109,7 +109,15 @@ export default function apolloFlowinity(app: App) {
           ) {
             app.config.globalProperties.$router.push("/communications/home");
           }
-        } else if (error.extensions?.code === "WEATHER_NOT_RESPONDING") {
+        } else if (
+          error.extensions?.code === "WEATHER_NOT_RESPONDING" ||
+          error.extensions?.code === "NOT_SETUP" ||
+          error.extensions?.code === "UNAVAILABLE_IN_REGION" ||
+          error.extensions?.code === "AGE_VERIFICATION_REQUIRED" ||
+          error.extensions?.code === "ID_VERIFICATION_REQUIRED" ||
+          error.extensions?.code === "PP_NOT_ACCEPTED" ||
+          error.extensions?.code === "TOU_NOT_ACCEPTED"
+        ) {
           //
         } else if (!ctx.noToast) {
           toast.error(error.message);

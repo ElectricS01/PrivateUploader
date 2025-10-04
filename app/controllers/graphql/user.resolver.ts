@@ -832,7 +832,8 @@ function createBaseResolver<T extends ClassType>(
               "pulse",
               "banned",
               "dateOfBirth",
-              "planId"
+              "planId",
+              "privacyPolicyAccepted"
             ]
           }
         ]

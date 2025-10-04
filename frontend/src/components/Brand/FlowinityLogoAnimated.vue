@@ -1,44 +1,5 @@
 <template>
   <svg
-    v-if="!$experiments.experiments.NEW_BRANDING"
-    :id="id"
-    viewBox="0 0 741 741"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <rect width="741" height="741" :fill="internalColor" />
-    <circle cx="370.5" cy="370.5" r="370.5" :fill="fillColor" />
-    <path
-      d="M108 426C108 409.984 120.984 397 137 397C153.016 397 166 409.984 166 426V691H108V426Z"
-      :fill="internalColor"
-      :id="`${id}-path-0`"
-      style="transform: translateY(1000px)"
-    />
-    <path
-      d="M583 284C583 266.327 597.327 252 615 252V252C632.673 252 647 266.327 647 284V691H583V284Z"
-      :fill="internalColor"
-      :id="`${id}-path-3`"
-      style="transform: translateY(1000px)"
-    />
-    <path
-      d="M196 252C196 220.52 221.52 195 253 195V195C284.48 195 310 220.52 310 252V739H196V252Z"
-      :fill="internalColor"
-      :id="`${id}-path-1`"
-      style="transform: translateY(1000px)"
-    />
-    <path
-      d="M413 436C413 404.52 438.52 379 470 379V379C501.48 379 527 404.52 527 436V741H413V436Z"
-      :fill="internalColor"
-      :id="`${id}-path-2`"
-      style="transform: translateY(1000px)"
-    />
-
-    <defs>
-      <PridePattern :id="`${id}_pride_gradient`" />
-    </defs>
-  </svg>
-  <svg
-    v-else
     :id="id"
     viewBox="0 0 472 472"
     fill="none"
@@ -73,7 +34,7 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, onMounted, ref, watch } from "vue";
+import { computed, nextTick, onMounted, ref, watch } from "vue";
 import { useTheme } from "vuetify";
 import anime from "animejs";
 import { useExperimentsStore } from "@/store/experiments.store";
@@ -141,7 +102,8 @@ const experimentsStore = useExperimentsStore();
 const FILL_DURATION = 100;
 const STROKE_DURATION = 1000;
 
-onMounted(() => {
+onMounted(async () => {
+  await nextTick();
   // animate each path separately to animate up and down, one by one
   // play tlInit, all paths will start at the bottom and animate up
   if (props.skipInit) {

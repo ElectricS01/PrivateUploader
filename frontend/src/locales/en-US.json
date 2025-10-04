@@ -869,6 +869,19 @@
     }
   },
   "dialogs": {
+    "compliance": {
+      "idRequirement": {
+        "title": "ID Verification Required",
+        "subtitle": "Due to regulation in your country or region, we are required to check your ID to verify you meet the minimum age requirement.",
+        "security": "Your ID will only be used for verifying your age. We will not store it longer than necessary to perform age verification. ID Verification is handled by a trusted third party, and we do not see your ID.",
+        "placeholder": "Please refresh Flowinity to start the process.",
+        "optOut": "If you wish to cease using Flowinity, and would like to delete your account, or gain access to your data, please contact Flowinity at help@flowinity.com"
+      },
+      "unavailableInRegion": {
+        "title": "Flowinity is no longer available in your region.",
+        "subtitle": "Unfortunately, Flowinity is no longer available in your country or region.\nPlease contact Flowinity Support at help@flowinity.com for more information, or assistance in account data retrieval or deletion."
+      }
+    },
     "uploadCropper": {
       "title": "Upload",
       "label": "Image File",

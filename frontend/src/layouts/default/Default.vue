@@ -1,6 +1,14 @@
 <template>
   <BlockUserDialog v-model="$user.dialogs.block.value" />
   <DateOfBirthConfirm v-model="$user.dialogs.dateOfBirth.value" />
+  <NotAvailableInRegionDialog
+    v-if="$experiments.experiments.UNAVAILABLE_IN_REGION"
+    :model-value="true"
+  />
+  <IDVerifyDialog
+    v-if="$experiments.experiments.ID_VERIFICATION_REQUIRED"
+    :model-value="true"
+  />
   <PrivacyPolicyDialog v-if="$user.user?.privacyPolicyAccepted == false" />
   <Connecting
     :model-value="!$app.connected && !$user.loggedOut && !$user.user"
@@ -179,10 +187,14 @@ import FlowinityLogoAnimated from "@/components/Brand/FlowinityLogoAnimated.vue"
 import UploadFileV2 from "@/components/Gallery/Dialogs/UploadFileV2.vue";
 import ProgressiveSideBarMobile from "@/layouts/progressive/ProgressiveSideBarMobile.vue";
 import { RegisterSteps } from "@/views/Auth/registerSteps";
+import NotAvailableInRegionDialog from "@/components/Users/Dialogs/NotAvailableInRegionDialog.vue";
+import IDVerifyDialog from "@/components/Users/Dialogs/IDVerifyDialog.vue";
 
 export default defineComponent({
   name: "TPUDefaultLayout",
   components: {
+    IDVerifyDialog,
+    NotAvailableInRegionDialog,
     ProgressiveSideBarMobile,
     UploadFileV2,
     FlowinityLogoAnimated,

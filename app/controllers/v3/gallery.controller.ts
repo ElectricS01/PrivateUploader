@@ -52,7 +52,7 @@ async function checkUserQuota(
   }
 
   const user = await User.findByPk(req.user.id, {
-    attributes: ["quota"],
+    attributes: ["quota", "privacyPolicyAccepted"],
     include: [
       {
         model: Plan,
@@ -65,6 +65,9 @@ async function checkUserQuota(
   }
   if (user.quota >= user.plan.quotaMax) {
     return e()
+  }
+  if (!user.privacyPolicyAccepted) {
+    return e("PP_NOT_ACCEPTED")
   }
 
   // Ensure the file isn't larger than the user's quota

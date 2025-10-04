@@ -317,6 +317,29 @@ export async function authSystem(
   }
 
   if (session) {
+    if (user?.privacyPolicyAccepted === undefined) {
+      redis.json.del(`user:${session?.userId}`)
+    } else if (!user?.privacyPolicyAccepted && !user?.bot) {
+      if (!checkScope(scope, "user.view,user.modify")) {
+        if (passthrough) {
+          req.user = null
+          next()
+          return {
+            user: null,
+            session
+          }
+        }
+        res.status(401)
+        res.json({
+          errors: [
+            {
+              ...Errors.PP_NOT_ACCEPTED,
+              name: "PP_NOT_ACCEPTED"
+            }
+          ]
+        })
+      }
+    }
     if (!checkScope(scope, session.scopes)) {
       if (passthrough) {
         req.user = null

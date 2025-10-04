@@ -94,7 +94,9 @@ const substitutions = {
   "note-search-fill": "file-search-fill",
   "note-search-line": "file-search-line",
   "gavel-fill": "auction-fill",
-  "gavel-line": "auction-line"
+  "gavel-line": "auction-line",
+  "menu-down-fill": "arrow-down-s-line",
+  "menu-down-line": "arrow-down-s-line"
 };
 
 const iconify: IconSet = {

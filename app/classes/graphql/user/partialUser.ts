@@ -188,6 +188,8 @@ export class PartialUserAuth extends PartialUserBase {
   dateOfBirth: Date | null
   @Field(() => Int)
   planId: number
+  @Field(() => Boolean)
+  privacyPolicyAccepted: boolean
 }
 
 export const partialUserFriend = [...partialUserBase, "status", "nameColor"]

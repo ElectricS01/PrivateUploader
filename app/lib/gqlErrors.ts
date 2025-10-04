@@ -134,6 +134,12 @@ const Errors = {
   },
   FRIEND_REQUEST_ALREADY_SENT: {
     message: "You have already sent a friend request to this user."
+  },
+  PP_NOT_ACCEPTED: {
+    message: "Please accept the Privacy Policy on Flowinity.com."
+  },
+  TOU_NOT_ACCEPTED: {
+    message: "Please accept the Terms of Use on Flowinity.com."
   }
 }
 

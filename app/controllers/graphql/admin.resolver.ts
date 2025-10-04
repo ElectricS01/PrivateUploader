@@ -31,6 +31,7 @@ import {
 import { AuthService } from "@app/services/auth.service"
 import { BanReason } from "@app/classes/graphql/user/ban"
 import { GalleryService } from "@app/services/gallery.service"
+import { CacheType } from "@app/enums/admin/CacheType"
 
 @Resolver()
 @Service()
@@ -105,7 +106,7 @@ export class AdminResolver {
   })
   @Mutation(() => Success)
   async adminClearCache(
-    @Ctx() ctx: Context,
+    @Ctx() ctx: Context | undefined,
     @Arg("input") input: ClearCacheInput
   ) {
     if (input.userId) {
@@ -538,5 +539,30 @@ export class AdminResolver {
         break
     }
     return { success: true }
+  }
+
+  @Authorization({
+    accessLevel: AccessLevel.ADMIN,
+    scopes: "*",
+    allowMaintenance: true
+  })
+  @Mutation(() => Success)
+  async adminMarkNewPPVersion() {
+    await User.update(
+      {
+        privacyPolicyAccepted: false
+      },
+      {
+        where: {}
+      }
+    )
+    await this.adminClearCache(undefined, {
+      await: false,
+      type: CacheType.sessions
+    })
+
+    return {
+      success: true
+    }
   }
 }

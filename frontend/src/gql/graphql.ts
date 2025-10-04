@@ -871,12 +871,14 @@ export enum Experiments {
   CreepySfxButton = 'CREEPY_SFX_BUTTON',
   DebugFavicon = 'DEBUG_FAVICON',
   DesignV2 = 'DESIGN_V2',
+  DialogRefresh = 'DIALOG_REFRESH',
   DisableAnimations = 'DISABLE_ANIMATIONS',
   DownloadTheAppNag = 'DOWNLOAD_THE_APP_NAG',
   EarlyAccess = 'EARLY_ACCESS',
   EditorV2 = 'EDITOR_V2',
   EnableAutostartAppNag = 'ENABLE_AUTOSTART_APP_NAG',
   EnablePulseTab = 'ENABLE_PULSE_TAB',
+  EncryptedFiles = 'ENCRYPTED_FILES',
   ExpandAppBarImage = 'EXPAND_APP_BAR_IMAGE',
   ExperienceFluid = 'EXPERIENCE_FLUID',
   ExperienceGalleryItemWidth = 'EXPERIENCE_GALLERY_ITEM_WIDTH',
@@ -890,7 +892,9 @@ export enum Experiments {
   HoverChipHover = 'HOVER_CHIP_HOVER',
   HoverChipOpenDelay = 'HOVER_CHIP_OPEN_DELAY',
   IafNag = 'IAF_NAG',
+  IdVerificationRequired = 'ID_VERIFICATION_REQUIRED',
   InstantUpload = 'INSTANT_UPLOAD',
+  InteractiveButtons = 'INTERACTIVE_BUTTONS',
   InteractiveNotes = 'INTERACTIVE_NOTES',
   JitsiProEligible = 'JITSI_PRO_ELIGIBLE',
   JitsiProMeta = 'JITSI_PRO_META',
@@ -910,6 +914,7 @@ export enum Experiments {
   OfficialInstance = 'OFFICIAL_INSTANCE',
   PinnedMessages = 'PINNED_MESSAGES',
   Pride = 'PRIDE',
+  PrivateFiles = 'PRIVATE_FILES',
   ProfileBanner = 'PROFILE_BANNER',
   ProgressiveHome = 'PROGRESSIVE_HOME',
   ProgressiveUi = 'PROGRESSIVE_UI',
@@ -921,14 +926,19 @@ export enum Experiments {
   RegisterV2 = 'REGISTER_V2',
   RegisterV2Landing = 'REGISTER_V2_LANDING',
   RemoveLegacySocket = 'REMOVE_LEGACY_SOCKET',
+  RemovePublicUsers = 'REMOVE_PUBLIC_USERS',
   ResizableSidebars = 'RESIZABLE_SIDEBARS',
+  SettingsMoveIntro = 'SETTINGS_MOVE_INTRO',
   SfxKfx = 'SFX_KFX',
   SfxKolf = 'SFX_KOLF',
   Snapspaces = 'SNAPSPACES',
   SocialHubMoveIntro = 'SOCIAL_HUB_MOVE_INTRO',
+  SuperbarSettingsNormalItem = 'SUPERBAR_SETTINGS_NORMAL_ITEM',
   SuperbarSocialHub = 'SUPERBAR_SOCIAL_HUB',
   Surveys = 'SURVEYS',
   Theme = 'THEME',
+  UnavailableInRegion = 'UNAVAILABLE_IN_REGION',
+  UsersInDash = 'USERS_IN_DASH',
   UserV2 = 'USER_V2',
   UserV3 = 'USER_V3',
   UserV3Editor = 'USER_V3_EDITOR',
@@ -1283,6 +1293,7 @@ export type Mutation = {
   adminDeleteExperimentOverride: GenericSuccessObject;
   adminGenerateInsights: GenericSuccessObject;
   adminGenerateMimeTypeMap: GenericSuccessObject;
+  adminMarkNewPPVersion: GenericSuccessObject;
   adminMigrateLegacyRanksForChat: GenericSuccessObject;
   adminMigrateToS3: GenericSuccessObject;
   adminRenameLocationNewFormat: GenericSuccessObject;
@@ -3039,6 +3050,11 @@ export type AdminGetPlansQueryVariables = Exact<{ [key: string]: never; }>;
 
 export type AdminGetPlansQuery = { __typename?: 'Query', adminPlans: Array<{ __typename?: 'Plan', id: number, name: string, quotaMax: number, price: number, features?: string | null, color?: string | null, internalName: string, purchasable: boolean, internalFeatures?: string | null, icon: string }> };
 
+export type AdminMarkNewPpVersionMutationVariables = Exact<{ [key: string]: never; }>;
+
+
+export type AdminMarkNewPpVersionMutation = { __typename?: 'Mutation', adminMarkNewPPVersion: { __typename?: 'GenericSuccessObject', success: boolean } };
+
 export type CheckUsernameQueryVariables = Exact<{
   input: CheckUsernameInput;
 }>;
@@ -3855,6 +3871,7 @@ export const StandardMessageFragmentDoc = {"kind":"Document","definitions":[{"ki
 export const PagerFragmentDoc = {"kind":"Document","definitions":[{"kind":"FragmentDefinition","name":{"kind":"Name","value":"Pager"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"Pager"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"totalItems"}},{"kind":"Field","name":{"kind":"Name","value":"currentPage"}},{"kind":"Field","name":{"kind":"Name","value":"pageSize"}},{"kind":"Field","name":{"kind":"Name","value":"totalPages"}},{"kind":"Field","name":{"kind":"Name","value":"startPage"}},{"kind":"Field","name":{"kind":"Name","value":"endPage"}},{"kind":"Field","name":{"kind":"Name","value":"startIndex"}},{"kind":"Field","name":{"kind":"Name","value":"endIndex"}},{"kind":"Field","name":{"kind":"Name","value":"pages"}}]}}]} as unknown as DocumentNode<PagerFragment, unknown>;
 export const AdminClearCacheDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"AdminClearCache"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"input"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"ClearCacheInput"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"adminClearCache"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"input"},"value":{"kind":"Variable","name":{"kind":"Name","value":"input"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"success"}}]}}]}}]} as unknown as DocumentNode<AdminClearCacheMutation, AdminClearCacheMutationVariables>;
 export const AdminGetPlansDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"AdminGetPlans"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"adminPlans"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"quotaMax"}},{"kind":"Field","name":{"kind":"Name","value":"price"}},{"kind":"Field","name":{"kind":"Name","value":"features"}},{"kind":"Field","name":{"kind":"Name","value":"color"}},{"kind":"Field","name":{"kind":"Name","value":"internalName"}},{"kind":"Field","name":{"kind":"Name","value":"purchasable"}},{"kind":"Field","name":{"kind":"Name","value":"internalFeatures"}},{"kind":"Field","name":{"kind":"Name","value":"icon"}}]}}]}}]} as unknown as DocumentNode<AdminGetPlansQuery, AdminGetPlansQueryVariables>;
+export const AdminMarkNewPpVersionDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"AdminMarkNewPPVersion"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"adminMarkNewPPVersion"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"success"}}]}}]}}]} as unknown as DocumentNode<AdminMarkNewPpVersionMutation, AdminMarkNewPpVersionMutationVariables>;
 export const CheckUsernameDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"CheckUsername"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"input"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"CheckUsernameInput"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"checkUsername"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"input"},"value":{"kind":"Variable","name":{"kind":"Name","value":"input"}}}]}]}}]} as unknown as DocumentNode<CheckUsernameQuery, CheckUsernameQueryVariables>;
 export const LoginDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"Login"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"input"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"LoginInput"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"login"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"input"},"value":{"kind":"Variable","name":{"kind":"Name","value":"input"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"token"}},{"kind":"Field","name":{"kind":"Name","value":"user"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"username"}},{"kind":"Field","name":{"kind":"Name","value":"email"}}]}}]}}]}}]} as unknown as DocumentNode<LoginMutation, LoginMutationVariables>;
 export const RegisterDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"Register"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"input"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"RegisterInput"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"register"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"input"},"value":{"kind":"Variable","name":{"kind":"Name","value":"input"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"token"}},{"kind":"Field","name":{"kind":"Name","value":"user"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"username"}},{"kind":"Field","name":{"kind":"Name","value":"email"}}]}}]}}]}}]} as unknown as DocumentNode<RegisterMutation, RegisterMutationVariables>;

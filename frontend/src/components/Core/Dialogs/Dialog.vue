@@ -33,6 +33,7 @@
         </v-toolbar>
         <div class="position-relative" v-else>
           <div
+            v-if="!persistent"
             class="d-flex justify-end flex-1 mt-3 position-absolute"
             style="width: 100%"
           >

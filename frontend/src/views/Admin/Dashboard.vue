@@ -47,12 +47,16 @@
           Restart TPU Cluster
         </tpu-btn>
         <br />
+        <tpu-btn class="mx-3 my-3" variant="outlined" @click="markNewPPVersion">
+          Mark new Privacy Policy Version
+        </tpu-btn>
         <v-card-title style="padding: 0">Raw Config Options:</v-card-title>
         <p class="text-grey mb-4">
           Values that are [REDACTED] will remain unchanged when saved unless
           modified manually. Some changes may require a restart & client refresh
           to take effect.
         </p>
+
         <div v-if="config">
           <tpu-btn
             :loading="loading"
@@ -102,6 +106,7 @@
 import { defineComponent } from "vue";
 import ConfigObject from "@/components/Admin/ConfigObject.vue";
 import TpuSwitch from "@/components/Framework/Input/TpuSwitch.vue";
+import { AdminMarkNewPpVersionDocument } from "@/gql/graphql";
 
 export default defineComponent({
   name: "Dashboard",
@@ -164,6 +169,18 @@ export default defineComponent({
         this.loading = false;
         this.$toast.success("Config saved.");
         this.getConfig();
+      } catch {
+        this.loading = false;
+      }
+    },
+    async markNewPPVersion() {
+      try {
+        console.log("what");
+        this.loading = true;
+        await this.$apollo.mutate({
+          mutation: AdminMarkNewPpVersionDocument
+        });
+        this.loading = false;
       } catch {
         this.loading = false;
       }

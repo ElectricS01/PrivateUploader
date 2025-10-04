@@ -33,7 +33,14 @@ function createAxios() {
       app.loading = false;
       const toast = useToast();
       if (e?.response?.data?.errors) {
-        if (e.response.data.errors[0].name === "NOT_SETUP") {
+        if (
+          e.response.data.errors[0].name === "NOT_SETUP" ||
+          e.response.data.errors[0].name === "UNAVAILABLE_IN_REGION" ||
+          e.response.data.errors[0].name === "AGE_VERIFICATION_REQUIRED" ||
+          e.response.data.errors[0].name === "ID_VERIFICATION_REQUIRED" ||
+          e.response.data.errors[0].name === "PP_NOT_ACCEPTED" ||
+          e.response.data.errors[0].name === "TOU_NOT_ACCEPTED"
+        ) {
           return Promise.reject(e);
         } else if (e.response.data.errors[0].name === "INVALID_TOKEN") {
           const user = useUserStore();

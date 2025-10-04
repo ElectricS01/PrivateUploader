@@ -221,12 +221,14 @@ export function getExperiments() {
     ZZ_TEST: false,
     meta: {
       UNAVAILABLE_IN_REGION: {
-        description: "Unavailable in Region.",
+        description:
+          "**DO NOT ENABLE IN EXPMAN EMERGENCY OVERRIDES** Unavailable in Region.",
         createdAt: "2025-10-03T00:00:00.000Z",
         versions: [4, 5]
       },
       ID_VERIFICATION_REQUIRED: {
-        description: "Require ID verification (Compliance)",
+        description:
+          "**DO NOT ENABLE IN EXPMAN EMERGENCY OVERRIDES** Require ID verification (Compliance)",
         createdAt: "2025-10-03T00:00:00.000Z",
         versions: [4, 5]
       },

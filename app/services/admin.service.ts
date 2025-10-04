@@ -277,6 +277,10 @@ export class AdminService {
         return true
       case CacheType.invites:
         await redis.del("invites")
+        const keysInvites = await redis.keys("invites:*")
+        for (const key of keysInvites) {
+          await redis.del(key)
+        }
         return true
       case CacheType.chats:
         await cacheService.generateChatsCache()
@@ -289,11 +293,17 @@ export class AdminService {
         return true
       case CacheType.lastfm:
         console.log("[AdminService] Purging lastfm cache")
-        await redis.del("providers:lastfm:*")
+        const keysProviderLfm = await redis.keys("providers:lastfm:*")
+        for (const key of keysProviderLfm) {
+          await redis.del(key)
+        }
         return true
       case CacheType.mal:
         console.log("[AdminService] Purging mal cache")
-        await redis.del("providers:mal:*")
+        const keysProviderMal = await redis.keys("providers:mal:*")
+        for (const key of keysProviderMal) {
+          await redis.del(key)
+        }
         return true
       case CacheType.trackedUsers:
         const users = await User.findAll({
@@ -308,7 +318,14 @@ export class AdminService {
         await cacheService.generateUserCache()
         return true
       case CacheType.sessions:
-        await redis.del("session:*")
+        const keysSession = await redis.keys("session:*")
+        for (const key of keysSession) {
+          await redis.del(key)
+        }
+        const keysUser = await redis.keys("user:*")
+        for (const key of keysUser) {
+          await redis.del(key)
+        }
         return true
       default:
         return false

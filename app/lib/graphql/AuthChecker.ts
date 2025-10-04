@@ -112,8 +112,20 @@ export const authChecker: AuthChecker<Context> = async (
     )
   }
 
-  if (session && !("fake" in session))
+  if (session && !("fake" in session)) {
     updateSession(session, context.ip).then(() => {})
+    console.log(`Accepted pp`, user?.privacyPolicyAccepted)
+    if (user?.privacyPolicyAccepted === undefined) {
+      redis.json.del(`user:${session?.userId}`)
+    } else if (!user?.privacyPolicyAccepted) {
+      if (
+        !checkScope(opts.scopes, "user.view,user.modify") &&
+        !opts.userOptional
+      ) {
+        throw new GqlError("PP_NOT_ACCEPTED")
+      }
+    }
+  }
   const scopeNormalized =
     typeof opts.scopes === "string" ? [opts.scopes] : opts.scopes
 

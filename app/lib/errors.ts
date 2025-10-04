@@ -409,6 +409,14 @@ let Errors = {
   REMOTE_RESOURCE_MISSING: {
     message: "The remote resource on the distributed network is missing.",
     status: 500
+  },
+  PP_NOT_ACCEPTED: {
+    message: "Please accept the Privacy Policy on Flowinity.com.",
+    status: 401
+  },
+  TOU_NOT_ACCEPTED: {
+    message: "Please accept the Terms of Use on Flowinity.com.",
+    status: 401
   }
 }
 
