@@ -12,7 +12,6 @@ import {
   ExperimentOverrideInput,
   Experiments
 } from "@/gql/graphql";
-import { undefined } from "zod";
 
 export interface ExperimentsState {
   experiments: Record<string, string | number | boolean | object>;
@@ -95,12 +94,16 @@ export const useExperimentsStore = defineStore("experiments", () => {
           ? {
               version
             }
-          : 0,
+          : {
+              version: 0
+            },
       fetchPolicy: "network-only"
     });
     for (const experiment of getExperiments) {
       console.log(`Loaded: ${experiment.id}`);
       experiments.value[experiment.id] = experiment.value;
+      // hack!
+      //@ts-ignore
       if (!experiments.value["meta"]) experiments.value.meta = {};
       experiments.value["meta"][experiment.id] = experiment;
     }

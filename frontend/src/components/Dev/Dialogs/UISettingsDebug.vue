@@ -25,11 +25,8 @@
       {{ $experiments.experiments.DISABLE_ANIMATIONS ? "Enable" : "Disable" }}
       Animations (New UI)
     </tpu-btn>
-    {{ theme }}
   </v-container>
 </template>
 <script setup lang="ts">
 import Overline from "@/components/Core/Typography/Overline.vue";
-import { useDefaults } from "vuetify";
-const theme = useD();
 </script>
