@@ -29,7 +29,7 @@
               {{ $t("settings.security.noIPHistory") }}
             </span>
           </v-tooltip>
-          mdi-web
+          user-location-fill
         </v-icon>
         <v-icon class="mr-2" small @click="$functions.copy(item.token)">
           mdi-content-copy
@@ -142,7 +142,7 @@
                 {{ $t("settings.security.noIPHistory") }}
               </span>
             </v-tooltip>
-            <v-icon>mdi-web</v-icon>
+            <v-icon>user-location-fill</v-icon>
           </tpu-btn>
         </template>
       </v-list-item>

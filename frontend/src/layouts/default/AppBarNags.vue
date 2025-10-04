@@ -126,6 +126,27 @@
       </v-icon>
     </template>
   </v-alert>
+  <v-alert
+    v-if="$app.activeNags.PROGRESSIVE_UI_REQUIRED"
+    type="info"
+    variant="tonal"
+    color="light-blue"
+    class="rounded-0 align-center"
+    density="compact"
+    :icon="false"
+  >
+    Flowinity's Classic UI will no be longer available starting October 10th
+    2025.
+    <template #append>
+      <v-btn
+        variant="outlined"
+        size="small"
+        @click="$experiments.setExperiment('PROGRESSIVE_UI', 1)"
+      >
+        Switch
+      </v-btn>
+    </template>
+  </v-alert>
 </template>
 
 <script lang="ts" setup>

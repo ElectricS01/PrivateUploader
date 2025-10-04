@@ -35,8 +35,8 @@ const aliases: IconAliases = {
   ratingFull: "star-fill",
   ratingHalf: "star-half-fill",
   loading: "refresh-line",
-  first: "arrow-left-s-line",
-  last: "arrow-right-s-line",
+  first: "arrow-left-double-line",
+  last: "arrow-right-double-line",
   unfold: "arrow-down-s-line",
   file: "file-line",
   plus: "add-line",
@@ -103,7 +103,11 @@ const substitutions = {
   },
   "dice-multiple-fill": {
     component: h(MdiDice)
-  }
+  },
+  "check-circle-fill": "checkbox-circle-fill",
+  "check-circle-line": "checkbox-circle-line",
+  "sync-fill": "loop-right-fill",
+  "sync-line": "loop-right-line"
 };
 
 const iconify: IconSet = {
@@ -135,7 +139,7 @@ const iconify: IconSet = {
         ? (<any>name)!!.component
         : h("svg", {
             class: ["ri"],
-            // debugName: name,
+            debugName: name,
             innerHTML:
               json["icons"][<string>name]?.body ||
               json["icons"]["question-mark"].body,

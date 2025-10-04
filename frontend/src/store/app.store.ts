@@ -156,7 +156,13 @@ export const useAppStore = defineStore("app", {
           this.platform !== Platform.WEB &&
           !this.desktop.nagStartup &&
           experimentsStore.experiments.ENABLE_AUTOSTART_APP_NAG === 1,
-        IAF_NAG: (iaf === 1 && userStore.user?.emailVerified) || iaf === 2
+        IAF_NAG: (iaf === 1 && userStore.user?.emailVerified) || iaf === 2,
+        PROGRESSIVE_UI_REQUIRED:
+          !experimentsStore.experiments.PROGRESSIVE_UI &&
+          // Register intro can use the old UI
+          (!experimentsStore.experiments.REGISTER_INTRO ||
+            experimentsStore.experiments.REGISTER_INTRO >= 12) &&
+          userStore.user
       };
 
       return {
@@ -316,10 +322,11 @@ export const useAppStore = defineStore("app", {
           const experiments = useExperimentsStore();
           experiments.setExperiment("PROGRESSIVE_UI", 1);
         },
-        warning: i18n.t("generic.beta"),
+        // warning: i18n.t("generic.beta"),
         scope: "",
         icon: "mdi-new-box",
-        experimentsRequired: ["CAN_ENABLE_PROGRESSIVE_UI"]
+        new: true
+        // experimentsRequired: ["CAN_ENABLE_PROGRESSIVE_UI"]
       });
       items.push({
         id: 31,

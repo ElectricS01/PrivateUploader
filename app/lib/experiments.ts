@@ -352,7 +352,8 @@ export function getExperiments() {
       },
       CAN_ENABLE_PROGRESSIVE_UI: {
         description:
-          "Provide the option for users to enable the experimental UI.",
+          "As of v4.3: Progressive UI is the default, this now allows people to revert to old UI.\n" +
+          "Early v4: Provide the option for users to enable the experimental UI.",
         createdAt: "2024-06-18T00:00:00.000Z",
         versions: [4]
       },
