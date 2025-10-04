@@ -2,6 +2,7 @@ import { h } from "vue";
 import type { IconSet, IconAliases, IconProps } from "vuetify";
 import json from "@iconify-json/ri/icons.json";
 import Linux from "@/components/Icons/Linux.vue";
+import MdiDice from "@/components/Icons/v5/MdiDice.vue";
 //@ts-ignore
 const aliases: IconAliases = {
   collapse: "arrow-up-s-line",
@@ -96,7 +97,13 @@ const substitutions = {
   "gavel-fill": "auction-fill",
   "gavel-line": "auction-line",
   "menu-down-fill": "arrow-down-s-line",
-  "menu-down-line": "arrow-down-s-line"
+  "menu-down-line": "arrow-down-s-line",
+  "dice-multiple-line": {
+    component: h(MdiDice)
+  },
+  "dice-multiple-fill": {
+    component: h(MdiDice)
+  }
 };
 
 const iconify: IconSet = {
