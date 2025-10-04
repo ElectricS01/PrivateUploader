@@ -594,22 +594,18 @@ export const useAppStore = defineStore("app", {
       }
 
       if (failedExp) {
-        console.log("trying to load");
         try {
           //@ts-ignore
-          const experiments = window.GLOBAL_FLOWINITY_EXPERIMENTS;
+          const globalExperiments = window.GLOBAL_FLOWINITY_EXPERIMENTS;
           //@ts-ignore
           if (window.GLOBAL_FLOWINITY_EXPERIMENTS) {
-            const unbased: any[] = atob(experiments) as any;
+            const unbased: any[] = JSON.parse(atob(globalExperiments)) as any;
             for (const experiment of unbased) {
-              console.log(`Loaded: ${experiment.id} (from pre-render)`);
-              experiments.value[experiment.id] = experiment.value;
-              if (!experiments.value["meta"]) experiments.value.meta = {};
-              experiments.value["meta"][experiment.id] = experiment;
+              experimentsStore.experiments[experiment.id] = experiment.value;
             }
           }
         } catch {
-          console.log("Failed loading experiments from pre-render string");
+          console.error("Failed loading experiments from pre-render string");
         }
       }
     },
