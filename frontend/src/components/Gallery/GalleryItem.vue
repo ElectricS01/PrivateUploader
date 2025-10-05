@@ -155,6 +155,7 @@
             @click="pin(item)"
           />
           <HoverChip
+            v-if="$experiments.experiments.PRIVATE_FILES"
             :aria-label="$t('gallery.actions.privacy.aria')"
             :icon="RiLockLine"
             :text="$t('gallery.actions.privacy.text')"

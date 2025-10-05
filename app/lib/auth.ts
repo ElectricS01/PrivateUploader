@@ -243,7 +243,8 @@ export async function authSystem(
   passthrough: boolean = false,
   req: RequestAuthSystem,
   res: Response,
-  next: NextFunction
+  next: NextFunction,
+  galleryHack: boolean = false
 ): Promise<{
   user: PartialUserAuth | null
   session: CacheSession
@@ -321,7 +322,7 @@ export async function authSystem(
       redis.json.del(`user:${session?.userId}`)
     } else if (!user?.privacyPolicyAccepted && !user?.bot) {
       if (!checkScope(scope, "user.view,user.modify")) {
-        if (passthrough) {
+        if (passthrough && !galleryHack) {
           req.user = null
           next()
           return {

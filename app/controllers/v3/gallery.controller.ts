@@ -46,7 +46,7 @@ async function checkUserQuota(
       name: "MAINTENANCE",
       message: `${config.maintenance.message}\n\nFor more information visit ${config.maintenance.statusPage}`
     })
-  await authSystem("uploads.create", true, req, res, () => {})
+  await authSystem("uploads.create", true, req, res, () => {}, true)
   if (!req.user) {
     return e("UNAUTHORIZED")
   }

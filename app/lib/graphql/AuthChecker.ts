@@ -114,7 +114,7 @@ export const authChecker: AuthChecker<Context> = async (
 
   if (session && !("fake" in session)) {
     updateSession(session, context.ip).then(() => {})
-    console.log(`Accepted pp`, user?.privacyPolicyAccepted)
+
     if (user?.privacyPolicyAccepted === undefined) {
       redis.json.del(`user:${session?.userId}`)
     } else if (!user?.privacyPolicyAccepted) {
