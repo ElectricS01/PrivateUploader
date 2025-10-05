@@ -115,10 +115,12 @@ export default function apolloFlowinity(app: App) {
           error.extensions?.code === "UNAVAILABLE_IN_REGION" ||
           error.extensions?.code === "AGE_VERIFICATION_REQUIRED" ||
           error.extensions?.code === "ID_VERIFICATION_REQUIRED" ||
-          error.extensions?.code === "PP_NOT_ACCEPTED" ||
           error.extensions?.code === "TOU_NOT_ACCEPTED"
         ) {
           //
+        } else if (error.extensions?.code === "PP_NOT_ACCEPTED") {
+          const user = useUserStore();
+          user.user.privacyPolicyAccepted = false;
         } else if (!ctx.noToast) {
           toast.error(error.message);
         }

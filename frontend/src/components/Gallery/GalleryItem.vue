@@ -154,6 +154,14 @@
             color="lime"
             @click="pin(item)"
           />
+          <HoverChip
+            :aria-label="$t('gallery.actions.privacy.aria')"
+            :icon="RiLockLine"
+            :text="$t('gallery.actions.privacy.text')"
+            class="my-1"
+            color="lime"
+            @click="pin(item)"
+          />
         </slot>
       </v-card-text>
     </v-card>
@@ -184,6 +192,7 @@ import {
   RiDeleteBinLine,
   RiDownloadLine,
   RiFileCopyLine,
+  RiLockLine,
   RiPushpinFill,
   RiPushpinLine,
   RiRadioFill,
@@ -208,6 +217,9 @@ export default defineComponent({
   props: ["item", "supports", "selected", "loading"],
   emits: ["delete", "refresh", "remove", "select", "collectivize"],
   computed: {
+    RiLockLine() {
+      return RiLockLine;
+    },
     RiAddLine() {
       return RiAddLine;
     },

@@ -51,38 +51,19 @@
               />
             </v-card-text>
 
-            <v-sheet class="rounded-xxl mt-3" outlined>
-              <v-card
-                color="white"
-                elevation="0"
-                height="50"
-                max-width="100%"
-                variant="outlined"
-                @click="saveSlideshow(slideshow)"
-              >
-                <v-icon size="30" style="width: 100%; height: 100%">
-                  mdi-content-save
-                </v-icon>
-              </v-card>
-            </v-sheet>
+            <ActionSheet
+              label="Save"
+              icon="mdi-save"
+              @click="saveSlideshow(slideshow)"
+            />
           </template>
         </v-expansion-panel>
       </v-expansion-panels>
       <v-card-subtitle v-if="!slideshows.length">
         {{ $t("settings.slideshows.none") }}
       </v-card-subtitle>
-      <v-sheet class="rounded-xxl mt-3" outlined>
-        <v-card
-          color="white"
-          elevation="0"
-          height="50"
-          max-width="100%"
-          variant="outlined"
-          @click="createSlideshow()"
-        >
-          <v-icon size="50" style="width: 100%; height: 100%">mdi-plus</v-icon>
-        </v-card>
-      </v-sheet>
+
+      <ActionSheet label="Create" icon="mdi-plus" @click="createSlideshow()" />
     </v-container>
   </v-card>
 </template>
@@ -90,8 +71,12 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import { Slideshow } from "@/models/slideshow";
+import ActionSheet from "@/components/Settings/ActionSheet.vue";
 
 export default defineComponent({
+  components: {
+    ActionSheet
+  },
   data() {
     return {
       slideshows: [] as Slideshow[]

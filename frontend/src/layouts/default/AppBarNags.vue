@@ -135,7 +135,7 @@
     density="compact"
     :icon="false"
   >
-    Flowinity's Classic UI will no be longer available starting October 10th
+    Flowinity's Classic UI will no longer be available starting October 10th
     2025.
     <template #append>
       <v-btn

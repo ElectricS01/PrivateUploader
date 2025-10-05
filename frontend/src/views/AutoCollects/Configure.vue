@@ -151,41 +151,18 @@
                   {{ $t("autoCollects.configure.createSubRule") }}
                 </v-card>
               </v-sheet>
-              <v-sheet class="rounded-xxl mt-3" outlined>
-                <v-card
-                  class="rounded-xxl"
-                  color="white"
-                  elevation="0"
-                  height="50"
-                  max-width="100%"
-                  variant="outlined"
-                  @click="saveRule(rule)"
-                >
-                  <v-icon size="30" style="width: 100%; height: 100%">
-                    mdi-content-save
-                  </v-icon>
-                </v-card>
-              </v-sheet>
+              <ActionSheet
+                label="Save"
+                icon="mdi-save"
+                @click="saveRule(rule)"
+              />
             </template>
           </v-expansion-panel>
         </v-expansion-panels>
         <v-card-subtitle v-if="!rules.length">
           {{ $t("autoCollects.configure.noRules") }}
         </v-card-subtitle>
-        <v-sheet class="rounded-xxl mt-3" outlined>
-          <v-card
-            class="rounded-xxl"
-            elevation="0"
-            height="50"
-            max-width="100%"
-            variant="outlined"
-            @click="createRule()"
-          >
-            <v-icon size="50" style="width: 100%; height: 100%">
-              mdi-plus
-            </v-icon>
-          </v-card>
-        </v-sheet>
+        <ActionSheet label="Create" icon="mdi-plus" @click="createRule()" />
       </v-container>
     </v-card>
   </v-container>
@@ -196,9 +173,11 @@ import { AutoCollectRule, SubRule, SubSubRule } from "@/models/autoCollectRule";
 import { defineComponent, markRaw } from "vue";
 import { RiSettings5Line } from "@remixicon/vue";
 import { RailMode } from "@/store/progressive.store";
+import ActionSheet from "@/components/Settings/ActionSheet.vue";
 
 export default defineComponent({
   name: "AutoCollectSettings",
+  components: { ActionSheet },
   data() {
     return {
       rules: [] as AutoCollectRule[],
