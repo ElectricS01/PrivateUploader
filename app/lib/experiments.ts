@@ -108,6 +108,10 @@ export enum Experiments {
   EXPERIENCE_GALLERY_ITEM_WIDTH = "EXPERIENCE_GALLERY_ITEM_WIDTH",
   ANDROID_CONFIG = "ANDROID_CONFIG",
   LEGACY_ATTRIBUTES_UI = "LEGACY_ATTRIBUTES_UI",
+  FORCE_DEV_MODE = "FORCE_DEV_MODE",
+  FORCE_STABLE_MODE = "FORCE_STABLE_MODE",
+  NON_TPU_BRANDING = "NON_TPU_BRANDING",
+  AUG_2021_UI = "AUG_2021_UI",
   ZZ_TEST = "ZZ_TEST"
 }
 
@@ -221,6 +225,10 @@ export function getExperiments() {
     EXPERIENCE_GALLERY_ITEM_WIDTH: 4,
     ANDROID_CONFIG: true,
     LEGACY_ATTRIBUTES_UI: false,
+    FORCE_DEV_MODE: false,
+    FORCE_STABLE_MODE: false,
+    NON_TPU_BRANDING: false,
+    AUG_2021_UI: false,
     // ALWAYS LAST! USED FOR CODEGEN
     ZZ_TEST: false,
     meta: {
@@ -782,6 +790,16 @@ export function getExperiments() {
       LEGACY_ATTRIBUTES_UI: {
         description:
           "Whether the legacy attributes UI in Settings > About is enabled.",
+        createdAt: "2022-12-15T00:00:00.000Z",
+        versions: [1, 2]
+      },
+      FORCE_DEV_MODE: {
+        description: "[auto-import]",
+        createdAt: "2022-12-15T00:00:00.000Z",
+        versions: [1, 2]
+      },
+      FORCE_STABLE_MODE: {
+        description: "[auto-import]",
         createdAt: "2022-12-15T00:00:00.000Z",
         versions: [1, 2]
       }

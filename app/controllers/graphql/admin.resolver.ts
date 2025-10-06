@@ -441,7 +441,14 @@ export class AdminResolver {
           [Op.notIn]: trustedUsers.map((u) => u.id)
         },
         approved: false
-      }
+      },
+      include: [
+        {
+          model: User,
+          as: "user",
+          required: true
+        }
+      ]
     })
   }
 
