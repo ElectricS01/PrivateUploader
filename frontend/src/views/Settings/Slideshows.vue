@@ -24,7 +24,16 @@
               <v-text-field
                 :label="$t('settings.slideshows.shareLink')"
                 :model-value="`${$app.site.hostnameWithProtocol}/slideshow/${slideshow.shareLink}`"
-                disabled
+                readonly
+                persistent-hint
+                hint="Click to copy"
+                class="mb-2"
+                @click="
+                  $toast.success('Slideshow link copied to clipboard!');
+                  functions.copy(
+                    `${$app.site.hostnameWithProtocol}/slideshow/${slideshow.shareLink}`
+                  );
+                "
               />
               <v-text-field
                 v-model="slideshow.name"
@@ -72,8 +81,14 @@
 import { defineComponent } from "vue";
 import { Slideshow } from "@/models/slideshow";
 import ActionSheet from "@/components/Settings/ActionSheet.vue";
+import functions from "@/plugins/functions";
 
 export default defineComponent({
+  computed: {
+    functions() {
+      return functions;
+    }
+  },
   components: {
     ActionSheet
   },
