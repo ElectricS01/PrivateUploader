@@ -128,11 +128,8 @@
         <li v-html="$t('settings.setup.flowshotSteps.1')"></li>
         <li v-html="$t('settings.setup.flowshotSteps.2')"></li>
         <li>{{ $t("settings.setup.flowshotSteps.3") }}</li>
-        <li>
-          {{ $t("settings.setup.flowshotSteps.4") }}
-        </li>
+        <li v-html="$t('settings.setup.flowshotSteps.4')"></li>
         <li v-html="$t('settings.setup.flowshotSteps.5')"></li>
-        <li v-html="$t('settings.setup.flowshotSteps.6')"></li>
       </ol>
     </v-container>
   </template>

@@ -14,5 +14,6 @@ export enum IpcChannels {
   FOCUS_CHAT = "focus-chat",
   FOCUS_WINDOW = "focus-window",
   GET_IDLE_TIME = "get-idle-time",
-  CHANGE_INSTANCE = "instance"
+  CHANGE_INSTANCE = "instance",
+  FLOWSHOT2_CONFIGURATOR = "flowshot2-launch"
 }

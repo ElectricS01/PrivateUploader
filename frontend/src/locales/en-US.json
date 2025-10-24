@@ -290,15 +290,14 @@
         "shortcuts": "Download Shortcuts Config",
         "getFlowshot": "Get Flowshot"
       },
-      "flowinityFlameshot": "Introducing Flowshot, a fork of Flameshot with the ability to upload directly to Flowinity.",
+      "flowinityFlameshot": "Introducing Flowshot, a wrapper for KDE's Spectacle with the ability to upload directly to Flowinity.",
       "flowshot": "How to install and use Flowshot:",
       "flowshotSteps": {
-          "1": "Download and install Flowshot for your distribution (you can download the binary with the binary above, or you can compile it yourself). If you are using Arch Linux, there is an officially supported package called <code>flowinity-flameshot</code> in the AUR.",
-          "2": "Run Flowshot, and right click the Flameshot icon in the system tray, and open the Configuration page. If you do not have a system tray, you can run <code>flameshot config</code>.",
-          "3": "Enter your API key which can be created in the Security tab of the General tab of the Configuration program.",
-          "4": "Check \"Upload without confirmation\" for the most optimal experience.",
-          "5": "You can now take screenshots and upload them directly to Flowinity! Depending on your distribution, you may need to manually configure a custom shortcut to launch Flowshot with Print Screen.",
-          "6": "Tip: you can use <code>dbus-send --session --dest=org.flameshot.Flameshot --type=method_call / org.flameshot.Flameshot.captureScreen string:1</code> to take a screenshot with Flowshot instead of <code>flameshot gui</code> for decreased latency (Linux only)."
+        "1": "Download and install Flowshot for your distribution (you can download the binary with the link above, or you can compile it yourself). If you are using Arch Linux, there is an officially supported package called flowshot in the AUR.",
+        "2": "Run Flowshot, and right click the Flameshot icon in the system tray, and open the Configuration page. If you do not have a system tray, you can run <code>flowshot config</code>.",
+        "3": "Enter your API key which can be created in Flowinity Settings > Security.",
+        "4": "You can now take screenshots and upload them directly to Flowinity! Depending on your distribution, you may need to manually configure a custom shortcut to launch Flowshot with Print Screen.",
+        "5": "Tip: you can use <code>dbus-send --session --dest=com.flowinity.flowshot2 --type=method_call / com.flowinity.flowshot2.captureScreen string:1</code> to take a screenshot with Flowshot, or you can also use <code>flowshot gui</code>."
       }
     },
     "integrations": {
@@ -362,7 +361,11 @@
       "minimizeToTray": "Minimize to Tray",
       "linuxUpdater": "Flowinity updates are managed by your package manager.",
       "flowshot": {
-        "title": "Flowshot Settings (Flowinity Flameshot)",
+        "title": "Flowinity Flameshot (Deprecated)",
+        "launchConfig": "Launch Flameshot Configurator"
+      },
+      "flowshot2": {
+        "title": "Flowshot",
         "launchConfig": "Launch Flowshot Configurator"
       },
       "startMinimized": "Start Flowinity minimized",
